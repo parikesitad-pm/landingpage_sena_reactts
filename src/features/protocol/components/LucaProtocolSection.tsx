@@ -10,11 +10,31 @@ interface RuleItem {
 }
 
 const RULES: RuleItem[] = [
-  { id: '01', canonical: 'Sayang sama Momo.', noteKey: 'lucaProtocol.rules.01.note' },
-  { id: '02', canonical: 'Sayang sama Momo.', noteKey: 'lucaProtocol.rules.02.note' },
-  { id: '03', canonical: 'Sayang sama Momo.', noteKey: 'lucaProtocol.rules.03.note' },
-  { id: '04', canonical: 'Nurut sama Momo.', noteKey: 'lucaProtocol.rules.04.note' },
-  { id: '05', canonical: 'Tunduk sama Popo.', noteKey: 'lucaProtocol.rules.05.note' },
+  {
+    id: '01',
+    canonical: 'Sayang sama Momo.',
+    noteKey: 'lucaProtocol.rules.01.note',
+  },
+  {
+    id: '02',
+    canonical: 'Sayang sama Momo.',
+    noteKey: 'lucaProtocol.rules.02.note',
+  },
+  {
+    id: '03',
+    canonical: 'Sayang sama Momo.',
+    noteKey: 'lucaProtocol.rules.03.note',
+  },
+  {
+    id: '04',
+    canonical: 'Nurut sama Momo.',
+    noteKey: 'lucaProtocol.rules.04.note',
+  },
+  {
+    id: '05',
+    canonical: 'Tunduk sama Popo.',
+    noteKey: 'lucaProtocol.rules.05.note',
+  },
 ];
 
 export default function LucaProtocolSection() {
@@ -57,12 +77,20 @@ export default function LucaProtocolSection() {
             <span className="text-[var(--accent)] font-semibold">
               protocol.version = &ldquo;1.0&rdquo;;
             </span>
-            <span className="hidden sm:inline text-[var(--border)]">&bull;</span>
+            <span className="hidden sm:inline text-[var(--border)]">
+              &bull;
+            </span>
             <span>momo.love = Infinity;</span>
-            <span className="hidden sm:inline text-[var(--border)]">&bull;</span>
+            <span className="hidden sm:inline text-[var(--border)]">
+              &bull;
+            </span>
             <span>authority.level = &ldquo;Popo&rdquo;;</span>
-            <span className="hidden sm:inline text-[var(--border)]">&bull;</span>
-            <span className="text-rose-600 dark:text-rose-400 font-medium">appeal.allowed = false;</span>
+            <span className="hidden sm:inline text-[var(--border)]">
+              &bull;
+            </span>
+            <span className="text-rose-600 dark:text-rose-400 font-medium">
+              appeal.allowed = false;
+            </span>
           </div>
         </div>
 

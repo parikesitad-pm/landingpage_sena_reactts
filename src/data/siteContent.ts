@@ -167,8 +167,7 @@ export const siteContent = {
     protection: {
       eyebrow: 'NO OUTSIDE BULLIES',
       title: 'House Protection Policy',
-      text:
-        'No outside bullies allowed. Popo and Momo already run the family teasing department.',
+      text: 'No outside bullies allowed. Popo and Momo already run the family teasing department.',
       code: 'outsideBullies = false; teasingLicense = ["Popo", "Momo"];',
     },
     mischief: {

@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- File verifikasi kepemilikan Google Search Console (`google5893aaf2832e50e4.html`) dan meta tag verifikasi di `index.html`.
 - Bagian humor keluarga "Luca Protocol v1.0" (Lima hukum aturan keluarga, House Protection Policy anti-bullying, dan prinsip batas "Belajar Nakal Sama Popo").
 - Pembaruan menyeluruh seluruh penyebutan orang tua menjadi konsisten hanya Popo & Momo di semua bahasa (tidak ada Mom/Dad).
 - Sistem tema 3 mode (Device / Light / Dark) dengan inisialisasi anti-flash sinkron di `index.html`.
