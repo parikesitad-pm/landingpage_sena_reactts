@@ -15,7 +15,11 @@ let errors = [];
 let checkedAssetsCount = 0;
 
 // Helper to recursively collect files matching extensions
-function getFiles(dir, exts, ignoreDirs = ['node_modules', 'dist', '.git', 'assets']) {
+function getFiles(
+  dir,
+  exts,
+  ignoreDirs = ['node_modules', 'dist', '.git', 'assets']
+) {
   let results = [];
   if (!fs.existsSync(dir)) return results;
 
@@ -74,7 +78,8 @@ for (const file of filesToScan) {
 
   // Check 2: Extract ResponsiveImage basePaths and data basePaths
   // e.g. basePath="/images/senna/..." or image: '/images/senna/...'
-  const basePathRegex = /(?:basePath|image)\s*[:=]\s*['"](\/images\/senna\/[^'"]+)['"]/g;
+  const basePathRegex =
+    /(?:basePath|image)\s*[:=]\s*['"](\/images\/senna\/[^'"]+)['"]/g;
   let match;
   while ((match = basePathRegex.exec(content)) !== null) {
     const p = match[1].trim();
@@ -88,7 +93,8 @@ for (const file of filesToScan) {
 
   // Check 3: Extract any image path strings with extensions
   // e.g. /branding/..., /images/..., /favicon.ico, etc.
-  const staticAssetRegex = /['"]((?:\/images\/|\/branding\/|\/)[a-zA-Z0-9_\-\.\/]+\.(?:webp|avif|png|jpg|jpeg|svg|ico))['"]/g;
+  const staticAssetRegex =
+    /['"]((?:\/images\/|\/branding\/|\/)[a-zA-Z0-9_\-\.\/]+\.(?:webp|avif|png|jpg|jpeg|svg|ico))['"]/g;
   while ((match = staticAssetRegex.exec(content)) !== null) {
     const assetPath = match[1].trim();
     // Ignore external URLs, react-router internal paths, or schema.org definitions
@@ -98,20 +104,25 @@ for (const file of filesToScan) {
   }
 
   // Also catch full URLs pointing to domain assets: https://luca-senna.vercel.app/images/...
-  const fullUrlRegex = /https?:\/\/luca-senna\.vercel\.app((?:\/images\/|\/branding\/|\/)[a-zA-Z0-9_\-\.\/]+\.(?:webp|avif|png|jpg|jpeg|svg|ico))/g;
+  const fullUrlRegex =
+    /https?:\/\/luca-senna\.vercel\.app((?:\/images\/|\/branding\/|\/)[a-zA-Z0-9_\-\.\/]+\.(?:webp|avif|png|jpg|jpeg|svg|ico))/g;
   while ((match = fullUrlRegex.exec(content)) !== null) {
     staticAssetPaths.add(match[1].trim());
   }
 }
 
 // 2. Validate all ResponsiveImage basePaths
-console.log(`\nChecking ${responsiveBasePaths.size} responsive photo base paths...`);
+console.log(
+  `\nChecking ${responsiveBasePaths.size} responsive photo base paths...`
+);
 for (const basePath of responsiveBasePaths) {
   // Check fallback .webp
   const fallbackFile = path.join(publicDir, `${basePath}.webp`);
   checkedAssetsCount++;
   if (!fs.existsSync(fallbackFile)) {
-    errors.push(`[MISSING FALLBACK] Expected fallback not found: ${basePath}.webp`);
+    errors.push(
+      `[MISSING FALLBACK] Expected fallback not found: ${basePath}.webp`
+    );
   }
 
   // Check all required widths in both .webp and .avif
@@ -121,10 +132,14 @@ for (const basePath of responsiveBasePaths) {
 
     checkedAssetsCount += 2;
     if (!fs.existsSync(webpFile)) {
-      errors.push(`[MISSING VARIANT] Expected WebP not found: ${basePath}-${width}.webp`);
+      errors.push(
+        `[MISSING VARIANT] Expected WebP not found: ${basePath}-${width}.webp`
+      );
     }
     if (!fs.existsSync(avifFile)) {
-      errors.push(`[MISSING VARIANT] Expected AVIF not found: ${basePath}-${width}.avif`);
+      errors.push(
+        `[MISSING VARIANT] Expected AVIF not found: ${basePath}-${width}.avif`
+      );
     }
   }
 }
@@ -135,22 +150,44 @@ for (const assetPath of staticAssetPaths) {
   const filePath = path.join(publicDir, assetPath);
   checkedAssetsCount++;
   if (!fs.existsSync(filePath)) {
-    errors.push(`[MISSING ASSET] Referenced asset not found on disk: ${assetPath} (expected at ${filePath})`);
+    errors.push(
+      `[MISSING ASSET] Referenced asset not found on disk: ${assetPath} (expected at ${filePath})`
+    );
   }
 }
 
 // 4. Validate Asset Naming & Directory Discipline (Rule 4)
-console.log('Checking asset naming convention in public/images and public/branding...');
+console.log(
+  'Checking asset naming convention in public/images and public/branding...'
+);
 const publicAssetFiles = [
-  ...getFiles(path.join(publicDir, 'images'), ['.webp', '.avif', '.png', '.jpg', '.jpeg', '.svg', '.ico']),
-  ...getFiles(path.join(publicDir, 'branding'), ['.webp', '.avif', '.png', '.jpg', '.jpeg', '.svg', '.ico']),
+  ...getFiles(path.join(publicDir, 'images'), [
+    '.webp',
+    '.avif',
+    '.png',
+    '.jpg',
+    '.jpeg',
+    '.svg',
+    '.ico',
+  ]),
+  ...getFiles(path.join(publicDir, 'branding'), [
+    '.webp',
+    '.avif',
+    '.png',
+    '.jpg',
+    '.jpeg',
+    '.svg',
+    '.ico',
+  ]),
 ];
 
 for (const file of publicAssetFiles) {
   const baseName = path.basename(file);
   // Check for uppercase
   if (/[A-Z]/.test(baseName)) {
-    errors.push(`[INVALID NAMING] File contains uppercase characters: ${baseName}`);
+    errors.push(
+      `[INVALID NAMING] File contains uppercase characters: ${baseName}`
+    );
   }
   // Check for whitespace
   if (/\s/.test(baseName)) {
@@ -170,6 +207,8 @@ if (errors.length > 0) {
   }
   process.exit(1);
 } else {
-  console.log('✅ ALL referenced images & variants exist on disk and follow conventions!\n');
+  console.log(
+    '✅ ALL referenced images & variants exist on disk and follow conventions!\n'
+  );
   process.exit(0);
 }
