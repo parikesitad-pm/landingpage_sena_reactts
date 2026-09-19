@@ -1,12 +1,25 @@
+import { useRef } from 'react';
 import Container from '@/components/atoms/Container';
 import { Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useInView } from '@/hooks/useInView';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { cn } from '@/lib/utils';
 
 export default function RemembranceSection() {
   const { t } = useTranslation();
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { threshold: 0.3, once: true });
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  const isRevealed = prefersReducedMotion || isInView;
+  const p1Text = t('remembrance.p1');
+  const targetName = 'Muhammad Alqi Parikesit';
+  const parts = p1Text.split(targetName);
 
   return (
     <section
+      ref={sectionRef}
       id="family-legacy"
       className="py-16 sm:py-24 bg-[var(--background)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
       aria-labelledby="remembrance-title"
@@ -31,7 +44,23 @@ export default function RemembranceSection() {
             </h2>
 
             <div className="space-y-4 text-[var(--muted-foreground)] text-base sm:text-lg leading-relaxed">
-              <p>{t('remembrance.p1')}</p>
+              <p>
+                {parts[0]}
+                <span
+                  style={{
+                    transitionDuration: prefersReducedMotion ? '0ms' : '800ms',
+                  }}
+                  className={cn(
+                    'inline-block font-medium text-[var(--foreground)] transition-all ease-out',
+                    isRevealed
+                      ? 'opacity-100 tracking-normal'
+                      : 'opacity-0 tracking-wider'
+                  )}
+                >
+                  {targetName}
+                </span>
+                {parts.slice(1).join(targetName)}
+              </p>
               <p>{t('remembrance.p2')}</p>
             </div>
 

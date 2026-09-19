@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Animasi pengetikan ringan (lightweight writing/typing animation) tanpa GSAP via komponen `TypingText` dan `LucaCodeEditor` untuk momen identitas kunci (Hero nama lengkap, nama Popo & Momo, urutan aturan Luca Protocol v1.0, dan jendela kode `luca.ts`), dilengkapi dukungan penuh `prefers-reduced-motion`, pencegahan CLS, dan aksesibilitas screen reader (`sr-only`).
+- Efek reveal lembut (opacity & letter-spacing settle) untuk nama Muhammad Alqi Parikesit serta komponen `RevealOnView` untuk judul sekunder penting.
 - Skrip validator aset build-time otomatis `scripts/validate-assets.mjs` (`npm run validate:assets`) yang memeriksa keberadaan fisik setiap aset, fallback `.webp`, varian resolusi, serta aturan penamaan file kebab-case.
 
 ### Changed

@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Sparkles, ArrowDown } from 'lucide-react';
 import Container from '@/components/atoms/Container';
 import Button from '@/components/atoms/Button';
 import Badge from '@/components/atoms/Badge';
 import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import TypingText from '@/components/atoms/TypingText';
 import { siteContent } from '@/data/siteContent';
 import { calculateAge } from '@/lib/age';
 import { useTranslation } from 'react-i18next';
@@ -12,6 +14,7 @@ import { formatLocalizedDate, formatLocalizedAge } from '@/i18n/formatters';
 export default function HeroSection() {
   const { t } = useTranslation();
   const { activeLocale } = usePreferences();
+  const [heroLine1Done, setHeroLine1Done] = useState(false);
   const age = calculateAge(siteContent.child.birthDate);
   const localizedAge = formatLocalizedAge(age, activeLocale);
   const localizedBirthDate = formatLocalizedDate(
@@ -72,10 +75,37 @@ export default function HeroSection() {
             {/* Main H1 Title (single H1 on homepage) */}
             <h1
               id="hero-title"
-              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-[var(--foreground)] font-sans leading-[1.1]"
+              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-[var(--foreground)] font-sans leading-[1.1] min-h-[2.2em]"
             >
-              <span className="block">Muhammad Gabriel</span>
-              <span className="block text-[#C98F55] mt-1">Luca Senna</span>
+              <span className="sr-only">Muhammad Gabriel Luca Senna</span>
+              <span aria-hidden="true" className="block">
+                <TypingText
+                  text="Muhammad Gabriel"
+                  speed={42}
+                  delay={250}
+                  startOnView={false}
+                  cursor={!heroLine1Done}
+                  cursorChar="▌"
+                  cursorClassName="text-[#C98F55]"
+                  hideCursorOnComplete={true}
+                  cursorBlinkMsAfterComplete={0}
+                  onComplete={() => setHeroLine1Done(true)}
+                  className="block"
+                />
+                <TypingText
+                  text="Luca Senna"
+                  speed={42}
+                  delay={80}
+                  active={heroLine1Done}
+                  startOnView={false}
+                  cursor={true}
+                  cursorChar="▌"
+                  cursorClassName="text-[#C98F55]"
+                  hideCursorOnComplete={true}
+                  cursorBlinkMsAfterComplete={700}
+                  className="block text-[#C98F55] mt-1"
+                />
+              </span>
             </h1>
 
             {/* Semantic introductory entity context */}

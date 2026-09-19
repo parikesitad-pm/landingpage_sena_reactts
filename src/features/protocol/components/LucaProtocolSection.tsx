@@ -1,7 +1,11 @@
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldAlert, Sparkles, Scale, HeartHandshake } from 'lucide-react';
 import Container from '@/components/atoms/Container';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import { useInView } from '@/hooks/useInView';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { cn } from '@/lib/utils';
 
 interface RuleItem {
   id: string;
@@ -39,9 +43,73 @@ const RULES: RuleItem[] = [
 
 export default function LucaProtocolSection() {
   const { t } = useTranslation();
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { threshold: 0.25, once: true });
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  // Animation sequence steps: 0..4 (rules 1..5), 5 (metadata bar), 6 (finished)
+  const [activeStep, setActiveStep] = useState(prefersReducedMotion ? 6 : -1);
+  const [typedRules, setTypedRules] = useState<string[]>(
+    prefersReducedMotion ? RULES.map((r) => r.canonical) : ['', '', '', '', '']
+  );
+  const [metadataVisible, setMetadataVisible] = useState(prefersReducedMotion);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setActiveStep(6);
+      setTypedRules(RULES.map((r) => r.canonical));
+      setMetadataVisible(true);
+      return;
+    }
+
+    if (isInView && activeStep === -1) {
+      setActiveStep(0);
+    }
+  }, [isInView, prefersReducedMotion, activeStep]);
+
+  // Handle sequential typing of rules (steps 0..4)
+  useEffect(() => {
+    if (prefersReducedMotion || activeStep < 0 || activeStep > 4) return;
+
+    const currentRule = RULES[activeStep];
+    const fullText = currentRule.canonical;
+    let charIdx = 0;
+
+    const typingInterval = setInterval(() => {
+      charIdx++;
+      setTypedRules((prev) => {
+        const next = [...prev];
+        next[activeStep] = fullText.slice(0, charIdx);
+        return next;
+      });
+
+      if (charIdx >= fullText.length) {
+        clearInterval(typingInterval);
+        // Pause briefly before advancing to next rule or metadata bar
+        setTimeout(() => {
+          setActiveStep((s) => s + 1);
+        }, 140);
+      }
+    }, 32);
+
+    return () => clearInterval(typingInterval);
+  }, [activeStep, prefersReducedMotion]);
+
+  // Step 5: Reveal metadata bar with quick code typing / fade, then finish
+  useEffect(() => {
+    if (prefersReducedMotion || activeStep !== 5) return;
+
+    setMetadataVisible(true);
+    const completeTimer = setTimeout(() => {
+      setActiveStep(6);
+    }, 450);
+
+    return () => clearTimeout(completeTimer);
+  }, [activeStep, prefersReducedMotion]);
 
   return (
     <section
+      ref={sectionRef}
       id="protocol"
       aria-label="Luca Protocol"
       className="py-20 sm:py-24 bg-[var(--surface-soft)] border-y border-[var(--border)] transition-colors duration-300"
@@ -73,7 +141,14 @@ export default function LucaProtocolSection() {
           </div>
 
           {/* Protocol Metadata Bar */}
-          <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-4 p-3 rounded-lg bg-[var(--surface)] border border-[var(--border)] font-mono text-xs text-[var(--muted-foreground)]">
+          <div
+            className={cn(
+              'mt-6 flex flex-wrap items-center gap-2 sm:gap-4 p-3 rounded-lg bg-[var(--surface)] border border-[var(--border)] font-mono text-xs text-[var(--muted-foreground)] transition-all duration-500',
+              metadataVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-1'
+            )}
+          >
             <span className="text-[var(--accent)] font-semibold">
               protocol.version = &ldquo;1.0&rdquo;;
             </span>
@@ -91,6 +166,11 @@ export default function LucaProtocolSection() {
             <span className="text-rose-600 dark:text-rose-400 font-medium">
               appeal.allowed = false;
             </span>
+            {activeStep === 5 && (
+              <span className="text-[var(--accent)] font-mono animate-pulse">
+                ▌
+              </span>
+            )}
           </div>
         </div>
 
@@ -102,10 +182,15 @@ export default function LucaProtocolSection() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-            {RULES.map((rule) => (
+            {RULES.map((rule, idx) => (
               <div
                 key={rule.id}
-                className="group relative p-4 sm:p-5 rounded-xl bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]/50 transition-all duration-200 flex flex-col justify-between"
+                className={cn(
+                  'group relative p-4 sm:p-5 rounded-xl bg-[var(--surface)] border transition-all duration-300 flex flex-col justify-between',
+                  activeStep >= idx
+                    ? 'border-[var(--border)] opacity-100'
+                    : 'border-[var(--border)] opacity-70'
+                )}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2 font-mono text-xs text-[var(--muted-foreground)]">
@@ -117,9 +202,17 @@ export default function LucaProtocolSection() {
                     </span>
                   </div>
                   {/* Canonical Indonesian rule preserved in all locales */}
-                  <p className="font-mono font-bold text-base sm:text-lg text-[var(--foreground)] leading-snug">
-                    {rule.canonical}
-                  </p>
+                  <div className="font-mono font-bold text-base sm:text-lg text-[var(--foreground)] leading-snug min-h-[3.2rem] sm:min-h-[3.5rem] flex items-start">
+                    <span className="sr-only">{rule.canonical}</span>
+                    <span aria-hidden="true">
+                      {typedRules[idx]}
+                      {activeStep === idx && (
+                        <span className="inline-block ml-0.5 text-[var(--accent)] font-mono animate-pulse font-normal">
+                          ▌
+                        </span>
+                      )}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Localized explanation note */}

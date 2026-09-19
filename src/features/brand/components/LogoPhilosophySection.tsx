@@ -1,5 +1,6 @@
 import Container from '@/components/atoms/Container';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import RevealOnView from '@/components/atoms/RevealOnView';
 import LucaLogo from '@/components/atoms/LucaLogo';
 import { Code, Compass, Sparkles, HeartHandshake } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -61,12 +62,14 @@ export default function LogoPhilosophySection() {
     >
       <Container size="lg">
         {/* Section Heading */}
-        <SectionTitle
-          eyebrow={t('brand.eyebrow')}
-          title={t('brand.title')}
-          description={t('brand.intro')}
-          align="center"
-        />
+        <RevealOnView duration={650}>
+          <SectionTitle
+            eyebrow={t('brand.eyebrow')}
+            title={t('brand.title')}
+            description={t('brand.intro')}
+            align="center"
+          />
+        </RevealOnView>
 
         {/* Hero Logo Card Preview */}
         <div className="mt-8 mb-16 bg-[var(--surface)] rounded-3xl p-8 sm:p-14 border border-[var(--border)] shadow-[0_4px_24px_rgba(0,0,0,0.03)] flex flex-col items-center text-center relative overflow-hidden">

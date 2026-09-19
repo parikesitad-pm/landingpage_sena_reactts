@@ -1,4 +1,5 @@
 import Container from '@/components/atoms/Container';
+import RevealOnView from '@/components/atoms/RevealOnView';
 import { useTranslation } from 'react-i18next';
 import { Heart, Sparkles, Compass } from 'lucide-react';
 
@@ -19,21 +20,23 @@ export default function FamilyHopeSection() {
           </div>
 
           <div className="relative z-10 max-w-2xl mx-auto">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 mb-4 text-[#C98F55]">
-              <Sparkles className="w-4 h-4" />
-              <span className="font-mono text-xs font-semibold tracking-widest uppercase">
-                {t('hopes.eyebrow')}
-              </span>
-            </div>
+            <RevealOnView duration={650}>
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 mb-4 text-[#C98F55]">
+                <Sparkles className="w-4 h-4" />
+                <span className="font-mono text-xs font-semibold tracking-widest uppercase">
+                  {t('hopes.eyebrow')}
+                </span>
+              </div>
 
-            {/* Main Section Heading */}
-            <h2
-              id="family-hope-title"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans text-[var(--foreground)] tracking-tight mb-6"
-            >
-              {t('hopes.title')}
-            </h2>
+              {/* Main Section Heading */}
+              <h2
+                id="family-hope-title"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans text-[var(--foreground)] tracking-tight mb-6"
+              >
+                {t('hopes.title')}
+              </h2>
+            </RevealOnView>
 
             {/* Large Guiding Statement */}
             <div className="mb-10 pb-8 border-b border-[var(--border)]">

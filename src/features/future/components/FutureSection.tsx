@@ -1,6 +1,7 @@
 import Container from '@/components/atoms/Container';
 import { useTranslation } from 'react-i18next';
 import { Terminal, Sparkles } from 'lucide-react';
+import LucaCodeEditor from './LucaCodeEditor';
 
 export default function FutureSection() {
   const { t } = useTranslation();
@@ -30,6 +31,11 @@ export default function FutureSection() {
           <p className="text-base sm:text-lg text-[var(--muted-foreground)] max-w-lg leading-relaxed mb-8">
             {t('poposDream.description')}
           </p>
+
+          {/* Animated luca.ts code editor window */}
+          <div className="w-full mb-8">
+            <LucaCodeEditor />
+          </div>
 
           {/* JetBrains Mono Easter Egg distinguishing Popo's dream from Luca's freedom */}
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 bg-[var(--surface-soft)] text-[var(--foreground)] px-5 py-3 rounded-2xl border border-[var(--border)] shadow-xs">

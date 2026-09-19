@@ -1,6 +1,7 @@
 import Container from '@/components/atoms/Container';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import TypingText from '@/components/atoms/TypingText';
 import { Heart } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -38,7 +39,16 @@ export default function FamilySection() {
               </div>
               <figcaption className="pt-3 text-center">
                 <span className="font-sans text-sm font-semibold text-[var(--foreground)]">
-                  Popo
+                  <TypingText
+                    text="Popo"
+                    speed={45}
+                    delay={150}
+                    cursor
+                    cursorChar="_"
+                    cursorClassName="text-[var(--accent)]"
+                    hideCursorOnComplete
+                    cursorBlinkMsAfterComplete={400}
+                  />
                 </span>
                 <span className="block font-mono text-xs text-[var(--muted-foreground)]">
                   {t('family.popoRole')}
@@ -94,7 +104,16 @@ export default function FamilySection() {
               </div>
               <figcaption className="pt-3 text-center">
                 <span className="font-sans text-sm font-semibold text-[var(--foreground)]">
-                  Momo
+                  <TypingText
+                    text="Momo"
+                    speed={45}
+                    delay={300}
+                    cursor
+                    cursorChar="_"
+                    cursorClassName="text-[var(--accent)]"
+                    hideCursorOnComplete
+                    cursorBlinkMsAfterComplete={400}
+                  />
                 </span>
                 <span className="block font-mono text-xs text-[var(--muted-foreground)]">
                   {t('family.momoRole')}
