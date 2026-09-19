@@ -1,5 +1,5 @@
-import Container from "@/components/atoms/Container";
-import { siteContent } from "@/data/siteContent";
+import Container from '@/components/atoms/Container';
+import { siteContent } from '@/data/siteContent';
 
 export default function ParentMessageSection() {
   return (

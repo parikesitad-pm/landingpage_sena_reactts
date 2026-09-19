@@ -1,16 +1,17 @@
-import { useState } from "react";
-import { Menu } from "lucide-react";
-import LogoMark from "@/components/atoms/LogoMark";
-import NavLink from "@/components/molecules/NavLink";
-import MobileNavigation from "@/components/organisms/MobileNavigation";
-import { useScrollPosition } from "@/hooks/useScrollPosition";
-import { cn } from "@/lib/utils";
+import { useState } from 'react';
+import { Menu } from 'lucide-react';
+import LogoMark from '@/components/atoms/LogoMark';
+import NavLink from '@/components/molecules/NavLink';
+import MobileNavigation from '@/components/organisms/MobileNavigation';
+import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { cn } from '@/lib/utils';
 
 const NAV_ITEMS = [
-  { label: "Story", href: "#story" },
-  { label: "Growing Up", href: "#milestones" },
-  { label: "Memories", href: "#memories" },
-  { label: "Family", href: "#family" },
+  { label: 'Story', href: '#story' },
+  { label: 'Growing Up', href: '#milestones' },
+  { label: 'Memories', href: '#memories' },
+  { label: 'Family', href: '#family' },
+  { label: 'The Mark', href: '#brand-mark' },
 ];
 
 export default function Navbar() {
@@ -21,10 +22,10 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full transition-all duration-300",
+        'sticky top-0 z-40 w-full transition-all duration-300',
         isScrolled
-          ? "bg-[#FFFDF8]/90 backdrop-blur-md border-b border-[#E7E0D6]/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] py-3"
-          : "bg-transparent py-5"
+          ? 'bg-[#FFFDF8]/90 backdrop-blur-md border-b border-[#E7E0D6]/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] py-3'
+          : 'bg-transparent py-5'
       )}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">

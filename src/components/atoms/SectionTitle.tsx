@@ -1,34 +1,38 @@
-import type { HTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
+import type { HTMLAttributes } from 'react';
+import { cn } from '@/lib/utils';
 
 export interface SectionTitleProps extends HTMLAttributes<HTMLDivElement> {
   eyebrow?: string;
   title: string;
   description?: string;
-  align?: "left" | "center" | "right";
-  headingLevel?: "h1" | "h2" | "h3";
+  align?: 'left' | 'center' | 'right';
+  headingLevel?: 'h1' | 'h2' | 'h3';
 }
 
 export default function SectionTitle({
   eyebrow,
   title,
   description,
-  align = "center",
-  headingLevel = "h2",
+  align = 'center',
+  headingLevel = 'h2',
   className,
   ...props
 }: SectionTitleProps) {
   const alignmentClasses = {
-    left: "text-left items-start",
-    center: "text-center items-center mx-auto",
-    right: "text-right items-end ml-auto",
+    left: 'text-left items-start',
+    center: 'text-center items-center mx-auto',
+    right: 'text-right items-end ml-auto',
   };
 
   const HeadingTag = headingLevel;
 
   return (
     <div
-      className={cn("flex flex-col max-w-2xl mb-12", alignmentClasses[align], className)}
+      className={cn(
+        'flex flex-col max-w-2xl mb-12',
+        alignmentClasses[align],
+        className
+      )}
       {...props}
     >
       {eyebrow && (

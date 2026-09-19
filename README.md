@@ -1,7 +1,7 @@
 # Muhammad Gabriel Luca Senna
 
-> **A Little Life. A Growing Story.**  
-> *MY FIRST PORTFOLIO · EST. 2025*
+> **A Little Life. A Growing Story.**
+> _MY FIRST PORTFOLIO · EST. 2025_
 
 A modern, lightweight, warm personal family landing page and first portfolio for **Muhammad Gabriel Luca Senna** (born 13 February 2025). Created by his family as a digital place to preserve his story, memories, milestones, and journey growing up.
 

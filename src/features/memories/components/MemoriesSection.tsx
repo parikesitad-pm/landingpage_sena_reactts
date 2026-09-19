@@ -1,7 +1,7 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import MemoryGallery from "@/features/memories/components/MemoryGallery";
-import { siteContent } from "@/data/siteContent";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import MemoryGallery from '@/features/memories/components/MemoryGallery';
+import { siteContent } from '@/data/siteContent';
 
 export default function MemoriesSection() {
   return (

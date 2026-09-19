@@ -1,8 +1,8 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { siteContent } from "@/data/siteContent";
-import { ShieldCheck } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { siteContent } from '@/data/siteContent';
+import { ShieldCheck } from 'lucide-react';
 
 export default function HospitalSection() {
   return (
@@ -20,7 +20,10 @@ export default function HospitalSection() {
 
         <div className="max-w-2xl mx-auto text-center mb-12 space-y-3">
           {siteContent.hospital.paragraphs.map((p, i) => (
-            <p key={i} className="text-base sm:text-lg text-[#73706A] leading-relaxed">
+            <p
+              key={i}
+              className="text-base sm:text-lg text-[#73706A] leading-relaxed"
+            >
               {p}
             </p>
           ))}

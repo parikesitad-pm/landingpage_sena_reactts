@@ -3,6 +3,6 @@ export type ChildProfile = {
   shortName: string;
   alternateName: string;
   birthDate: string; // ISO format: "YYYY-MM-DD"
-  gender: "male" | "female";
+  gender: 'male' | 'female';
   futureDream: string;
 };

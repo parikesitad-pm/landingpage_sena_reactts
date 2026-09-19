@@ -1,18 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-sans: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans:
+    'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
 
-  --color-warm-bg: #F8F5EF;
-  --color-warm-surface: #FFFDF8;
-  --color-warm-card: #FAF6EE;
-  --color-warm-primary: #2F3437;
-  --color-warm-muted: #73706A;
-  --color-warm-border: #E7E0D6;
-  --color-warm-accent: #C98F55;
-  --color-warm-accent-soft: #F1E5D5;
-  --color-warm-accent-subtle: #FAF0E4;
+  --color-warm-bg: #f8f5ef;
+  --color-warm-surface: #fffdf8;
+  --color-warm-card: #faf6ee;
+  --color-warm-primary: #2f3437;
+  --color-warm-muted: #73706a;
+  --color-warm-border: #e7e0d6;
+  --color-warm-accent: #c98f55;
+  --color-warm-accent-soft: #f1e5d5;
+  --color-warm-accent-subtle: #faf0e4;
 }
 
 @layer base {
@@ -35,13 +38,13 @@
   }
 
   ::selection {
-    background-color: #EAD5BA;
-    color: #2F3437;
+    background-color: #ead5ba;
+    color: #2f3437;
   }
 
   /* Accessible focus outline */
   :focus-visible {
-    outline: 2px solid #C98F55;
+    outline: 2px solid #c98f55;
     outline-offset: 3px;
   }
 }

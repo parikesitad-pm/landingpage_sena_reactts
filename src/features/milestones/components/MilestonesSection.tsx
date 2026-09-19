@@ -1,7 +1,7 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import MilestoneTimeline from "@/features/milestones/components/MilestoneTimeline";
-import { siteContent } from "@/data/siteContent";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import MilestoneTimeline from '@/features/milestones/components/MilestoneTimeline';
+import { siteContent } from '@/data/siteContent';
 
 export default function MilestonesSection() {
   return (

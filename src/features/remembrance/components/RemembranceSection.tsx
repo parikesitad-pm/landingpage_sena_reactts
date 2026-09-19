@@ -1,6 +1,6 @@
-import Container from "@/components/atoms/Container";
-import { siteContent } from "@/data/siteContent";
-import { Heart } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import { siteContent } from '@/data/siteContent';
+import { Heart } from 'lucide-react';
 
 export default function RemembranceSection() {
   return (
@@ -29,12 +29,8 @@ export default function RemembranceSection() {
             </h2>
 
             <div className="space-y-4 text-[#73706A] text-base sm:text-lg leading-relaxed">
-              <p>
-                {siteContent.remembrance.paragraph1}
-              </p>
-              <p>
-                {siteContent.remembrance.paragraph2}
-              </p>
+              <p>{siteContent.remembrance.paragraph1}</p>
+              <p>{siteContent.remembrance.paragraph2}</p>
             </div>
 
             <div className="mt-8 pt-6 border-t border-[#EFEAE2] flex items-center gap-2 text-xs font-mono text-[#8C8479]">

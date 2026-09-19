@@ -11,10 +11,10 @@ export interface CalculatedAge {
 }
 
 export function calculateAge(
-  birthDateString: string = "2025-02-13",
+  birthDateString: string = '2025-02-13',
   referenceDate: Date = new Date()
 ): CalculatedAge {
-  const birth = new Date(birthDateString + "T00:00:00");
+  const birth = new Date(birthDateString + 'T00:00:00');
   const current = referenceDate;
 
   let years = current.getFullYear() - birth.getFullYear();
@@ -34,25 +34,25 @@ export function calculateAge(
   }
 
   // Format human-readable string
-  let formatted = "";
+  let formatted = '';
   if (years > 0) {
     if (months > 0) {
-      formatted = `${years} ${years === 1 ? "year" : "years"}, ${months} ${
-        months === 1 ? "month" : "months"
+      formatted = `${years} ${years === 1 ? 'year' : 'years'}, ${months} ${
+        months === 1 ? 'month' : 'months'
       }`;
     } else {
-      formatted = `${years} ${years === 1 ? "year" : "years"} old`;
+      formatted = `${years} ${years === 1 ? 'year' : 'years'} old`;
     }
   } else if (months > 0) {
     if (days > 0) {
-      formatted = `${months} ${months === 1 ? "month" : "months"}, ${days} ${
-        days === 1 ? "day" : "days"
+      formatted = `${months} ${months === 1 ? 'month' : 'months'}, ${days} ${
+        days === 1 ? 'day' : 'days'
       }`;
     } else {
-      formatted = `${months} ${months === 1 ? "month" : "months"} old`;
+      formatted = `${months} ${months === 1 ? 'month' : 'months'} old`;
     }
   } else {
-    formatted = `${days} ${days === 1 ? "day" : "days"} old`;
+    formatted = `${days} ${days === 1 ? 'day' : 'days'} old`;
   }
 
   return {

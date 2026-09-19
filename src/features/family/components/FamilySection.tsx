@@ -1,8 +1,8 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { siteContent } from "@/data/siteContent";
-import { Heart } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { siteContent } from '@/data/siteContent';
+import { Heart } from 'lucide-react';
 
 export default function FamilySection() {
   return (

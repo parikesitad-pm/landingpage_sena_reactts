@@ -1,27 +1,38 @@
-import type { Milestone } from "@/types/milestone";
-import { Sparkles, Smile, Footprints, Cake, HeartPulse, Users, Code2 } from "lucide-react";
+import type { Milestone } from '@/types/milestone';
+import {
+  Sparkles,
+  Smile,
+  Footprints,
+  Cake,
+  HeartPulse,
+  Users,
+  Code2,
+} from 'lucide-react';
 
 export interface MilestoneCardProps {
   milestone: Milestone;
   isLast?: boolean;
 }
 
-export default function MilestoneCard({ milestone, isLast = false }: MilestoneCardProps) {
+export default function MilestoneCard({
+  milestone,
+  isLast = false,
+}: MilestoneCardProps) {
   const getIcon = () => {
     switch (milestone.icon) {
-      case "birth":
+      case 'birth':
         return <Sparkles className="w-4 h-4 text-[#C98F55]" />;
-      case "tooth":
+      case 'tooth':
         return <Smile className="w-4 h-4 text-[#C98F55]" />;
-      case "steps":
+      case 'steps':
         return <Footprints className="w-4 h-4 text-[#C98F55]" />;
-      case "birthday":
+      case 'birthday':
         return <Cake className="w-4 h-4 text-[#C98F55]" />;
-      case "health":
+      case 'health':
         return <HeartPulse className="w-4 h-4 text-[#C98F55]" />;
-      case "family":
+      case 'family':
         return <Users className="w-4 h-4 text-[#C98F55]" />;
-      case "future":
+      case 'future':
         return <Code2 className="w-4 h-4 text-[#C98F55]" />;
       default:
         return <Sparkles className="w-4 h-4 text-[#C98F55]" />;

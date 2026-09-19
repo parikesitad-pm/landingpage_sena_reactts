@@ -1,8 +1,8 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { siteContent } from "@/data/siteContent";
-import { Calendar, HeartHandshake } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { siteContent } from '@/data/siteContent';
+import { Calendar, HeartHandshake } from 'lucide-react';
 
 export default function StorySection() {
   return (
@@ -45,9 +45,7 @@ export default function StorySection() {
               <p className="font-medium text-[#2F3437] text-lg sm:text-xl">
                 {siteContent.story.paragraphs[0]}
               </p>
-              <p>
-                {siteContent.story.paragraphs[1]}
-              </p>
+              <p>{siteContent.story.paragraphs[1]}</p>
             </div>
 
             {/* Little arrival metadata highlight */}

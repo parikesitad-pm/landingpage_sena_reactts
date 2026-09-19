@@ -1,6 +1,6 @@
-import Container from "@/components/atoms/Container";
-import { siteContent } from "@/data/siteContent";
-import { Terminal, Sparkles } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import { siteContent } from '@/data/siteContent';
+import { Terminal, Sparkles } from 'lucide-react';
 
 export default function FutureSection() {
   return (

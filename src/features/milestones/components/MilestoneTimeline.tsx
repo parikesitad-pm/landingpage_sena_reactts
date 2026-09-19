@@ -1,7 +1,7 @@
-import { confirmedMilestones } from "@/features/milestones/data/milestones";
-import MilestoneCard from "@/components/molecules/MilestoneCard";
-import { siteContent } from "@/data/siteContent";
-import { Clock } from "lucide-react";
+import { confirmedMilestones } from '@/features/milestones/data/milestones';
+import MilestoneCard from '@/components/molecules/MilestoneCard';
+import { siteContent } from '@/data/siteContent';
+import { Clock } from 'lucide-react';
 
 export default function MilestoneTimeline() {
   return (

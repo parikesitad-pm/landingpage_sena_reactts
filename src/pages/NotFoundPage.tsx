@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import Container from "@/components/atoms/Container";
-import Button from "@/components/atoms/Button";
-import LogoMark from "@/components/atoms/LogoMark";
+import { Link } from 'react-router-dom';
+import Container from '@/components/atoms/Container';
+import Button from '@/components/atoms/Button';
+import LogoMark from '@/components/atoms/LogoMark';
 
 export default function NotFoundPage() {
   return (
@@ -18,7 +18,8 @@ export default function NotFoundPage() {
         </h1>
 
         <p className="text-[#73706A] text-base sm:text-lg mb-8 max-w-md mx-auto leading-relaxed">
-          The page you are looking for does not exist in Luca&apos;s story. Let&apos;s guide you back to his main journey.
+          The page you are looking for does not exist in Luca&apos;s story.
+          Let&apos;s guide you back to his main journey.
         </p>
 
         <Link to="/">

@@ -1,5 +1,5 @@
-import type { AnchorHTMLAttributes } from "react";
-import { cn } from "@/lib/utils";
+import type { AnchorHTMLAttributes } from 'react';
+import { cn } from '@/lib/utils';
 
 export interface NavLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
@@ -18,10 +18,10 @@ export default function NavLink({
     <a
       href={href}
       className={cn(
-        "relative text-sm font-medium transition-colors py-1 px-2.5 rounded-md focus-visible:outline-2",
+        'relative text-sm font-medium transition-colors py-1 px-2.5 rounded-md focus-visible:outline-2',
         isActive
-          ? "text-[#2F3437] font-semibold"
-          : "text-[#73706A] hover:text-[#2F3437]",
+          ? 'text-[#2F3437] font-semibold'
+          : 'text-[#73706A] hover:text-[#2F3437]',
         className
       )}
       {...props}

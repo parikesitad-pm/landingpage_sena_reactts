@@ -1,5 +1,5 @@
-import { familyMemories } from "@/features/memories/data/memories";
-import MemoryCard from "@/components/molecules/MemoryCard";
+import { familyMemories } from '@/features/memories/data/memories';
+import MemoryCard from '@/components/molecules/MemoryCard';
 
 export default function MemoryGallery() {
   return (

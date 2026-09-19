@@ -1,11 +1,11 @@
 export type MilestoneIcon =
-  | "birth"
-  | "tooth"
-  | "steps"
-  | "birthday"
-  | "health"
-  | "family"
-  | "future";
+  | 'birth'
+  | 'tooth'
+  | 'steps'
+  | 'birthday'
+  | 'health'
+  | 'family'
+  | 'future';
 
 export type Milestone = {
   id: string;

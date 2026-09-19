@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
-import LogoMark from "@/components/atoms/LogoMark";
+import { useEffect, useRef } from 'react';
+import { X } from 'lucide-react';
+import LogoMark from '@/components/atoms/LogoMark';
 
 export interface MobileNavigationProps {
   isOpen: boolean;
@@ -17,21 +17,21 @@ export default function MobileNavigation({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     }
 
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
 
@@ -74,8 +74,14 @@ export default function MobileNavigation({
         </nav>
 
         <div className="pt-4 border-t border-[#EFEAE2] flex justify-between items-center text-xs font-mono text-[#8C8479]">
-          <span>MY FIRST PORTFOLIO</span>
-          <span>EST. 2025</span>
+          <span className="font-semibold text-[#2F3437]">LUCA &middot; EST. 2025</span>
+          <a
+            href="/brand"
+            onClick={onClose}
+            className="text-[#C98F55] hover:underline"
+          >
+            Brand Details &rarr;
+          </a>
         </div>
       </div>
     </div>

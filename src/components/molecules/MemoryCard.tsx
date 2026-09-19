@@ -1,35 +1,40 @@
-import type { Memory } from "@/types/memory";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { cn } from "@/lib/utils";
+import type { Memory } from '@/types/memory';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { cn } from '@/lib/utils';
 
 export interface MemoryCardProps {
   memory: Memory;
-  aspectRatio?: "portrait" | "square" | "landscape" | "auto";
+  aspectRatio?: 'portrait' | 'square' | 'landscape' | 'auto';
   className?: string;
   sizes?: string;
 }
 
 export default function MemoryCard({
   memory,
-  aspectRatio = "portrait",
+  aspectRatio = 'portrait',
   className,
-  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw",
+  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
 }: MemoryCardProps) {
   const aspectClasses = {
-    portrait: "aspect-[4/5]",
-    square: "aspect-square",
-    landscape: "aspect-[4/3]",
-    auto: "aspect-auto",
+    portrait: 'aspect-[4/5]',
+    square: 'aspect-square',
+    landscape: 'aspect-[4/3]',
+    auto: 'aspect-auto',
   };
 
   return (
     <figure
       className={cn(
-        "group relative flex flex-col bg-[#FFFDF8] rounded-2xl overflow-hidden border border-[#EBE4D8] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300",
+        'group relative flex flex-col bg-[#FFFDF8] rounded-2xl overflow-hidden border border-[#EBE4D8] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300',
         className
       )}
     >
-      <div className={cn("relative overflow-hidden w-full bg-[#F4ECE1]", aspectClasses[aspectRatio])}>
+      <div
+        className={cn(
+          'relative overflow-hidden w-full bg-[#F4ECE1]',
+          aspectClasses[aspectRatio]
+        )}
+      >
         <ResponsiveImage
           basePath={memory.image}
           alt={memory.alt}

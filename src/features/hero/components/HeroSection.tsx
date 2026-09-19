@@ -1,10 +1,10 @@
-import { Sparkles, ArrowDown } from "lucide-react";
-import Container from "@/components/atoms/Container";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { siteContent } from "@/data/siteContent";
-import { calculateAge } from "@/lib/age";
+import { Sparkles, ArrowDown } from 'lucide-react';
+import Container from '@/components/atoms/Container';
+import Button from '@/components/atoms/Button';
+import Badge from '@/components/atoms/Badge';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { siteContent } from '@/data/siteContent';
+import { calculateAge } from '@/lib/age';
 
 export default function HeroSection() {
   const age = calculateAge(siteContent.child.birthDate);
@@ -39,11 +39,20 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left / Editorial Content Column */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Top Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 mb-5">
-              <Badge variant="mono">
-                {siteContent.hero.portfolioBadge}
-              </Badge>
+            {/* Top Badges & Logo Lockup */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 bg-[#FFFDF8] border border-[#E7E0D6] pl-2 pr-3.5 py-1 rounded-full shadow-xs">
+                <img
+                  src="/branding/luca-logo-mark.png"
+                  alt=""
+                  width={22}
+                  height={22}
+                  className="w-5 h-5 object-contain"
+                />
+                <span className="font-mono text-xs font-semibold tracking-wider text-[#8C6E4A]">
+                  LUCA &middot; EST. 2025
+                </span>
+              </div>
               <Badge variant="accent" dot>
                 {siteContent.hero.eyebrow}
               </Badge>
@@ -72,7 +81,9 @@ export default function HeroSection() {
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <div className="inline-flex items-center gap-2 bg-[#FFFDF8] border border-[#E7E0D6] px-4 py-2 rounded-full shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#C98F55]" />
-                <span className="text-xs font-mono text-[#73706A]">Current Age:</span>
+                <span className="text-xs font-mono text-[#73706A]">
+                  Current Age:
+                </span>
                 <strong className="text-xs font-mono text-[#2F3437] font-semibold">
                   {age.formatted}
                 </strong>
@@ -126,29 +137,48 @@ export default function HeroSection() {
                     imgClassName="object-cover object-center"
                   />
 
-                  {/* Corner Accent Badge */}
-                  <div className="absolute bottom-3 right-3 bg-[#FFFDF8]/90 backdrop-blur-xs px-3 py-1.5 rounded-full border border-[#E7E0D6] shadow-xs">
+                  {/* Corner Accent Badge with Symbol Mark */}
+                  <div className="absolute bottom-3 right-3 bg-[#FFFDF8]/90 backdrop-blur-xs pl-2 pr-3 py-1.5 rounded-full border border-[#E7E0D6] shadow-xs flex items-center gap-1.5">
+                    <img
+                      src="/branding/luca-logo-mark.png"
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="w-4 h-4 object-contain"
+                    />
                     <span className="font-mono text-[11px] font-semibold text-[#8C6E4A] tracking-wider uppercase">
-                      Senna &middot; 2025
+                      LUCA &middot; 2025
                     </span>
                   </div>
                 </div>
 
                 {/* Sub-caption below frame */}
                 <div className="pt-3 px-1 flex items-center justify-between text-xs text-[#8C8479]">
-                  <span className="font-mono text-[11px]">portrait.capture</span>
+                  <span className="font-mono text-[11px]">
+                    portrait.capture
+                  </span>
                   <span className="font-mono text-[11px]">Luca</span>
                 </div>
               </div>
 
               {/* Delicate celestial SVG accent stars */}
               <div className="absolute -top-6 -right-6 text-[#C98F55] opacity-80 pointer-events-none">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
                 </svg>
               </div>
               <div className="absolute -bottom-4 -left-4 text-[#D8AF7F] opacity-60 pointer-events-none">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
                 </svg>
               </div>

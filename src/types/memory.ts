@@ -1,10 +1,10 @@
 export type MemoryCategory =
-  | "newborn"
-  | "family"
-  | "everyday"
-  | "hospital"
-  | "recovery"
-  | "milestone";
+  | 'newborn'
+  | 'family'
+  | 'everyday'
+  | 'hospital'
+  | 'recovery'
+  | 'milestone';
 
 export type Memory = {
   id: string;
