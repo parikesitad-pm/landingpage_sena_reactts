@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';

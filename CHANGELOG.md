@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Kunci urutan animasi Luca Protocol: tiga baris boot (`protocol.version = "1.0"; momo.love = Infinity; authority.level = "Popo";`) tampil paling pertama sebelum judul, disusul stempel `POPO APPROVED` dengan efek landing fisik, punchline `appeal.allowed = false;`, dan kemunculan sekuensial aturan 01–05 (Rule 05 dipertegas dengan aksen emas dan lencana `FINAL AUTHORITY`).
+- Penerapan tema Tokyo Night khusus pada jendela editor `luca.ts` (latar `#1a1b26`, chrome `#202231`, tab, highlight baris aktif, penomoran baris JetBrains Mono, dan sintaks violet/green/cyan/gold) tanpa mengubah tema hangat editorial situs utama.
 - Penghapusan total konsep splash screen / blocking overlay agar seluruh konten langsung tampil instan tanpa penundaan buatan.
 - Penyesuaian `scroll-margin-top` (`scroll-mt-16 sm:scroll-mt-20`) pada seluruh seksi navigasi jangkar agar tidak tertutup sticky header.
 - Peningkatan deteksi viewport Luca Protocol (`rootMargin: 120px`) agar metadata bar langsung tampil saat seksi mendekat dan sekuens aturan berjalan tanpa jeda.

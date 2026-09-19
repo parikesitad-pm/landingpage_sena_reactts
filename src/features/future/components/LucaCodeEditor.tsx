@@ -4,7 +4,16 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
 
 interface Token {
-  type: 'keyword' | 'identifier' | 'property' | 'method' | 'string' | 'punct';
+  type:
+    | 'keyword'
+    | 'identifier'
+    | 'object'
+    | 'property'
+    | 'function'
+    | 'string'
+    | 'infinity'
+    | 'operator'
+    | 'punct';
   text: string;
 }
 
@@ -19,7 +28,7 @@ const CODE_LINES: LineDef[] = [
     tokens: [
       { type: 'keyword', text: 'const ' },
       { type: 'identifier', text: 'name' },
-      { type: 'punct', text: ' = ' },
+      { type: 'operator', text: ' = ' },
       { type: 'string', text: '"Muhammad Gabriel Luca Senna"' },
       { type: 'punct', text: ';' },
     ],
@@ -29,7 +38,7 @@ const CODE_LINES: LineDef[] = [
     tokens: [
       { type: 'keyword', text: 'const ' },
       { type: 'identifier', text: 'born' },
-      { type: 'punct', text: ' = ' },
+      { type: 'operator', text: ' = ' },
       { type: 'string', text: '"2025-02-13"' },
       { type: 'punct', text: ';' },
     ],
@@ -41,10 +50,10 @@ const CODE_LINES: LineDef[] = [
   {
     raw: 'dream.source = "Popo";',
     tokens: [
-      { type: 'identifier', text: 'dream' },
+      { type: 'object', text: 'dream' },
       { type: 'punct', text: '.' },
       { type: 'property', text: 'source' },
-      { type: 'punct', text: ' = ' },
+      { type: 'operator', text: ' = ' },
       { type: 'string', text: '"Popo"' },
       { type: 'punct', text: ';' },
     ],
@@ -52,10 +61,10 @@ const CODE_LINES: LineDef[] = [
   {
     raw: 'future.path = "Luca decides";',
     tokens: [
-      { type: 'identifier', text: 'future' },
+      { type: 'object', text: 'future' },
       { type: 'punct', text: '.' },
       { type: 'property', text: 'path' },
-      { type: 'punct', text: ' = ' },
+      { type: 'operator', text: ' = ' },
       { type: 'string', text: '"Luca decides"' },
       { type: 'punct', text: ';' },
     ],
@@ -67,20 +76,24 @@ const CODE_LINES: LineDef[] = [
   {
     raw: 'momo.love = Infinity;',
     tokens: [
-      { type: 'identifier', text: 'momo' },
+      { type: 'object', text: 'momo' },
       { type: 'punct', text: '.' },
       { type: 'property', text: 'love' },
-      { type: 'punct', text: ' = ' },
-      { type: 'keyword', text: 'Infinity' },
+      { type: 'operator', text: ' = ' },
+      { type: 'infinity', text: 'Infinity' },
       { type: 'punct', text: ';' },
     ],
   },
   {
+    raw: '',
+    tokens: [],
+  },
+  {
     raw: 'faith.keep("close");',
     tokens: [
-      { type: 'identifier', text: 'faith' },
+      { type: 'object', text: 'faith' },
       { type: 'punct', text: '.' },
-      { type: 'method', text: 'keep' },
+      { type: 'function', text: 'keep' },
       { type: 'punct', text: '(' },
       { type: 'string', text: '"close"' },
       { type: 'punct', text: ');' },
@@ -89,20 +102,24 @@ const CODE_LINES: LineDef[] = [
   {
     raw: 'kindness.mode = "always";',
     tokens: [
-      { type: 'identifier', text: 'kindness' },
+      { type: 'object', text: 'kindness' },
       { type: 'punct', text: '.' },
       { type: 'property', text: 'mode' },
-      { type: 'punct', text: ' = ' },
+      { type: 'operator', text: ' = ' },
       { type: 'string', text: '"always"' },
       { type: 'punct', text: ';' },
     ],
   },
   {
+    raw: '',
+    tokens: [],
+  },
+  {
     raw: 'responsibility.finish("what_you_start");',
     tokens: [
-      { type: 'identifier', text: 'responsibility' },
+      { type: 'object', text: 'responsibility' },
       { type: 'punct', text: '.' },
-      { type: 'method', text: 'finish' },
+      { type: 'function', text: 'finish' },
       { type: 'punct', text: '(' },
       { type: 'string', text: '"what_you_start"' },
       { type: 'punct', text: ');' },
@@ -115,10 +132,10 @@ const CODE_LINES: LineDef[] = [
   {
     raw: 'journey.status = "just getting started";',
     tokens: [
-      { type: 'identifier', text: 'journey' },
+      { type: 'object', text: 'journey' },
       { type: 'punct', text: '.' },
       { type: 'property', text: 'status' },
-      { type: 'punct', text: ' = ' },
+      { type: 'operator', text: ' = ' },
       { type: 'string', text: '"just getting started"' },
       { type: 'punct', text: ';' },
     ],
@@ -129,7 +146,11 @@ const RAW_CODE_TEXT = CODE_LINES.map((l) => l.raw).join('\n');
 
 export default function LucaCodeEditor() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { threshold: 0.3, once: true });
+  const isInView = useInView(containerRef, {
+    threshold: 0.2,
+    rootMargin: '100px 0px 0px 0px',
+    once: true,
+  });
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const [currentLine, setCurrentLine] = useState(
@@ -147,12 +168,16 @@ export default function LucaCodeEditor() {
     }
 
     if (isInView && currentLine === -1) {
-      setCurrentLine(0);
-      setCharOffset(0);
+      // Short 180ms delay before code starts typing
+      const initTimer = setTimeout(() => {
+        setCurrentLine(0);
+        setCharOffset(0);
+      }, 180);
+      return () => clearTimeout(initTimer);
     }
   }, [isInView, prefersReducedMotion, currentLine]);
 
-  // Line by line typing effect
+  // Line by line typing effect (18-26ms per character)
   useEffect(() => {
     if (
       prefersReducedMotion ||
@@ -162,12 +187,12 @@ export default function LucaCodeEditor() {
       return;
 
     const line = CODE_LINES[currentLine];
-    // If empty line, jump to next immediately
+    // Empty line: short 120ms pause, then advance
     if (!line.raw || line.raw.length === 0) {
       const emptyTimer = setTimeout(() => {
         setCurrentLine((c) => c + 1);
         setCharOffset(0);
-      }, 70);
+      }, 120);
       return () => clearTimeout(emptyTimer);
     }
 
@@ -178,21 +203,25 @@ export default function LucaCodeEditor() {
 
       if (charCount >= line.raw.length) {
         clearInterval(interval);
+        // Logical block pauses (160ms)
         setTimeout(() => {
           if (currentLine + 1 < CODE_LINES.length) {
             setCurrentLine((c) => c + 1);
             setCharOffset(0);
           } else {
-            setIsCompleted(true);
+            // Final ready state ~250ms after final line
+            setTimeout(() => {
+              setIsCompleted(true);
+            }, 250);
           }
-        }, 110);
+        }, 160);
       }
     }, 22);
 
     return () => clearInterval(interval);
   }, [currentLine, prefersReducedMotion]);
 
-  // Helper to render partially typed line with token colors
+  // Render partially typed line with Tokyo Night semantic token colors
   const renderTokensWithLimit = (tokens: Token[], limit: number) => {
     let remaining = limit;
     const elements = [];
@@ -205,21 +234,27 @@ export default function LucaCodeEditor() {
       const textChunk = token.text.slice(0, take);
       remaining -= take;
 
-      let colorClass = 'text-[var(--foreground)]';
+      let colorStyle = { color: '#c0caf5' };
       if (token.type === 'keyword') {
-        colorClass = 'text-amber-700 dark:text-amber-300 font-semibold';
+        colorStyle = { color: '#bb9af7' }; // Tokyo Night violet
+      } else if (token.type === 'object') {
+        colorStyle = { color: '#7aa2f7' }; // Tokyo Night cyan-blue
       } else if (token.type === 'property') {
-        colorClass = 'text-[#8C6E4A] dark:text-[#D3AA69]';
-      } else if (token.type === 'method') {
-        colorClass = 'text-[#A87236] dark:text-[#E0BA7B] font-medium';
+        colorStyle = { color: '#7dcfff' }; // Tokyo Night cyan
+      } else if (token.type === 'function') {
+        colorStyle = { color: '#7aa2f7' }; // Tokyo Night soft blue
       } else if (token.type === 'string') {
-        colorClass = 'text-[#4F6A5B] dark:text-[#88A898]';
+        colorStyle = { color: '#9ece6a' }; // Tokyo Night soft green
+      } else if (token.type === 'infinity') {
+        colorStyle = { color: '#e0af68' }; // Tokyo Night warm gold / LUCA amber
+      } else if (token.type === 'operator') {
+        colorStyle = { color: '#a9b1d6' }; // Tokyo Night soft operator gray
       } else if (token.type === 'punct') {
-        colorClass = 'text-[var(--subtle-foreground)]';
+        colorStyle = { color: '#8990b3' }; // Subtle punctuation
       }
 
       elements.push(
-        <span key={i} className={colorClass}>
+        <span key={i} style={colorStyle}>
           {textChunk}
         </span>
       );
@@ -231,34 +266,69 @@ export default function LucaCodeEditor() {
   return (
     <div
       ref={containerRef}
-      className="w-full max-w-xl mx-auto rounded-2xl bg-[var(--surface-soft)] border border-[var(--border)] shadow-[0_4px_24px_rgba(0,0,0,0.03)] overflow-hidden text-left"
+      className="w-full max-w-xl mx-auto rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.18)] overflow-hidden text-left border"
+      style={{
+        backgroundColor: '#1a1b26', // Tokyo Night background
+        borderColor: '#34364a',
+      }}
     >
-      {/* Window Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-[var(--surface)] border-b border-[var(--border)]">
+      {/* Editor Chrome & Tabs */}
+      <div
+        className="flex items-center justify-between px-4 py-2.5 border-b select-none"
+        style={{
+          backgroundColor: '#202231', // Tokyo Night surface
+          borderColor: '#34364a',
+        }}
+      >
+        <div className="flex items-center gap-3">
+          {/* Three Restrained Window Dots */}
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] opacity-80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e] opacity-80" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f] opacity-80" />
+          </div>
+
+          {/* Active File Tab */}
+          <div
+            className="flex items-center gap-1.5 px-3 py-1 rounded-t text-xs font-mono font-medium border-t-2"
+            style={{
+              backgroundColor: '#1a1b26',
+              color: '#c0caf5',
+              borderTopColor: '#7aa2f7',
+            }}
+          >
+            <span style={{ color: '#7aa2f7' }}>TS</span>
+            <span>luca.ts</span>
+          </div>
+        </div>
+
+        {/* TypeScript Badge */}
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5DDD0] dark:bg-[#3A3D3F]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5DDD0] dark:bg-[#3A3D3F]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E5DDD0] dark:bg-[#3A3D3F]" />
-          <span className="ml-2 font-mono text-xs font-semibold text-[var(--muted-foreground)]">
-            luca.ts
+          <span
+            className="font-mono text-[10px] px-2 py-0.5 rounded font-semibold border tracking-wide"
+            style={{
+              backgroundColor: '#24283b',
+              color: '#7aa2f7',
+              borderColor: '#3b4261',
+            }}
+          >
+            TypeScript v5.7
           </span>
         </div>
-        <span className="font-mono text-[10px] px-2 py-0.5 rounded bg-[var(--surface-soft)] border border-[var(--border)] text-[var(--muted-foreground)]">
-          TypeScript
-        </span>
       </div>
 
-      {/* Accessible semantic code representation */}
+      {/* Accessible semantic code for screen readers */}
       <pre className="sr-only">
         <code>{RAW_CODE_TEXT}</code>
       </pre>
 
-      {/* Editor Body */}
+      {/* Editor Body with Active Line Highlighting */}
       <div
         aria-hidden="true"
-        className="p-4 sm:p-6 font-mono text-xs sm:text-sm leading-relaxed overflow-x-auto min-h-[360px] flex flex-col justify-between"
+        className="p-3 sm:p-5 font-mono text-[11px] sm:text-xs md:text-sm leading-relaxed overflow-x-auto min-h-[380px] flex flex-col justify-between"
+        style={{ color: '#c0caf5' }}
       >
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           {CODE_LINES.map((line, idx) => {
             const isPast =
               idx < currentLine || prefersReducedMotion || isCompleted;
@@ -266,20 +336,47 @@ export default function LucaCodeEditor() {
               idx === currentLine && !prefersReducedMotion && !isCompleted;
 
             if (line.raw.length === 0) {
-              return <div key={idx} className="h-4" />;
+              return (
+                <div key={idx} className="flex items-baseline gap-3 h-4">
+                  <span
+                    className="text-[11px] select-none w-5 text-right font-mono"
+                    style={{ color: '#565f89', opacity: 0.5 }}
+                  >
+                    {idx + 1}
+                  </span>
+                </div>
+              );
             }
 
             return (
-              <div key={idx} className="flex items-baseline gap-3">
-                <span className="text-[11px] text-[var(--subtle-foreground)] select-none w-5 text-right opacity-60">
+              <div
+                key={idx}
+                className={cn(
+                  'flex items-baseline gap-3 px-1.5 py-0.5 rounded transition-colors duration-150',
+                  isCurrent && 'bg-[#24283b]/80 shadow-[inset_2px_0_0_#7aa2f7]'
+                )}
+              >
+                {/* Line Numbers in JetBrains Mono */}
+                <span
+                  className="text-[11px] select-none w-5 text-right font-mono flex-shrink-0"
+                  style={{
+                    color: isCurrent ? '#c0caf5' : '#565f89',
+                    opacity: isCurrent ? 1 : 0.6,
+                  }}
+                >
                   {idx + 1}
                 </span>
+
+                {/* Line Code Content */}
                 <div className="flex-1 whitespace-pre font-mono">
                   {isPast &&
                     renderTokensWithLimit(line.tokens, line.raw.length)}
                   {isCurrent && renderTokensWithLimit(line.tokens, charOffset)}
                   {isCurrent && (
-                    <span className="inline-block ml-0.5 text-[#C98F55] font-mono animate-pulse">
+                    <span
+                      className="inline-block ml-0.5 font-mono animate-pulse"
+                      style={{ color: '#e0af68' }} // LUCA gold cursor
+                    >
                       ▌
                     </span>
                   )}
@@ -289,17 +386,33 @@ export default function LucaCodeEditor() {
           })}
         </div>
 
-        {/* Ready indicator */}
-        <div className="mt-5 pt-3 border-t border-[var(--border)] flex items-center justify-between font-mono text-xs text-[var(--muted-foreground)]">
-          <span
-            className={cn(
-              'inline-flex items-center gap-1.5 text-[#C98F55] font-medium transition-opacity duration-500',
-              isCompleted ? 'opacity-100' : 'opacity-0'
-            )}
-          >
-            ready. ✦
-          </span>
-          <span className="text-[11px] opacity-70">
+        {/* Editor Status Bar / Ready Indicator */}
+        <div
+          className="mt-4 pt-3 border-t flex items-center justify-between font-mono text-xs select-none"
+          style={{
+            borderColor: '#34364a',
+            color: '#565f89',
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <span
+              className={cn(
+                'inline-flex items-center gap-1.5 font-semibold transition-opacity duration-300',
+                isCompleted ? 'opacity-100' : 'opacity-0'
+              )}
+              style={{ color: '#e0af68' }}
+            >
+              ready. ✦
+            </span>
+            <span
+              className="text-[10px] hidden sm:inline"
+              style={{ color: '#565f89' }}
+            >
+              UTF-8 &middot; LF
+            </span>
+          </div>
+
+          <span className="text-[11px]" style={{ color: '#9ece6a' }}>
             journey.status = &ldquo;just getting started&rdquo;
           </span>
         </div>

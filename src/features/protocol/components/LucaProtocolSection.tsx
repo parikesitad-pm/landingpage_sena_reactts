@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldAlert, Sparkles, Scale, HeartHandshake } from 'lucide-react';
 import Container from '@/components/atoms/Container';
-import SectionTitle from '@/components/atoms/SectionTitle';
 import { useInView } from '@/hooks/useInView';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
@@ -44,74 +43,77 @@ const RULES: RuleItem[] = [
 export default function LucaProtocolSection() {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
-  // Trigger earlier when section approaches viewport to ensure zero delay even during fast scroll
+
+  // Early trigger rootMargin for fast mobile scrolling (Requirement 15)
   const isInView = useInView(sectionRef, {
     threshold: 0.1,
-    rootMargin: '120px 0px 0px 0px',
+    rootMargin: '0px 0px 15% 0px',
     once: true,
   });
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Animation sequence steps: 0..4 (rules 1..5), 5 (metadata bar complete), 6 (finished)
-  const [activeStep, setActiveStep] = useState(prefersReducedMotion ? 6 : -1);
-  const [typedRules, setTypedRules] = useState<string[]>(
-    prefersReducedMotion ? RULES.map((r) => r.canonical) : ['', '', '', '', '']
-  );
-  const [metadataVisible, setMetadataVisible] = useState(prefersReducedMotion);
+  // Sequence steps 0..15
+  // Step 1: Boot line 1
+  // Step 2: Boot line 2 (+90ms)
+  // Step 3: Boot line 3 (+90ms)
+  // Step 4: Pause 120ms -> Eyebrow
+  // Step 5: Title (+100ms)
+  // Step 6: Subtitle (+100ms)
+  // Step 7: Stamp lands (+120ms, duration 300ms)
+  // Step 8: Punchline appeal.allowed = false (+300ms)
+  // Step 9: Articles I-V divider (+120ms)
+  // Steps 10..14: Rules 01..05 stagger (+70ms each)
+  // Step 15: All complete
+  const [step, setStep] = useState(prefersReducedMotion ? 15 : 0);
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      setActiveStep(6);
-      setTypedRules(RULES.map((r) => r.canonical));
-      setMetadataVisible(true);
+      setStep(15);
       return;
     }
 
-    if (isInView && activeStep === -1) {
-      // Immediately reveal metadata bar as section approaches (Requirement 16)
-      setMetadataVisible(true);
-      setActiveStep(0);
-    }
-  }, [isInView, prefersReducedMotion, activeStep]);
+    if (!isInView || step > 0) return;
 
-  // Handle sequential typing of rules (steps 0..4)
-  useEffect(() => {
-    if (prefersReducedMotion || activeStep < 0 || activeStep > 4) return;
+    // Trigger exact visual sequence
+    const timers: ReturnType<typeof setTimeout>[] = [];
 
-    const currentRule = RULES[activeStep];
-    const fullText = currentRule.canonical;
-    let charIdx = 0;
+    // STEP 1: Boot line 1
+    timers.push(setTimeout(() => setStep(1), 0));
+    // Boot line 2 (~90ms)
+    timers.push(setTimeout(() => setStep(2), 90));
+    // Boot line 3 (~90ms)
+    timers.push(setTimeout(() => setStep(3), 180));
 
-    const typingInterval = setInterval(() => {
-      charIdx++;
-      setTypedRules((prev) => {
-        const next = [...prev];
-        next[activeStep] = fullText.slice(0, charIdx);
-        return next;
-      });
+    // STEP 2 & 3: Pause ~120ms -> Eyebrow
+    timers.push(setTimeout(() => setStep(4), 300));
+    // STEP 4: Title
+    timers.push(setTimeout(() => setStep(5), 400));
+    // STEP 5: Subtitle
+    timers.push(setTimeout(() => setStep(6), 500));
 
-      if (charIdx >= fullText.length) {
-        clearInterval(typingInterval);
-        // Pause briefly before advancing to next rule or metadata bar
-        setTimeout(() => {
-          setActiveStep((s) => s + 1);
-        }, 130);
-      }
-    }, 30);
+    // STEP 6: POPO APPROVED Stamp lands
+    timers.push(setTimeout(() => setStep(7), 620));
 
-    return () => clearInterval(typingInterval);
-  }, [activeStep, prefersReducedMotion]);
+    // STEP 7: Stamp punchline appeal.allowed = false;
+    timers.push(setTimeout(() => setStep(8), 920));
 
-  // Step 5: After Rule 05 completes, complete sequence and remove cursor
-  useEffect(() => {
-    if (prefersReducedMotion || activeStep !== 5) return;
+    // STEP 8: Articles I-V divider
+    timers.push(setTimeout(() => setStep(9), 1040));
 
-    const completeTimer = setTimeout(() => {
-      setActiveStep(6);
-    }, 200);
+    // STEP 9: Staggered rules 01..05 (70ms apart)
+    timers.push(setTimeout(() => setStep(10), 1110));
+    timers.push(setTimeout(() => setStep(11), 1180));
+    timers.push(setTimeout(() => setStep(12), 1250));
+    timers.push(setTimeout(() => setStep(13), 1320));
+    timers.push(setTimeout(() => setStep(14), 1390));
+    timers.push(setTimeout(() => setStep(15), 1500));
 
-    return () => clearTimeout(completeTimer);
-  }, [activeStep, prefersReducedMotion]);
+    return () => {
+      timers.forEach(clearTimeout);
+    };
+  }, [isInView, prefersReducedMotion, step]);
+
+  const isVisible = (targetStep: number) => prefersReducedMotion || step >= targetStep;
 
   return (
     <section
@@ -121,112 +123,199 @@ export default function LucaProtocolSection() {
       className="py-20 sm:py-24 bg-[var(--surface-soft)] border-y border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors duration-300"
     >
       <Container>
-        {/* Section Header */}
-        <div className="relative mb-12 sm:mb-16">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-              <SectionTitle
-                eyebrow={t('lucaProtocol.eyebrow')}
-                title={t('lucaProtocol.title')}
-                description={t('lucaProtocol.subtitle')}
-                align="left"
-                className="mb-0"
-              />
+        {/* ========================================================================= */}
+        {/* STEP 1: PROTOCOL BOOT SEQUENCE (MUST APPEAR BEFORE TITLE - LOCKED ORDER)  */}
+        {/* ========================================================================= */}
+        <div
+          className="mb-8 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] font-mono text-xs shadow-xs select-none"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-[var(--muted-foreground)]">
+            {/* Boot line 1 */}
+            <div
+              className={cn(
+                'flex items-center gap-1.5 transition-all duration-200 text-[var(--accent)] font-semibold',
+                isVisible(1) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+              )}
+            >
+              <span className="opacity-70">&gt;</span>
+              <span>protocol.version = &ldquo;1.0&rdquo;;</span>
+              {step === 1 && <span className="animate-pulse">▌</span>}
             </div>
 
-            {/* Playful Rubber Stamp */}
-            <div className="self-start sm:self-auto flex items-center">
+            {/* Boot line 2 */}
+            <div
+              className={cn(
+                'flex items-center gap-1.5 transition-all duration-200 text-[var(--foreground)]',
+                isVisible(2) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+              )}
+            >
+              <span className="text-[var(--accent)] opacity-70">&gt;</span>
+              <span>momo.love = Infinity;</span>
+              {step === 2 && (
+                <span className="text-[var(--accent)] animate-pulse">▌</span>
+              )}
+            </div>
+
+            {/* Boot line 3 */}
+            <div
+              className={cn(
+                'flex items-center gap-1.5 transition-all duration-200 text-[var(--foreground)]',
+                isVisible(3) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+              )}
+            >
+              <span className="text-[var(--accent)] opacity-70">&gt;</span>
+              <span>authority.level = &ldquo;Popo&rdquo;;</span>
+              {step === 3 && (
+                <span className="text-[var(--accent)] animate-pulse">▌</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* STEPS 3..7: TITLE, DESCRIPTION, STAMP & PUNCHLINE                        */}
+        {/* ========================================================================= */}
+        <div className="relative mb-12 sm:mb-14">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div>
+              {/* STEP 3: Eyebrow */}
+              <div
+                className={cn(
+                  'transition-all duration-300',
+                  isVisible(4) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                )}
+              >
+                <span className="font-mono text-xs font-semibold tracking-widest text-[#C98F55] uppercase block mb-2">
+                  {t('lucaProtocol.eyebrow')}
+                </span>
+              </div>
+
+              {/* STEP 4: Title */}
+              <h2
+                className={cn(
+                  'text-3xl sm:text-4xl lg:text-5xl font-bold font-sans text-[var(--foreground)] tracking-tight mb-3 transition-all duration-300',
+                  isVisible(5) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                )}
+              >
+                {t('lucaProtocol.title')}
+              </h2>
+
+              {/* STEP 5: Description */}
+              <p
+                className={cn(
+                  'text-base sm:text-lg text-[var(--muted-foreground)] max-w-xl leading-relaxed transition-all duration-300',
+                  isVisible(6) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                )}
+              >
+                {t('lucaProtocol.subtitle')}
+              </p>
+            </div>
+
+            {/* Stamp & Punchline Container */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 self-start lg:self-auto">
+              {/* STEP 6: POPO APPROVED Stamp with physical impact */}
               <div
                 aria-hidden="true"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border-2 border-dashed border-amber-600/60 dark:border-amber-400/60 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold tracking-widest uppercase -rotate-2 select-none shadow-xs"
+                className={cn(
+                  'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded border-2 border-dashed border-amber-600/70 dark:border-amber-400/70 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold tracking-widest uppercase select-none shadow-xs transition-all duration-300',
+                  isVisible(7)
+                    ? 'opacity-100 scale-100 -rotate-2'
+                    : 'opacity-0 scale-115 rotate-0 pointer-events-none'
+                )}
+                style={{
+                  transformOrigin: 'center center',
+                }}
               >
                 <Scale className="w-3.5 h-3.5" />
                 <span>{t('lucaProtocol.popoApproved')}</span>
               </div>
-            </div>
-          </div>
 
-          {/* Protocol Metadata Bar */}
-          <div
-            className={cn(
-              'mt-6 flex flex-wrap items-center gap-2 sm:gap-4 p-3 rounded-lg bg-[var(--surface)] border border-[var(--border)] font-mono text-xs text-[var(--muted-foreground)] transition-all duration-500',
-              metadataVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-1'
-            )}
-          >
-            <span className="text-[var(--accent)] font-semibold">
-              protocol.version = &ldquo;1.0&rdquo;;
-            </span>
-            <span className="hidden sm:inline text-[var(--border)]">
-              &bull;
-            </span>
-            <span>momo.love = Infinity;</span>
-            <span className="hidden sm:inline text-[var(--border)]">
-              &bull;
-            </span>
-            <span>authority.level = &ldquo;Popo&rdquo;;</span>
-            <span className="hidden sm:inline text-[var(--border)]">
-              &bull;
-            </span>
-            <span className="text-rose-600 dark:text-rose-400 font-medium">
-              appeal.allowed = false;
-            </span>
-            {activeStep === 5 && (
-              <span className="text-[var(--accent)] font-mono animate-pulse">
-                ▌
-              </span>
-            )}
+              {/* STEP 7: Stamp Punchline (immediately follows stamp landing) */}
+              <div
+                className={cn(
+                  'font-mono text-xs font-semibold px-3 py-1.5 rounded bg-rose-500/10 dark:bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/20 transition-all duration-200 select-none',
+                  isVisible(8) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-3'
+                )}
+              >
+                <code>appeal.allowed = false;</code>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* The Five Rules Grid */}
+        {/* ========================================================================= */}
+        {/* STEP 8 & 9: ARTICLES I — V & RULES 01..05                                 */}
+        {/* ========================================================================= */}
         <div className="mb-12">
-          <div className="flex items-center gap-2 mb-4 font-mono text-xs text-[var(--muted-foreground)] uppercase tracking-wider">
+          {/* STEP 8: Articles Divider */}
+          <div
+            className={cn(
+              'flex items-center gap-2 mb-4 font-mono text-xs text-[var(--muted-foreground)] uppercase tracking-wider transition-all duration-300',
+              isVisible(9) ? 'opacity-100' : 'opacity-0'
+            )}
+          >
             <Sparkles className="w-3.5 h-3.5 text-[var(--accent)]" />
             <span>Articles I &ndash; V &middot; Non-Negotiable Decrees</span>
           </div>
 
+          {/* STEP 9: The Five Rules Grid (Staggered Entrance) */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-            {RULES.map((rule, idx) => (
-              <div
-                key={rule.id}
-                className={cn(
-                  'group relative p-4 sm:p-5 rounded-xl bg-[var(--surface)] border transition-all duration-300 flex flex-col justify-between',
-                  activeStep >= idx
-                    ? 'border-[var(--border)] opacity-100'
-                    : 'border-[var(--border)] opacity-70'
-                )}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2 font-mono text-xs text-[var(--muted-foreground)]">
-                    <span className="font-semibold text-[var(--foreground)]">
-                      RULE {rule.id}
-                    </span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--surface-soft)] border border-[var(--border)]">
-                      CONST
-                    </span>
-                  </div>
-                  {/* Canonical Indonesian rule preserved in all locales */}
-                  <div className="font-mono font-bold text-base sm:text-lg text-[var(--foreground)] leading-snug min-h-[3.2rem] sm:min-h-[3.5rem] flex items-start">
-                    <span className="sr-only">{rule.canonical}</span>
-                    <span aria-hidden="true">
-                      {typedRules[idx]}
-                      {activeStep === idx && (
-                        <span className="inline-block ml-0.5 text-[var(--accent)] font-mono animate-pulse font-normal">
-                          ▌
+            {RULES.map((rule, idx) => {
+              const ruleVisible = isVisible(10 + idx);
+              const isRule05 = rule.id === '05';
+
+              return (
+                <div
+                  key={rule.id}
+                  className={cn(
+                    'group relative p-4 sm:p-5 rounded-xl border transition-all duration-300 flex flex-col justify-between',
+                    ruleVisible
+                      ? 'opacity-100 translate-y-0'
+                      : 'opacity-0 translate-y-2 pointer-events-none',
+                    isRule05
+                      ? 'bg-amber-500/5 dark:bg-amber-500/10 border-amber-500/50 shadow-xs'
+                      : 'bg-[var(--surface)] border-[var(--border)]'
+                  )}
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-2 font-mono text-xs text-[var(--muted-foreground)]">
+                      <span className="font-semibold text-[var(--foreground)]">
+                        RULE {rule.id}
+                      </span>
+                      {isRule05 ? (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 font-bold border border-amber-500/30">
+                          FINAL AUTHORITY
+                        </span>
+                      ) : (
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--surface-soft)] border border-[var(--border)]">
+                          CONST
                         </span>
                       )}
-                    </span>
+                    </div>
+
+                    {/* Canonical Decree */}
+                    <div className="font-mono font-bold text-base sm:text-lg leading-snug min-h-[3rem] flex items-start">
+                      <span className="sr-only">{rule.canonical}</span>
+                      <span
+                        aria-hidden="true"
+                        className={cn(
+                          isRule05
+                            ? 'text-amber-700 dark:text-amber-300 font-extrabold'
+                            : 'text-[var(--foreground)]'
+                        )}
+                      >
+                        {rule.canonical}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Localized explanation note */}
+                  <div className="mt-3 pt-3 border-t border-[var(--border)] text-xs text-[var(--muted-foreground)] leading-relaxed">
+                    {t(rule.noteKey)}
                   </div>
                 </div>
-
-                {/* Localized explanation note */}
-                <div className="mt-3 pt-3 border-t border-[var(--border)] text-xs text-[var(--muted-foreground)] leading-relaxed">
-                  {t(rule.noteKey)}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

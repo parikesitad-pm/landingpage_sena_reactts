@@ -12,7 +12,9 @@ export default function RouteProgress() {
 
   const isFirstMount = useRef(true);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const progressIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const progressIntervalRef = useRef<ReturnType<typeof setInterval> | null>(
+    null
+  );
 
   // Clear running timers
   const clearTimers = () => {
@@ -58,7 +60,8 @@ export default function RouteProgress() {
       progressIntervalRef.current = setInterval(() => {
         setProgress((prev) => {
           if (prev >= 0.82) {
-            if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
+            if (progressIntervalRef.current)
+              clearInterval(progressIntervalRef.current);
             return 0.82;
           }
           return prev + (0.82 - prev) * 0.25;
@@ -67,7 +70,8 @@ export default function RouteProgress() {
 
       // Finish quickly
       const finishTimer = setTimeout(() => {
-        if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
+        if (progressIntervalRef.current)
+          clearInterval(progressIntervalRef.current);
         setProgress(1.0);
         setShowSparkle(true);
 
@@ -105,7 +109,8 @@ export default function RouteProgress() {
         className="h-[2px] sm:h-[2.5px] w-full bg-[var(--accent)] origin-left transition-transform duration-200 ease-out"
         style={{
           transform: `scaleX(${progress})`,
-          boxShadow: '0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)',
+          boxShadow:
+            '0 0 10px color-mix(in srgb, var(--accent) 45%, transparent)',
         }}
       />
 
