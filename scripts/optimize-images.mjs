@@ -7,11 +7,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-const assetsDir = path.join(rootDir, "assets");
-const outputDir = path.join(rootDir, "public", "images", "senna");
-const seoDir = path.join(rootDir, "public", "images", "seo");
-const brandingDir = path.join(rootDir, "public", "branding");
-const logoSourceDir = path.join(rootDir, "assets", "logo");
+const assetsDir = path.join(rootDir, 'assets');
+const outputDir = path.join(rootDir, 'public', 'images', 'senna');
+const seoDir = path.join(rootDir, 'public', 'images', 'seo');
+const brandingDir = path.join(rootDir, 'public', 'branding');
+const logoSourceDir = path.join(rootDir, 'assets', 'logo');
 
 // Ensure target directories exist
 fs.mkdirSync(outputDir, { recursive: true });

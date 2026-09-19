@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 export interface LogoMarkProps {
   className?: string;
-  variant?: "full" | "mark" | "compact";
+  variant?: 'full' | 'mark' | 'compact';
   height?: number;
 }
 
 export default function LogoMark({
   className,
-  variant = "compact",
+  variant = 'compact',
   height = 36,
 }: LogoMarkProps) {
-  if (variant === "full") {
+  if (variant === 'full') {
     return (
       <Link
         to="/"
-        className={cn("inline-block focus-visible:outline-2 group", className)}
+        className={cn('inline-block focus-visible:outline-2 group', className)}
         aria-label="Muhammad Gabriel Luca Senna - Home"
       >
         <img
@@ -30,11 +30,14 @@ export default function LogoMark({
     );
   }
 
-  if (variant === "mark") {
+  if (variant === 'mark') {
     return (
       <Link
         to="/"
-        className={cn("inline-flex items-center focus-visible:outline-2 group", className)}
+        className={cn(
+          'inline-flex items-center focus-visible:outline-2 group',
+          className
+        )}
         aria-label="Muhammad Gabriel Luca Senna - Home"
       >
         <img
@@ -54,7 +57,7 @@ export default function LogoMark({
     <Link
       to="/"
       className={cn(
-        "inline-flex items-center gap-2.5 text-[#2F3437] hover:text-[#C98F55] transition-colors focus-visible:outline-2 group",
+        'inline-flex items-center gap-2.5 text-[#2F3437] hover:text-[#C98F55] transition-colors focus-visible:outline-2 group',
         className
       )}
       aria-label="Muhammad Gabriel Luca Senna - Home"

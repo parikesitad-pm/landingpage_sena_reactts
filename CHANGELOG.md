@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Sistem tema 3 mode (Device / Light / Dark) dengan inisialisasi anti-flash sinkron di `index.html`.
+- Variabel CSS semantik untuk tema light dan dark tanpa flash putih saat refresh.
+- Dukungan multibahasa penuh untuk 5 bahasa (English, Bahasa Indonesia, 中文, 日本語, 한국어) menggunakan i18next & react-i18next.
+- Deteksi bahasa perangkat otomatis (`Device / System`) dengan rute URL `/en/`, `/id/`, `/zh-cn/`, `/ja/`, `/ko/`.
+- Hreflang alternates multibahasa dan pembaruan sitemap.xml dengan rute lokal.
+- Pembaruan makna bagian "Popo's Little Dream" (Future Software Engineer sebagai impian kakek, bukan takdir kaku bagi Luca).
+- Bagian baru "Our Hope for Luca" (harapan keluarga tentang iman, akhlak, tanggung jawab, ketegaran menghadapi kesedihan, dan kebebasan memilih jalan hidup).
+- Menu preferensi terintegrasi di Navbar dan Mobile Navigation untuk pengaturan tema dan bahasa secara mudah dan aksesibel.
 - Integrasi sistem identitas logo resmi LUCA (`< ✦ >` code brackets + star + orbit + orbit dot).
 - Aset produksi logo resmi di `/public/branding/` (logo lengkap, logo mark, favicon.ico resmi, apple-touch-icon.png).
 - Bagian editorial baru "The Mark of Luca" di homepage dan rute halaman dedikasi `/brand` & `/the-logo`.

@@ -11,71 +11,71 @@ export const siteContent = {
   } satisfies ChildProfile,
 
   brand: {
-    name: "LUCA",
-    fullName: "Muhammad Gabriel Luca Senna",
-    signature: "Hello, World.",
-    established: "EST. 2025",
-    philosophy: "Hello, World. Keep becoming.",
+    name: 'LUCA',
+    fullName: 'Muhammad Gabriel Luca Senna',
+    signature: 'Hello, World.',
+    established: 'EST. 2025',
+    philosophy: 'Hello, World. Keep becoming.',
     values: [
       {
-        title: "Curious Today",
+        title: 'Curious Today',
         description:
-          "Asking questions, noticing the little wonders, and exploring with open eyes.",
+          'Asking questions, noticing the little wonders, and exploring with open eyes.',
       },
       {
-        title: "Growing Always",
+        title: 'Growing Always',
         description:
-          "Learning step by step, one little discovery and milestone at a time.",
+          'Learning step by step, one little discovery and milestone at a time.',
       },
       {
-        title: "Brighter Tomorrows",
+        title: 'Brighter Tomorrows',
         description:
-          "Carrying warmth, curiosity, and bright possibilities forward.",
+          'Carrying warmth, curiosity, and bright possibilities forward.',
       },
       {
-        title: "Build With Purpose",
+        title: 'Build With Purpose',
         description:
-          "Not creating for the sake of creating, but making things with care, kindness, and meaning for people.",
+          'Not creating for the sake of creating, but making things with care, kindness, and meaning for people.',
       },
     ],
     meaning: [
       {
-        title: "Create",
-        symbol: "< >",
+        title: 'Create',
+        symbol: '< >',
         description:
-          "A small nod to code, making, and the possibility of one day becoming a software engineer.",
+          'A small nod to code, making, and the possibility of one day becoming a software engineer.',
       },
       {
-        title: "Wonder",
-        symbol: "✦",
+        title: 'Wonder',
+        symbol: '✦',
         description:
-          "A spark of curiosity, possibility, and the bright spark of imagination.",
+          'A spark of curiosity, possibility, and the bright spark of imagination.',
       },
       {
-        title: "Explore",
-        symbol: "Orbit & Dot",
+        title: 'Explore',
+        symbol: 'Orbit & Dot',
         description:
-          "A reminder that learning is an expanding journey, with Luca moving through life and still discovering.",
+          'A reminder that learning is an expanding journey, with Luca moving through life and still discovering.',
       },
       {
-        title: "Become",
-        symbol: "Hello, World.",
+        title: 'Become',
+        symbol: 'Hello, World.',
         description:
           "The first line of many beginnings — Luca's first hello to the world, and perhaps one day his first line of code.",
       },
     ],
     narrative: {
       intro:
-        "The LUCA mark was created as a first personal identity for Muhammad Gabriel Luca Senna. It is a gentle symbol of who he is today and who he may become tomorrow — curious, growing, and discovering the world one step at a time.",
+        'The LUCA mark was created as a first personal identity for Muhammad Gabriel Luca Senna. It is a gentle symbol of who he is today and who he may become tomorrow — curious, growing, and discovering the world one step at a time.',
       details:
         "The code brackets hint at creation. The star holds possibility. The orbit suggests exploration. And 'Hello, World.' reminds us that every meaningful journey begins with a first hello.",
     },
     alternativeDirections: [
-      "Curious today. Building a brighter tomorrow.",
-      "Grow with curiosity.",
-      "Explore. Learn. Create.",
-      "Made to wonder.",
-      "Build a kinder tomorrow.",
+      'Curious today. Building a brighter tomorrow.',
+      'Grow with curiosity.',
+      'Explore. Learn. Create.',
+      'Made to wonder.',
+      'Build a kinder tomorrow.',
     ],
   },
 

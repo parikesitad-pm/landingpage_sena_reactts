@@ -1,11 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Muhammad Gabriel Luca Senna | First Portfolio &amp; Growing Story
-    </title>
+    <title>Muhammad Gabriel Luca Senna | First Portfolio &amp; Growing Story</title>
+
+    <!-- Synchronous Anti-Flash Theme Script (Executes before paint) -->
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("luca-theme");
+          const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const resolved =
+            saved === "light" || saved === "dark"
+              ? saved
+              : systemDark
+              ? "dark"
+              : "light";
+          document.documentElement.dataset.theme = resolved;
+          document.documentElement.style.colorScheme = resolved;
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
 
     <!-- Meta Description & Identity -->
     <meta
@@ -14,7 +32,7 @@
     />
     <meta
       name="keywords"
-      content="Muhammad Gabriel Luca Senna, Senna, Luca Senna, first portfolio, family memories"
+      content="Muhammad Gabriel Luca Senna, Senna, Luca Senna, first portfolio, family memories, LUCA"
     />
     <meta name="author" content="parikesitad-pm" />
     <meta name="theme-color" content="#F8F5EF" />
@@ -24,9 +42,17 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://landingpage-sena-reactts.vercel.app/" />
 
-    <!-- Favicons & App Icons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Multilingual Hreflang Alternates -->
+    <link rel="alternate" hreflang="en" href="https://landingpage-sena-reactts.vercel.app/en/" />
+    <link rel="alternate" hreflang="id" href="https://landingpage-sena-reactts.vercel.app/id/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://landingpage-sena-reactts.vercel.app/zh-cn/" />
+    <link rel="alternate" hreflang="ja" href="https://landingpage-sena-reactts.vercel.app/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://landingpage-sena-reactts.vercel.app/ko/" />
+    <link rel="alternate" hreflang="x-default" href="https://landingpage-sena-reactts.vercel.app/" />
+
+    <!-- Approved Favicons & App Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -40,10 +66,7 @@
       property="og:description"
       content="Memories, milestones, family moments, and the growing journey of Muhammad Gabriel Luca Senna."
     />
-    <meta
-      property="og:url"
-      content="https://landingpage-sena-reactts.vercel.app/"
-    />
+    <meta property="og:url" content="https://landingpage-sena-reactts.vercel.app/" />
     <meta property="og:site_name" content="Muhammad Gabriel Luca Senna" />
     <meta
       property="og:image"
@@ -76,7 +99,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Ubuntu:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Ubuntu:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -90,7 +113,11 @@
             "@id": "https://landingpage-sena-reactts.vercel.app/#website",
             "url": "https://landingpage-sena-reactts.vercel.app/",
             "name": "Muhammad Gabriel Luca Senna",
-            "alternateName": ["Senna", "Luca Senna"],
+            "alternateName": [
+              "Senna",
+              "Luca Senna",
+              "LUCA"
+            ],
             "description": "The first portfolio and growing story of Muhammad Gabriel Luca Senna."
           },
           {
@@ -110,7 +137,10 @@
             "@type": "Person",
             "@id": "https://landingpage-sena-reactts.vercel.app/#senna",
             "name": "Muhammad Gabriel Luca Senna",
-            "alternateName": ["Senna", "Luca"],
+            "alternateName": [
+              "Senna",
+              "Luca"
+            ],
             "url": "https://landingpage-sena-reactts.vercel.app/"
           }
         ]

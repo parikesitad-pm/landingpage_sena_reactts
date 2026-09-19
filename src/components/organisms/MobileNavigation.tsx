@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { X } from 'lucide-react';
-import LogoMark from '@/components/atoms/LogoMark';
+import { useEffect, useRef } from "react";
+import { X } from "lucide-react";
+import LogoMark from "@/components/atoms/LogoMark";
+import { Link } from "react-router-dom";
 
 export interface MobileNavigationProps {
   isOpen: boolean;
@@ -17,21 +18,21 @@ export default function MobileNavigation({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", handleKeyDown);
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, onClose]);
 
@@ -42,18 +43,18 @@ export default function MobileNavigation({
       role="dialog"
       aria-modal="true"
       aria-label="Navigation Menu"
-      className="fixed inset-0 z-50 bg-[#2F3437]/40 backdrop-blur-xs flex flex-col justify-start md:hidden"
+      className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-start md:hidden"
     >
       <div
         ref={containerRef}
-        className="w-full bg-[#FFFDF8] border-b border-[#E7E0D6] shadow-lg px-6 py-5 transition-all"
+        className="w-full bg-[var(--surface)] border-b border-[var(--border)] shadow-xl px-6 py-5 transition-all text-left"
       >
-        <div className="flex items-center justify-between pb-5 border-b border-[#EFEAE2]">
+        <div className="flex items-center justify-between pb-5 border-b border-[var(--border)]">
           <LogoMark />
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-full text-[#73706A] hover:text-[#2F3437] hover:bg-[#F2ECE1] focus-visible:outline-2"
+            className="p-2 rounded-full text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--surface-soft)] focus-visible:outline-2"
             aria-label="Close menu"
           >
             <X className="w-6 h-6" />
@@ -66,22 +67,22 @@ export default function MobileNavigation({
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className="px-3 py-3 text-lg font-medium text-[#2F3437] hover:text-[#C98F55] hover:bg-[#FAF6EE] rounded-xl transition-colors"
+              className="px-3 py-3 text-lg font-medium text-[var(--foreground)] hover:text-[#C98F55] hover:bg-[var(--surface-soft)] rounded-xl transition-colors"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="pt-4 border-t border-[#EFEAE2] flex justify-between items-center text-xs font-mono text-[#8C8479]">
-          <span className="font-semibold text-[#2F3437]">LUCA &middot; EST. 2025</span>
-          <a
-            href="/brand"
+        <div className="pt-4 border-t border-[var(--border)] flex justify-between items-center text-xs font-mono text-[var(--muted-foreground)]">
+          <span className="font-semibold text-[var(--foreground)]">LUCA &middot; EST. 2025</span>
+          <Link
+            to="/brand"
             onClick={onClose}
             className="text-[#C98F55] hover:underline"
           >
-            Brand Details &rarr;
-          </a>
+            The Mark &rarr;
+          </Link>
         </div>
       </div>
     </div>

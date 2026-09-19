@@ -1,20 +1,22 @@
-import Container from '@/components/atoms/Container';
-import SectionTitle from '@/components/atoms/SectionTitle';
-import MemoryGallery from '@/features/memories/components/MemoryGallery';
-import { siteContent } from '@/data/siteContent';
+import Container from "@/components/atoms/Container";
+import SectionTitle from "@/components/atoms/SectionTitle";
+import MemoryGallery from "@/features/memories/components/MemoryGallery";
+import { useTranslation } from "react-i18next";
 
 export default function MemoriesSection() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="memories"
-      className="py-20 sm:py-28 bg-[#FFFDF8] border-t border-[#E7E0D6] scroll-mt-12"
+      className="py-20 sm:py-28 bg-[var(--surface)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
       aria-labelledby="memories-title"
     >
       <Container size="lg">
         <SectionTitle
-          eyebrow={siteContent.memories.eyebrow}
-          title={siteContent.memories.title}
-          description={siteContent.memories.subtitle}
+          eyebrow={t("memories.eyebrow")}
+          title={t("memories.title")}
+          description={t("memories.subtitle")}
           align="center"
         />
 

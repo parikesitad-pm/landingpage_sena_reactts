@@ -1,31 +1,34 @@
-import { useState } from 'react';
-import { Menu } from 'lucide-react';
-import LogoMark from '@/components/atoms/LogoMark';
-import NavLink from '@/components/molecules/NavLink';
-import MobileNavigation from '@/components/organisms/MobileNavigation';
-import { useScrollPosition } from '@/hooks/useScrollPosition';
-import { cn } from '@/lib/utils';
-
-const NAV_ITEMS = [
-  { label: 'Story', href: '#story' },
-  { label: 'Growing Up', href: '#milestones' },
-  { label: 'Memories', href: '#memories' },
-  { label: 'Family', href: '#family' },
-  { label: 'The Mark', href: '#brand-mark' },
-];
+import { useState } from "react";
+import { Menu } from "lucide-react";
+import LogoMark from "@/components/atoms/LogoMark";
+import NavLink from "@/components/molecules/NavLink";
+import MobileNavigation from "@/components/organisms/MobileNavigation";
+import PreferencesMenu from "@/features/preferences/components/PreferencesMenu";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrollY = useScrollPosition();
   const isScrolled = scrollY > 20;
+  const { t } = useTranslation();
+
+  const navItems = [
+    { label: t("nav.story"), href: "#story" },
+    { label: t("nav.growingUp"), href: "#milestones" },
+    { label: t("nav.memories"), href: "#memories" },
+    { label: t("nav.family"), href: "#family" },
+    { label: t("nav.brand"), href: "#brand-mark" },
+  ];
 
   return (
     <header
       className={cn(
-        'sticky top-0 z-40 w-full transition-all duration-300',
+        "sticky top-0 z-40 w-full transition-all duration-300",
         isScrolled
-          ? 'bg-[#FFFDF8]/90 backdrop-blur-md border-b border-[#E7E0D6]/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] py-3'
-          : 'bg-transparent py-5'
+          ? "bg-[var(--surface)]/90 backdrop-blur-md border-b border-[var(--border)] shadow-[0_2px_10px_rgba(0,0,0,0.04)] py-3"
+          : "bg-transparent py-5"
       )}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -33,36 +36,42 @@ export default function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1 sm:gap-2">
-          {NAV_ITEMS.map((item) => (
+          {navItems.map((item) => (
             <NavLink key={item.href} href={item.href} label={item.label} />
           ))}
         </nav>
 
-        {/* Action / Portfolio pill */}
-        <div className="hidden md:flex items-center">
+        {/* Right side controls: Preferences menu + "For Senna" pill */}
+        <div className="hidden md:flex items-center gap-3">
+          <PreferencesMenu />
+
           <a
             href="#for-senna"
-            className="text-xs font-mono font-medium text-[#73706A] bg-[#F2ECE1]/80 hover:bg-[#EAE2D4] px-3.5 py-1.5 rounded-full border border-[#E2D8C7] transition-colors"
+            className="text-xs font-mono font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] px-3.5 py-1.5 rounded-full border border-[var(--border)] transition-colors"
           >
-            For Senna &rarr;
+            {t("nav.forSenna")} &rarr;
           </a>
         </div>
 
-        {/* Mobile menu trigger */}
-        <button
-          type="button"
-          onClick={() => setMobileOpen(true)}
-          className="md:hidden p-2 rounded-lg text-[#2F3437] hover:bg-[#F2ECE1] transition-colors focus-visible:outline-2"
-          aria-label="Open menu"
-        >
-          <Menu className="w-6 h-6" />
-        </button>
+        {/* Mobile controls: Preferences menu + menu toggle */}
+        <div className="flex md:hidden items-center gap-2">
+          <PreferencesMenu />
+
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className="p-2 rounded-lg text-[var(--foreground)] hover:bg-[var(--surface-soft)] transition-colors focus-visible:outline-2"
+            aria-label="Open menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
       </div>
 
       <MobileNavigation
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        navItems={NAV_ITEMS}
+        navItems={navItems}
       />
     </header>
   );

@@ -9,6 +9,14 @@ export const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
+    path: "/:lang",
+    element: <HomePage />,
+  },
+  {
+    path: "/:lang/brand",
+    element: <BrandPage />,
+  },
+  {
     path: "/brand",
     element: <BrandPage />,
   },
