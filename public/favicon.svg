@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#F8F5EF" stroke="#E7E0D6" stroke-width="2"/>
+  <text x="30" y="44" font-family="Ubuntu, sans-serif" font-size="34" font-weight="700" fill="#2F3437" text-anchor="middle">S</text>
+  <circle cx="46" cy="41" r="3.5" fill="#C98F55"/>
+</svg>

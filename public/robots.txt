@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://landingpage-sena-reactts.vercel.app/sitemap.xml

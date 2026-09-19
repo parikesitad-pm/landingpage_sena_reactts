@@ -1,0 +1,21 @@
+{
+  "name": "Muhammad Gabriel Luca Senna",
+  "short_name": "Senna",
+  "description": "A Little Life. A Growing Story. The first portfolio of Muhammad Gabriel Luca Senna.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8F5EF",
+  "theme_color": "#F8F5EF",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
