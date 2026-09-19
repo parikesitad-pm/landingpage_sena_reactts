@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Memperbaiki bug pembatalan timer di seksi Luca Protocol (`LucaProtocolSection.tsx`) di mana state `step` di dalam dependency array `useEffect` menyebabkan pembersihan timer setelah step 1 sehingga judul, stempel, dan seluruh kelima aturan keluarga membeku dan tidak muncul.
+- Menambahkan efek stempel fisik karet berotasi (`@keyframes stamp-land`) pada badge `POPO APPROVED` dan membersihkan markup semantik deklarasi aturan.
 - Mengatasi 404 pada foto produksi di desktop/retina dengan melengkapi varian responsif 1280px (`.avif` dan `.webp`) untuk semua foto keluarga.
 - Normalisasi `basePath` pada `ResponsiveImage` agar selalu diawali slash root-relative (`/images/...`) untuk menjamin semua foto termuat dengan benar di seluruh rute lokal (`/`, `/en/`, `/id/`, `/zh-cn/`, `/ja/`, `/ko/`).
 - Perbaikan pada `scripts/optimize-images.mjs` agar selalu mengekspor seluruh set ukuran responsif target (480, 768, 1024, 1280) tanpa melewati ukuran 1280px.

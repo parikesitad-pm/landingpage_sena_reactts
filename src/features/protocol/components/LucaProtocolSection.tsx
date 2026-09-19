@@ -43,6 +43,7 @@ const RULES: RuleItem[] = [
 export default function LucaProtocolSection() {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
+  const hasTriggeredRef = useRef(false);
 
   // Early trigger rootMargin for fast mobile scrolling (Requirement 15)
   const isInView = useInView(sectionRef, {
@@ -59,7 +60,7 @@ export default function LucaProtocolSection() {
   // Step 4: Pause 120ms -> Eyebrow
   // Step 5: Title (+100ms)
   // Step 6: Subtitle (+100ms)
-  // Step 7: Stamp lands (+120ms, duration 300ms)
+  // Step 7: Stamp lands (+120ms, duration 280ms)
   // Step 8: Punchline appeal.allowed = false (+300ms)
   // Step 9: Articles I-V divider (+120ms)
   // Steps 10..14: Rules 01..05 stagger (+70ms each)
@@ -72,7 +73,8 @@ export default function LucaProtocolSection() {
       return;
     }
 
-    if (!isInView || step > 0) return;
+    if (!isInView || hasTriggeredRef.current) return;
+    hasTriggeredRef.current = true;
 
     // Trigger exact visual sequence
     const timers: ReturnType<typeof setTimeout>[] = [];
@@ -111,9 +113,10 @@ export default function LucaProtocolSection() {
     return () => {
       timers.forEach(clearTimeout);
     };
-  }, [isInView, prefersReducedMotion, step]);
+  }, [isInView, prefersReducedMotion]);
 
-  const isVisible = (targetStep: number) => prefersReducedMotion || step >= targetStep;
+  const isVisible = (targetStep: number) =>
+    prefersReducedMotion || step >= targetStep;
 
   return (
     <section
@@ -126,15 +129,15 @@ export default function LucaProtocolSection() {
         {/* ========================================================================= */}
         {/* STEP 1: PROTOCOL BOOT SEQUENCE (MUST APPEAR BEFORE TITLE - LOCKED ORDER)  */}
         {/* ========================================================================= */}
-        <div
-          className="mb-8 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] font-mono text-xs shadow-xs select-none"
-        >
+        <div className="mb-8 p-3.5 sm:p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] font-mono text-xs shadow-xs select-none">
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-[var(--muted-foreground)]">
             {/* Boot line 1 */}
             <div
               className={cn(
                 'flex items-center gap-1.5 transition-all duration-200 text-[var(--accent)] font-semibold',
-                isVisible(1) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                isVisible(1)
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 -translate-x-2'
               )}
             >
               <span className="opacity-70">&gt;</span>
@@ -146,7 +149,9 @@ export default function LucaProtocolSection() {
             <div
               className={cn(
                 'flex items-center gap-1.5 transition-all duration-200 text-[var(--foreground)]',
-                isVisible(2) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                isVisible(2)
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 -translate-x-2'
               )}
             >
               <span className="text-[var(--accent)] opacity-70">&gt;</span>
@@ -160,7 +165,9 @@ export default function LucaProtocolSection() {
             <div
               className={cn(
                 'flex items-center gap-1.5 transition-all duration-200 text-[var(--foreground)]',
-                isVisible(3) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                isVisible(3)
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 -translate-x-2'
               )}
             >
               <span className="text-[var(--accent)] opacity-70">&gt;</span>
@@ -182,7 +189,9 @@ export default function LucaProtocolSection() {
               <div
                 className={cn(
                   'transition-all duration-300',
-                  isVisible(4) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                  isVisible(4)
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-2'
                 )}
               >
                 <span className="font-mono text-xs font-semibold tracking-widest text-[#C98F55] uppercase block mb-2">
@@ -194,7 +203,9 @@ export default function LucaProtocolSection() {
               <h2
                 className={cn(
                   'text-3xl sm:text-4xl lg:text-5xl font-bold font-sans text-[var(--foreground)] tracking-tight mb-3 transition-all duration-300',
-                  isVisible(5) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                  isVisible(5)
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-2'
                 )}
               >
                 {t('lucaProtocol.title')}
@@ -204,7 +215,9 @@ export default function LucaProtocolSection() {
               <p
                 className={cn(
                   'text-base sm:text-lg text-[var(--muted-foreground)] max-w-xl leading-relaxed transition-all duration-300',
-                  isVisible(6) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+                  isVisible(6)
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-2'
                 )}
               >
                 {t('lucaProtocol.subtitle')}
@@ -217,9 +230,9 @@ export default function LucaProtocolSection() {
               <div
                 aria-hidden="true"
                 className={cn(
-                  'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded border-2 border-dashed border-amber-600/70 dark:border-amber-400/70 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold tracking-widest uppercase select-none shadow-xs transition-all duration-300',
+                  'inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded border-2 border-dashed border-amber-600/70 dark:border-amber-400/70 text-amber-700 dark:text-amber-400 font-mono text-xs font-bold tracking-widest uppercase select-none shadow-xs',
                   isVisible(7)
-                    ? 'opacity-100 scale-100 -rotate-2'
+                    ? 'opacity-100 scale-100 -rotate-2 animate-stamp'
                     : 'opacity-0 scale-115 rotate-0 pointer-events-none'
                 )}
                 style={{
@@ -234,7 +247,9 @@ export default function LucaProtocolSection() {
               <div
                 className={cn(
                   'font-mono text-xs font-semibold px-3 py-1.5 rounded bg-rose-500/10 dark:bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/20 transition-all duration-200 select-none',
-                  isVisible(8) ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-3'
+                  isVisible(8)
+                    ? 'opacity-100 translate-x-0'
+                    : 'opacity-0 -translate-x-3'
                 )}
               >
                 <code>appeal.allowed = false;</code>
@@ -294,19 +309,16 @@ export default function LucaProtocolSection() {
                     </div>
 
                     {/* Canonical Decree */}
-                    <div className="font-mono font-bold text-base sm:text-lg leading-snug min-h-[3rem] flex items-start">
-                      <span className="sr-only">{rule.canonical}</span>
-                      <span
-                        aria-hidden="true"
-                        className={cn(
-                          isRule05
-                            ? 'text-amber-700 dark:text-amber-300 font-extrabold'
-                            : 'text-[var(--foreground)]'
-                        )}
-                      >
-                        {rule.canonical}
-                      </span>
-                    </div>
+                    <p
+                      className={cn(
+                        'font-mono font-bold text-base sm:text-lg leading-snug min-h-[3rem] flex items-start',
+                        isRule05
+                          ? 'text-amber-700 dark:text-amber-300 font-extrabold'
+                          : 'text-[var(--foreground)]'
+                      )}
+                    >
+                      {rule.canonical}
+                    </p>
                   </div>
 
                   {/* Localized explanation note */}

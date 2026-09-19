@@ -106,6 +106,25 @@
   }
 }
 
+@keyframes stamp-land {
+  0% {
+    opacity: 0;
+    transform: scale(1.18) rotate(0deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(0.97) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
+.animate-stamp {
+  animation: stamp-land 280ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -116,3 +135,4 @@
     scroll-behavior: auto !important;
   }
 }
+
