@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Mengembalikan animasi pengetikan karakter demi karakter (typing animation) beserta kursor berkedip `▌` pada seluruh deklarasi aturan keluarga (Rules 01–05) di seksi Luca Protocol dengan tetap menjaga aksesibilitas `sr-only` dan fallback `prefers-reduced-motion`.
 - Memperbaiki bug pembatalan timer di seksi Luca Protocol (`LucaProtocolSection.tsx`) di mana state `step` di dalam dependency array `useEffect` menyebabkan pembersihan timer setelah step 1 sehingga judul, stempel, dan seluruh kelima aturan keluarga membeku dan tidak muncul.
 - Menambahkan efek stempel fisik karet berotasi (`@keyframes stamp-land`) pada badge `POPO APPROVED` dan membersihkan markup semantik deklarasi aturan.
 - Mengatasi 404 pada foto produksi di desktop/retina dengan melengkapi varian responsif 1280px (`.avif` dan `.webp`) untuk semua foto keluarga.

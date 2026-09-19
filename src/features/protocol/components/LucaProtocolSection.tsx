@@ -53,18 +53,24 @@ export default function LucaProtocolSection() {
   });
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Sequence steps 0..10
-  // Step 1: Heading block
-  // Step 2: Inline protocol row (+140ms)
-  // Step 3: POPO APPROVED stamp lands (+260ms)
-  // Step 4: Articles I-V divider (+250ms)
-  // Steps 5..9: Rules 01..05 stagger (+70ms each)
-  // Step 10: All complete
-  const [step, setStep] = useState(prefersReducedMotion ? 10 : 0);
+  // Sequence steps:
+  // 1: Heading block (0ms)
+  // 2: Inline protocol row (120ms)
+  // 3: Stamp lands (350ms)
+  // 4: Articles divider reveals (550ms) -> triggers rule typing (typingRuleIdx = 0)
+  const [step, setStep] = useState(prefersReducedMotion ? 4 : 0);
+  const [typingRuleIdx, setTypingRuleIdx] = useState(
+    prefersReducedMotion ? 5 : -1
+  );
+  const [typedRules, setTypedRules] = useState<string[]>(
+    prefersReducedMotion ? RULES.map((r) => r.canonical) : ['', '', '', '', '']
+  );
 
   useEffect(() => {
     if (prefersReducedMotion) {
-      setStep(10);
+      setStep(4);
+      setTypingRuleIdx(5);
+      setTypedRules(RULES.map((r) => r.canonical));
       return;
     }
 
@@ -75,24 +81,51 @@ export default function LucaProtocolSection() {
 
     // STEP 1: Heading block
     timers.push(setTimeout(() => setStep(1), 0));
-    // STEP 2: Inline protocol row (~140ms)
-    timers.push(setTimeout(() => setStep(2), 140));
-    // STEP 3: POPO APPROVED Stamp lands (~400ms)
-    timers.push(setTimeout(() => setStep(3), 400));
-    // STEP 4: Articles I-V divider (~650ms)
-    timers.push(setTimeout(() => setStep(4), 650));
-    // STEPS 5..9: Staggered rules 01..05 (70ms apart)
-    timers.push(setTimeout(() => setStep(5), 720));
-    timers.push(setTimeout(() => setStep(6), 790));
-    timers.push(setTimeout(() => setStep(7), 860));
-    timers.push(setTimeout(() => setStep(8), 930));
-    timers.push(setTimeout(() => setStep(9), 1000));
-    timers.push(setTimeout(() => setStep(10), 1100));
+    // STEP 2: Inline protocol row (~120ms)
+    timers.push(setTimeout(() => setStep(2), 120));
+    // STEP 3: POPO APPROVED Stamp lands (~350ms)
+    timers.push(setTimeout(() => setStep(3), 350));
+    // STEP 4: Articles I-V divider (~550ms) & start typing Rule 01
+    timers.push(
+      setTimeout(() => {
+        setStep(4);
+        setTypingRuleIdx(0);
+      }, 550)
+    );
 
     return () => {
       timers.forEach(clearTimeout);
     };
   }, [isInView, prefersReducedMotion]);
+
+  // Handle sequential typing of rules (steps 0..4)
+  useEffect(() => {
+    if (prefersReducedMotion || typingRuleIdx < 0 || typingRuleIdx > 4) return;
+
+    const currentRule = RULES[typingRuleIdx];
+    const fullText = currentRule.canonical;
+    let charIdx = 0;
+
+    const typingInterval = setInterval(() => {
+      charIdx++;
+      setTypedRules((prev) => {
+        const next = [...prev];
+        next[typingRuleIdx] = fullText.slice(0, charIdx);
+        return next;
+      });
+
+      if (charIdx >= fullText.length) {
+        clearInterval(typingInterval);
+        setTimeout(() => {
+          setTypingRuleIdx((idx) => idx + 1);
+        }, 110);
+      }
+    }, 25);
+
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [typingRuleIdx, prefersReducedMotion]);
 
   const isVisible = (targetStep: number) =>
     prefersReducedMotion || step >= targetStep;
@@ -220,10 +253,10 @@ export default function LucaProtocolSection() {
             <span>Articles I &ndash; V &middot; Non-Negotiable Decrees</span>
           </div>
 
-          {/* The Five Rules Grid (Staggered Entrance) */}
+          {/* The Five Rules Grid (Sequential Typing Entrance) */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
             {RULES.map((rule, idx) => {
-              const ruleVisible = isVisible(5 + idx);
+              const ruleVisible = prefersReducedMotion || typingRuleIdx >= idx;
               const isRule05 = rule.id === '05';
 
               return (
@@ -255,17 +288,25 @@ export default function LucaProtocolSection() {
                       )}
                     </div>
 
-                    {/* Canonical Decree */}
-                    <p
-                      className={cn(
-                        'font-mono font-bold text-base sm:text-lg leading-snug min-h-[3rem] flex items-start',
-                        isRule05
-                          ? 'text-amber-700 dark:text-amber-300 font-extrabold'
-                          : 'text-[var(--foreground)]'
-                      )}
-                    >
-                      {rule.canonical}
-                    </p>
+                    {/* Canonical Decree with Typing Animation */}
+                    <div className="font-mono font-bold text-base sm:text-lg leading-snug min-h-[3rem] flex items-start">
+                      <span className="sr-only">{rule.canonical}</span>
+                      <span
+                        aria-hidden="true"
+                        className={cn(
+                          isRule05
+                            ? 'text-amber-700 dark:text-amber-300 font-extrabold'
+                            : 'text-[var(--foreground)]'
+                        )}
+                      >
+                        {typedRules[idx]}
+                        {typingRuleIdx === idx && (
+                          <span className="inline-block ml-0.5 text-[var(--accent)] font-mono animate-pulse font-normal">
+                            ▌
+                          </span>
+                        )}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Localized explanation note */}
