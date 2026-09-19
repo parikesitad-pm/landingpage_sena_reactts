@@ -118,15 +118,51 @@
     "p2": "Kini, Luca meneruskan langkah perjalanan keluarga ini, bertumbuh hari demi hari sambil menemani Popo dan Momo melewati seluruh momen sederhana yang perlahan menjadi kenangan abadi.",
     "tag": "damai di surga · forever loved"
   },
+  "lucaProtocol": {
+    "eyebrow": "LIMA HUKUM UTAMA LUCA",
+    "title": "Luca Protocol v1.0",
+    "subtitle": "Konstitusi keluarga yang mutlak, tak bisa digugat, tapi penuh kasih sayang.",
+    "popoApproved": "POPO APPROVED",
+    "rules": {
+      "01": {
+        "note": "Wajib dan mutlak tanpa syarat."
+      },
+      "02": {
+        "note": "Tetap berlaku dan terus berlanjut."
+      },
+      "03": {
+        "note": "Pasal-pasal sebelumnya berlaku permanen."
+      },
+      "04": {
+        "note": "Dengar dan patuhi nasihat Momo."
+      },
+      "05": {
+        "note": "Otoritas tertinggi mutlak di tangan Popo."
+      }
+    },
+    "protection": {
+      "eyebrow": "DILARANG MERUNDUNG DARI LUAR",
+      "title": "House Protection Policy",
+      "text": "Tidak boleh ada orang luar yang merundung Luca. Hak menjahili dan menggoda sudah dipegang penuh secara eksklusif oleh Popo dan Momo.",
+      "tag": "LISENSI JAHIL: HANYA POPO & MOMO"
+    },
+    "mischief": {
+      "eyebrow": "BATASAN & KONSEKUENSI",
+      "title": "Belajar Nakal Sama Popo",
+      "canonical": "Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.",
+      "supporting": "Lebih baik belajar menguji batasan di rumah, di mana setiap pelajaran tetap berbalut cinta.",
+      "quoteAuthor": "— Pesan Terbuka Popo"
+    }
+  },
   "parentMessage": {
-    "eyebrow": "SURAT DARI MAMA & PAPA",
+    "eyebrow": "SURAT DARI POPO & MOMO",
     "title": "Untuk Senna",
     "p1": "Suatu hari nanti saat kamu membuka laman ini, mungkin kamu hanya melihat foto-foto dan deretan kata.",
     "p2": "Bagi kami, setiap helainya merangkul seutuhnya memori cinta yang tak ternilai.",
     "p3": "Teruslah menjelajah, teruslah takjub pada kehidupan, dan jadilah dirimu sendiri yang seutuhnya.",
     "p4": "Akan selalu ada babak-babak indah yang menunggumu di masa depan.",
     "signoff": "Dengan segenap cinta, selalu.",
-    "from": "Mama & Papa"
+    "from": "Popo & Momo"
   },
   "poposDream": {
     "eyebrow": "IMPIAN KECIL POPO",

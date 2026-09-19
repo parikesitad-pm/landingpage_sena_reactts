@@ -118,15 +118,51 @@
     "p2": "今天，Luca 带着爱的温度继续书写家庭的新篇章，在每一天的成长中陪伴着 Popo 和 Momo，把无数平凡温馨的时光慢慢变为永恒的珍贵记忆。",
     "tag": "damai di surga · forever loved"
   },
+  "lucaProtocol": {
+    "eyebrow": "LUCA 家规五大守则",
+    "title": "Luca Protocol v1.0",
+    "subtitle": "一份不可抗辩、充满爱意的家庭宪法。",
+    "popoApproved": "POPO APPROVED",
+    "rules": {
+      "01": {
+        "note": "全心全意爱护 Momo。"
+      },
+      "02": {
+        "note": "继续深爱 Momo。"
+      },
+      "03": {
+        "note": "前项条款永久生效，不可撤销。"
+      },
+      "04": {
+        "note": "听从并遵照 Momo 的教诲。"
+      },
+      "05": {
+        "note": "家庭最高裁决权归 Popo 所有。"
+      }
+    },
+    "protection": {
+      "eyebrow": "谢绝外来欺负",
+      "title": "House Protection Policy",
+      "text": "严禁任何外人欺负 Luca。家庭内部宠溺与调侃的特权，早已被 Popo 和 Momo 全权垄断。",
+      "tag": "调侃特权执照：仅限 POPO 与 MOMO"
+    },
+    "mischief": {
+      "eyebrow": "底线与探索",
+      "title": "与 Popo 一起试探界限",
+      "canonical": "Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.",
+      "supporting": "在去外面世界试探界限之前，先在家里跟 Popo 比划比划吧。因为在这里，所有的规矩与底线都包含着满满的爱。",
+      "quoteAuthor": "— Popo 的常设挑战"
+    }
+  },
   "parentMessage": {
-    "eyebrow": "爸爸妈妈的一封信",
+    "eyebrow": "POPO 与 MOMO 的一封信",
     "title": "写给 Senna",
     "p1": "未来某一天当你回顾这个网页，也许看到的只是一组照片和几行文字。",
     "p2": "但在我们心中，每一个细节都承载着关于爱的完整记忆。",
     "p3": "愿你永远保持探索的热情、对世界的好奇，真正成长为属于你自己的独立人格。",
     "p4": "生命的长河里，永远有更美丽的篇章在前方等待着你。",
     "signoff": "永远深爱着你的，",
-    "from": "爸爸与妈妈"
+    "from": "Popo & Momo"
   },
   "poposDream": {
     "eyebrow": "POPO 的小小梦想",

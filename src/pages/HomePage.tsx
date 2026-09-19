@@ -9,6 +9,7 @@ import FamilySection from '@/features/family/components/FamilySection';
 import HospitalSection from '@/features/hospital/components/HospitalSection';
 import LogoPhilosophySection from '@/features/brand/components/LogoPhilosophySection';
 import RemembranceSection from '@/features/remembrance/components/RemembranceSection';
+import LucaProtocolSection from '@/features/protocol/components/LucaProtocolSection';
 import ParentMessageSection from '@/features/parent-message/components/ParentMessageSection';
 import FutureSection from '@/features/future/components/FutureSection';
 import FamilyHopeSection from '@/features/hopes/components/FamilyHopeSection';
@@ -38,6 +39,7 @@ export default function HomePage() {
       <HospitalSection />
       <RemembranceSection />
       <LogoPhilosophySection />
+      <LucaProtocolSection />
       <ParentMessageSection />
       <FutureSection />
       <FamilyHopeSection />

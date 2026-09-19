@@ -118,15 +118,51 @@
     "p2": "いま、Luca は家族の想いを受け継ぎ、Popo と Momo のそばで日常を過ごしながら、すべてのささやかな瞬間をかけがえのない記憶へと変えています。",
     "tag": "damai di surga · forever loved"
   },
+  "lucaProtocol": {
+    "eyebrow": "LUCA 家の五箇条",
+    "title": "Luca Protocol v1.0",
+    "subtitle": "絶対に抗えない、愛に満ちた家族の特別憲法。",
+    "popoApproved": "POPO APPROVED",
+    "rules": {
+      "01": {
+        "note": "Momo を無条件に愛すること。"
+      },
+      "02": {
+        "note": "引き続き Momo を愛すること。"
+      },
+      "03": {
+        "note": "前項の規定を永続的に適用すること。"
+      },
+      "04": {
+        "note": "Momo の言うことには素直に従うこと。"
+      },
+      "05": {
+        "note": "Popo の最終決定権には従うこと。"
+      }
+    },
+    "protection": {
+      "eyebrow": "部外者のいじわる禁止",
+      "title": "House Protection Policy",
+      "text": "外からのいじわるは一切お断り。Luca を愛嬌たっぷりにからかう権利は、すでに Popo と Momo が独占契約済みです。",
+      "tag": "いじりライセンス: POPO と MOMO 専用"
+    },
+    "mischief": {
+      "eyebrow": "境界線と学び",
+      "title": "Popo といたずら訓練",
+      "canonical": "Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.",
+      "supporting": "外の世界で境界線を越えてしまう前に、まずは家の中で Popo を相手にルールと限界を学ぼう。そこには必ず愛があるから。",
+      "quoteAuthor": "— Popo からの挑戦状"
+    }
+  },
   "parentMessage": {
-    "eyebrow": "両親からの手紙",
+    "eyebrow": "POPO と MOMO からの手紙",
     "title": "Senna へ",
     "p1": "いつの日か君がこのページを開いたとき、ここにあるのは写真と少しの言葉だけに見えるかもしれません。",
     "p2": "でも私たちにとっては、その一つひとつに計り知れない愛と記憶が詰まっています。",
     "p3": "好奇心を大切に、驚きを忘れず、君自身の歩調で君自身になっていってください。",
     "p4": "君の前には、いつだって素晴らしい未来の物語が待っています。",
     "signoff": "いつでも、心からの愛を込めて。",
-    "from": "お父さんとお母さんより"
+    "from": "Popo & Momo"
   },
   "poposDream": {
     "eyebrow": "POPO のささやかな夢",

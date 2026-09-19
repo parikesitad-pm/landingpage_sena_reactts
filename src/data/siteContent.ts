@@ -147,8 +147,43 @@ export const siteContent = {
       'Today, Luca carries his own little story forward, growing one day at a time while keeping Popo and Momo company through all the ordinary moments that slowly become memories.',
   },
 
+  lucaProtocol: {
+    eyebrow: 'THE FIVE LAWS OF LUCA',
+    title: 'Luca Protocol v1.0',
+    subtitle: 'A non-negotiable, highly affectionate family constitution.',
+    metadata: {
+      version: '1.0',
+      momoLove: 'Infinity',
+      authorityLevel: 'Popo',
+      appealAllowed: false,
+    },
+    rules: [
+      { id: '01', canonical: 'Sayang sama Momo.' },
+      { id: '02', canonical: 'Sayang sama Momo.' },
+      { id: '03', canonical: 'Sayang sama Momo.' },
+      { id: '04', canonical: 'Nurut sama Momo.' },
+      { id: '05', canonical: 'Tunduk sama Popo.' },
+    ],
+    protection: {
+      eyebrow: 'NO OUTSIDE BULLIES',
+      title: 'House Protection Policy',
+      text:
+        'No outside bullies allowed. Popo and Momo already run the family teasing department.',
+      code: 'outsideBullies = false; teasingLicense = ["Popo", "Momo"];',
+    },
+    mischief: {
+      eyebrow: 'BOUNDARIES & LIMITS',
+      title: 'Mischief Training',
+      canonical:
+        'Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.',
+      supporting:
+        'Better to test the limits at home, where the lesson still comes with love.',
+      code: 'training.mode = "Popo"; difficulty = "unfair";',
+    },
+  },
+
   parentMessage: {
-    eyebrow: 'A LETTER FROM MOM & DAD',
+    eyebrow: 'A LETTER FROM POPO & MOMO',
     title: 'For Senna',
     paragraphs: [
       'Someday you may look back at this page and see only photographs and a few words.',

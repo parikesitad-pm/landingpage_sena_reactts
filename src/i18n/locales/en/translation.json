@@ -118,15 +118,51 @@
     "p2": "Today, Luca carries his own little story forward, growing one day at a time while keeping Popo and Momo company through all the ordinary moments that slowly become memories.",
     "tag": "damai di surga · forever loved"
   },
+  "lucaProtocol": {
+    "eyebrow": "THE FIVE LAWS OF LUCA",
+    "title": "Luca Protocol v1.0",
+    "subtitle": "A non-negotiable, highly affectionate family constitution.",
+    "popoApproved": "POPO APPROVED",
+    "rules": {
+      "01": {
+        "note": "Love Momo unconditionally."
+      },
+      "02": {
+        "note": "Continue loving Momo."
+      },
+      "03": {
+        "note": "Previous articles remain in full effect."
+      },
+      "04": {
+        "note": "Listen to and obey Momo."
+      },
+      "05": {
+        "note": "Popo's decision is final and non-appealable."
+      }
+    },
+    "protection": {
+      "eyebrow": "NO OUTSIDE BULLIES",
+      "title": "House Protection Policy",
+      "text": "No outside bullies allowed. Popo and Momo already run the family teasing department.",
+      "tag": "TEASING LICENSE: POPO & MOMO ONLY"
+    },
+    "mischief": {
+      "eyebrow": "BOUNDARIES & LIMITS",
+      "title": "Mischief Training",
+      "canonical": "Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.",
+      "supporting": "Better to test the limits at home, where the lesson still comes with love.",
+      "quoteAuthor": "— Popo's Standing Invitation"
+    }
+  },
   "parentMessage": {
-    "eyebrow": "A LETTER FROM MOM & DAD",
+    "eyebrow": "A LETTER FROM POPO & MOMO",
     "title": "For Senna",
     "p1": "Someday you may look back at this page and see only photographs and a few words.",
     "p2": "For us, every one of them carries a whole memory.",
     "p3": "Keep exploring, keep wondering, and keep becoming your own person.",
     "p4": "There will always be more chapters waiting for you.",
     "signoff": "With all our love, always.",
-    "from": "Mom & Dad"
+    "from": "Popo & Momo"
   },
   "poposDream": {
     "eyebrow": "POPO'S LITTLE DREAM",

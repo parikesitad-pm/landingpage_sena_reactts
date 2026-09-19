@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Bagian humor keluarga "Luca Protocol v1.0" (Lima hukum aturan keluarga, House Protection Policy anti-bullying, dan prinsip batas "Belajar Nakal Sama Popo").
+- Pembaruan menyeluruh seluruh penyebutan orang tua menjadi konsisten hanya Popo & Momo di semua bahasa (tidak ada Mom/Dad).
 - Sistem tema 3 mode (Device / Light / Dark) dengan inisialisasi anti-flash sinkron di `index.html`.
 - Variabel CSS semantik untuk tema light dan dark tanpa flash putih saat refresh.
 - Dukungan multibahasa penuh untuk 5 bahasa (English, Bahasa Indonesia, 中文, 日本語, 한국어) menggunakan i18next & react-i18next.

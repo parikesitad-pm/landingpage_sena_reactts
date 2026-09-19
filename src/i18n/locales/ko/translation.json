@@ -118,15 +118,51 @@
     "p2": "오늘날 Luca는 가족의 사랑을 이어받아 매일매일 자라나며, Popo와 Momo 곁에서 평범한 일상을 영원히 빛날 소중한 추억으로 가꾸어가고 있습니다.",
     "tag": "damai di surga · forever loved"
   },
+  "lucaProtocol": {
+    "eyebrow": "LUCA 가문 5대 헌법",
+    "title": "Luca Protocol v1.0",
+    "subtitle": "항소 불가, 사랑과 장난이 넘쳐나는 가족 헌법.",
+    "popoApproved": "POPO APPROVED",
+    "rules": {
+      "01": {
+        "note": "Momo를 온 마음으로 사랑할 것."
+      },
+      "02": {
+        "note": "Momo를 변함없이 계속 사랑할 것."
+      },
+      "03": {
+        "note": "앞선 조항은 절대적이며 영구히 유효함."
+      },
+      "04": {
+        "note": "Momo의 말씀에 귀 기울이고 순종할 것."
+      },
+      "05": {
+        "note": "최종 결정권은 언제나 Popo에게."
+      }
+    },
+    "protection": {
+      "eyebrow": "외부 괴롭힘 출입 금지",
+      "title": "House Protection Policy",
+      "text": "외부인의 괴롭힘은 절대 불허합니다. Luca를 애정으로 놀리고 장난칠 수 있는 권리는 이미 Popo와 Momo가 독점 계약했습니다.",
+      "tag": "장난 면허: POPO & MOMO 전용"
+    },
+    "mischief": {
+      "eyebrow": "경계와 배움",
+      "title": "Popo와 함께하는 장난 훈련",
+      "canonical": "Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.",
+      "supporting": "세상 밖에서 선을 넘기 전에, 집에서 Popo와 먼저 경계를 시험해 보세요. 이곳의 모든 규칙에는 언제나 사랑이 담겨 있으니까요.",
+      "quoteAuthor": "— Popo의 특별 초대장"
+    }
+  },
   "parentMessage": {
-    "eyebrow": "엄마 아빠가 보내는 편지",
+    "eyebrow": "POPO와 MOMO가 보내는 편지",
     "title": "Senna에게",
     "p1": "먼 훗날 네가 이 공간을 보게 될 때, 어쩌면 몇 장의 사진과 짧은 글귀로만 보일지도 모르겠구나.",
     "p2": "하지만 우리에게는 그 모든 순간이 온전하고 커다란 사랑의 기억이란다.",
     "p3": "늘 탐험하고, 감탄하고, 누구보다 너 자신다운 사람으로 자라나렴.",
     "p4": "너의 앞길에는 언제나 더 아름다운 이야기들이 기다리고 있을 거야.",
     "signoff": "언제나 너를 온 마음으로 사랑하는,",
-    "from": "엄마와 아빠가"
+    "from": "Popo & Momo"
   },
   "poposDream": {
     "eyebrow": "POPO의 작은 꿈",
