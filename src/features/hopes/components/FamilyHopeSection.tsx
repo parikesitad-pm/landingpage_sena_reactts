@@ -1,6 +1,6 @@
-import Container from "@/components/atoms/Container";
-import { useTranslation } from "react-i18next";
-import { Heart, Sparkles, Compass } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import { useTranslation } from 'react-i18next';
+import { Heart, Sparkles, Compass } from 'lucide-react';
 
 export default function FamilyHopeSection() {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ export default function FamilyHopeSection() {
             <div className="inline-flex items-center gap-2 mb-4 text-[#C98F55]">
               <Sparkles className="w-4 h-4" />
               <span className="font-mono text-xs font-semibold tracking-widest uppercase">
-                {t("hopes.eyebrow")}
+                {t('hopes.eyebrow')}
               </span>
             </div>
 
@@ -32,35 +32,35 @@ export default function FamilyHopeSection() {
               id="family-hope-title"
               className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans text-[var(--foreground)] tracking-tight mb-6"
             >
-              {t("hopes.title")}
+              {t('hopes.title')}
             </h2>
 
             {/* Large Guiding Statement */}
             <div className="mb-10 pb-8 border-b border-[var(--border)]">
               <p className="text-xl sm:text-2xl lg:text-3xl font-bold font-sans text-[var(--foreground)] tracking-tight leading-snug">
-                &ldquo;{t("hopes.headline")}&rdquo;
+                &ldquo;{t('hopes.headline')}&rdquo;
               </p>
               <p className="mt-3 font-mono text-xs sm:text-sm text-[#C98F55] tracking-wide font-medium">
-                {t("hopes.pillars")}
+                {t('hopes.pillars')}
               </p>
             </div>
 
             {/* Emotional Narrative Body */}
             <div className="space-y-6 text-left text-[var(--muted-foreground)] text-base sm:text-lg leading-relaxed font-normal">
               <p className="font-medium text-[var(--foreground)]">
-                {t("hopes.p1")}
+                {t('hopes.p1')}
               </p>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-[var(--surface-soft)] border border-[var(--border)] italic text-[var(--foreground)]">
-                <p>{t("hopes.p2")}</p>
+                <p>{t('hopes.p2')}</p>
               </div>
 
-              <p>{t("hopes.p3")}</p>
+              <p>{t('hopes.p3')}</p>
 
-              <p>{t("hopes.p4")}</p>
+              <p>{t('hopes.p4')}</p>
 
               <p className="font-medium text-[var(--foreground)]">
-                {t("hopes.p5")}
+                {t('hopes.p5')}
               </p>
             </div>
 
@@ -70,15 +70,15 @@ export default function FamilyHopeSection() {
                 <Heart className="w-4 h-4 fill-[#C98F55]" />
               </div>
               <p className="font-serif italic text-lg sm:text-xl text-[var(--foreground)] max-w-xl mx-auto leading-relaxed">
-                &ldquo;{t("hopes.benediction")}&rdquo;
+                &ldquo;{t('hopes.benediction')}&rdquo;
               </p>
 
               <div className="mt-8 flex flex-col items-center gap-3">
                 <span className="font-mono text-sm font-semibold tracking-wider text-[#C98F55]">
-                  {t("hopes.philosophySignature")}
+                  {t('hopes.philosophySignature')}
                 </span>
                 <code className="text-xs font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-3 py-1 rounded-md border border-[var(--border)]">
-                  {t("hopes.easterEgg")}
+                  {t('hopes.easterEgg')}
                 </code>
               </div>
             </div>

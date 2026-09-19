@@ -1,20 +1,23 @@
-import { Sparkles, ArrowDown } from "lucide-react";
-import Container from "@/components/atoms/Container";
-import Button from "@/components/atoms/Button";
-import Badge from "@/components/atoms/Badge";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { siteContent } from "@/data/siteContent";
-import { calculateAge } from "@/lib/age";
-import { useTranslation } from "react-i18next";
-import { usePreferences } from "@/features/preferences/context/PreferencesContext";
-import { formatLocalizedDate, formatLocalizedAge } from "@/i18n/formatters";
+import { Sparkles, ArrowDown } from 'lucide-react';
+import Container from '@/components/atoms/Container';
+import Button from '@/components/atoms/Button';
+import Badge from '@/components/atoms/Badge';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { siteContent } from '@/data/siteContent';
+import { calculateAge } from '@/lib/age';
+import { useTranslation } from 'react-i18next';
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { formatLocalizedDate, formatLocalizedAge } from '@/i18n/formatters';
 
 export default function HeroSection() {
   const { t } = useTranslation();
   const { activeLocale } = usePreferences();
   const age = calculateAge(siteContent.child.birthDate);
   const localizedAge = formatLocalizedAge(age, activeLocale);
-  const localizedBirthDate = formatLocalizedDate(siteContent.child.birthDate, activeLocale);
+  const localizedBirthDate = formatLocalizedDate(
+    siteContent.child.birthDate,
+    activeLocale
+  );
 
   return (
     <section
@@ -62,7 +65,7 @@ export default function HeroSection() {
                 </span>
               </div>
               <Badge variant="accent" dot>
-                {t("hero.eyebrow")}
+                {t('hero.eyebrow')}
               </Badge>
             </div>
 
@@ -77,12 +80,12 @@ export default function HeroSection() {
 
             {/* Semantic introductory entity context */}
             <p className="mt-4 text-xs sm:text-sm font-mono text-[var(--muted-foreground)] max-w-xl">
-              {t("hero.introEntity")}
+              {t('hero.introEntity')}
             </p>
 
             {/* Poetic description */}
             <p className="mt-5 text-lg sm:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-xl font-sans">
-              {t("hero.description")}
+              {t('hero.description')}
             </p>
 
             {/* Metadata Pills: Localized Dynamic Age + Localized Birth Date */}
@@ -90,7 +93,7 @@ export default function HeroSection() {
               <div className="inline-flex items-center gap-2 bg-[var(--surface)] border border-[var(--border)] px-4 py-2 rounded-full shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#C98F55]" />
                 <span className="text-xs font-mono text-[var(--muted-foreground)]">
-                  {t("hero.currentAge")}
+                  {t('hero.currentAge')}
                 </span>
                 <strong className="text-xs font-mono text-[var(--foreground)] font-semibold">
                   {localizedAge}
@@ -111,7 +114,7 @@ export default function HeroSection() {
             {/* Action CTA */}
             <div className="mt-8 pt-2 flex flex-wrap items-center gap-4">
               <Button asAnchor href="#story" size="lg" className="group">
-                <span>{t("hero.ctaExplore")}</span>
+                <span>{t('hero.ctaExplore')}</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
               </Button>
 
@@ -119,7 +122,7 @@ export default function HeroSection() {
                 href="#memories"
                 className="text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] px-4 py-3 rounded-full hover:bg-[var(--surface-soft)] transition-colors"
               >
-                {t("hero.ctaMemories")} &rarr;
+                {t('hero.ctaMemories')} &rarr;
               </a>
             </div>
           </div>
@@ -162,19 +165,31 @@ export default function HeroSection() {
 
                 {/* Sub-caption below frame */}
                 <div className="pt-3 px-1 flex items-center justify-between text-xs text-[var(--muted-foreground)]">
-                  <span className="font-mono text-[11px]">portrait.capture</span>
+                  <span className="font-mono text-[11px]">
+                    portrait.capture
+                  </span>
                   <span className="font-mono text-[11px]">Luca</span>
                 </div>
               </div>
 
               {/* Celestial SVG accents */}
               <div className="absolute -top-6 -right-6 text-[#C98F55] opacity-80 pointer-events-none">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
                 </svg>
               </div>
               <div className="absolute -bottom-4 -left-4 text-[#C98F55] opacity-60 pointer-events-none">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
                   <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
                 </svg>
               </div>

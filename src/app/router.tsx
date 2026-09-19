@@ -1,31 +1,31 @@
-import { createBrowserRouter } from "react-router-dom";
-import HomePage from "@/pages/HomePage";
-import BrandPage from "@/pages/BrandPage";
-import NotFoundPage from "@/pages/NotFoundPage";
+import { createBrowserRouter } from 'react-router-dom';
+import HomePage from '@/pages/HomePage';
+import BrandPage from '@/pages/BrandPage';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <HomePage />,
   },
   {
-    path: "/:lang",
+    path: '/:lang',
     element: <HomePage />,
   },
   {
-    path: "/:lang/brand",
+    path: '/:lang/brand',
     element: <BrandPage />,
   },
   {
-    path: "/brand",
+    path: '/brand',
     element: <BrandPage />,
   },
   {
-    path: "/the-logo",
+    path: '/the-logo',
     element: <BrandPage />,
   },
   {
-    path: "*",
+    path: '*',
     element: <NotFoundPage />,
   },
 ]);

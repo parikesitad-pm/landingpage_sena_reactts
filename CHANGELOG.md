@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Pembaruan teks kredit footer menjadi `Crafted with <3 for Luca` dan tautan ke `a MODULA Project`.
+
 ### Added
 
 - Sistem tema 3 mode (Device / Light / Dark) dengan inisialisasi anti-flash sinkron di `index.html`.

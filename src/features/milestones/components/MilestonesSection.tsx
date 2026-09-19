@@ -1,7 +1,7 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import MilestoneTimeline from "@/features/milestones/components/MilestoneTimeline";
-import { useTranslation } from "react-i18next";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import MilestoneTimeline from '@/features/milestones/components/MilestoneTimeline';
+import { useTranslation } from 'react-i18next';
 
 export default function MilestonesSection() {
   const { t } = useTranslation();
@@ -14,9 +14,9 @@ export default function MilestonesSection() {
     >
       <Container size="md">
         <SectionTitle
-          eyebrow={t("milestones.eyebrow")}
-          title={t("milestones.title")}
-          description={t("milestones.subtitle")}
+          eyebrow={t('milestones.eyebrow')}
+          title={t('milestones.title')}
+          description={t('milestones.subtitle')}
           align="center"
         />
 

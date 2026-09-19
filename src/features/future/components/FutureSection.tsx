@@ -1,6 +1,6 @@
-import Container from "@/components/atoms/Container";
-import { useTranslation } from "react-i18next";
-import { Terminal, Sparkles } from "lucide-react";
+import Container from '@/components/atoms/Container';
+import { useTranslation } from 'react-i18next';
+import { Terminal, Sparkles } from 'lucide-react';
 
 export default function FutureSection() {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ export default function FutureSection() {
           <div className="flex items-center gap-2 text-[#C98F55] mb-3">
             <Sparkles className="w-4 h-4" />
             <span className="font-mono text-xs font-semibold tracking-widest uppercase">
-              {t("poposDream.eyebrow")}
+              {t('poposDream.eyebrow')}
             </span>
           </div>
 
@@ -24,11 +24,11 @@ export default function FutureSection() {
             id="future-title"
             className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--foreground)] font-sans tracking-tight mb-4"
           >
-            {t("poposDream.title")}
+            {t('poposDream.title')}
           </h2>
 
           <p className="text-base sm:text-lg text-[var(--muted-foreground)] max-w-lg leading-relaxed mb-8">
-            {t("poposDream.description")}
+            {t('poposDream.description')}
           </p>
 
           {/* JetBrains Mono Easter Egg distinguishing Popo's dream from Luca's freedom */}
@@ -36,12 +36,14 @@ export default function FutureSection() {
             <div className="flex items-center gap-2">
               <Terminal className="w-3.5 h-3.5 text-[#C98F55]" />
               <code className="font-mono text-xs text-[var(--muted-foreground)]">
-                {t("poposDream.codeSource")}
+                {t('poposDream.codeSource')}
               </code>
             </div>
-            <span className="hidden sm:inline text-[var(--border)]">&bull;</span>
+            <span className="hidden sm:inline text-[var(--border)]">
+              &bull;
+            </span>
             <code className="font-mono text-xs font-semibold text-[#C98F55]">
-              {t("poposDream.codePath")}
+              {t('poposDream.codePath')}
             </code>
           </div>
         </div>

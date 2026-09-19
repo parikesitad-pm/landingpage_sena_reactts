@@ -1,7 +1,7 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root,
-[data-theme="light"] {
+[data-theme='light'] {
   --background: #f8f5ef;
   --surface: #fffdf8;
   --surface-soft: #f2ece3;
@@ -17,7 +17,7 @@
   --code: #31363c;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --background: #171819;
   --surface: #202224;
   --surface-soft: #252729;
@@ -34,8 +34,12 @@
 }
 
 @theme {
-  --font-sans: "Ubuntu", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans CJK SC", "Noto Sans JP", "Noto Sans KR", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans:
+    'Ubuntu', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Noto Sans CJK SC', 'Noto Sans JP', 'Noto Sans KR', sans-serif;
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
 
   --color-warm-bg: var(--background);
   --color-warm-surface: var(--surface);
@@ -58,12 +62,15 @@
   }
 
   /* Smooth transition enabled ONLY after bootstrap to prevent flash */
-  html[data-theme-ready="true"] body,
-  html[data-theme-ready="true"] header,
-  html[data-theme-ready="true"] footer,
-  html[data-theme-ready="true"] section,
-  html[data-theme-ready="true"] div {
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  html[data-theme-ready='true'] body,
+  html[data-theme-ready='true'] header,
+  html[data-theme-ready='true'] footer,
+  html[data-theme-ready='true'] section,
+  html[data-theme-ready='true'] div {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease;
   }
 
   body {

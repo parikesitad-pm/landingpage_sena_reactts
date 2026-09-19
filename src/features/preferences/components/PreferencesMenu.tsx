@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from "react";
-import { usePreferences } from "../context/PreferencesContext";
-import { SUPPORTED_LOCALES, type LanguagePreference } from "../types";
-import { Settings, Sun, Moon, Laptop, Check } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { localeToPathPrefix, pathPrefixToLocale } from "../lib/locale";
+import { useState, useRef, useEffect } from 'react';
+import { usePreferences } from '../context/PreferencesContext';
+import { SUPPORTED_LOCALES, type LanguagePreference } from '../types';
+import { Settings, Sun, Moon, Laptop, Check } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { localeToPathPrefix, pathPrefixToLocale } from '../lib/locale';
 
 export default function PreferencesMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,19 +28,19 @@ export default function PreferencesMenu() {
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && isOpen) {
+      if (event.key === 'Escape' && isOpen) {
         setIsOpen(false);
       }
     };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen]);
 
@@ -49,25 +49,27 @@ export default function PreferencesMenu() {
     setIsOpen(false);
 
     // If navigating to localized path
-    const targetLocale = pref === "system" ? activeLocale : pref;
+    const targetLocale = pref === 'system' ? activeLocale : pref;
     const targetPrefix = localeToPathPrefix(targetLocale);
 
     // Extract current path without locale prefix
-    const pathParts = location.pathname.split("/").filter(Boolean);
+    const pathParts = location.pathname.split('/').filter(Boolean);
     const firstPart = pathParts[0];
     const isLocalePrefixed = firstPart && pathPrefixToLocale(firstPart);
 
     const remainingPath = isLocalePrefixed
-      ? pathParts.slice(1).join("/")
-      : pathParts.join("/");
+      ? pathParts.slice(1).join('/')
+      : pathParts.join('/');
 
-    const newPath = `/${targetPrefix}${remainingPath ? `/${remainingPath}` : ""}${location.hash}`;
+    const newPath = `/${targetPrefix}${remainingPath ? `/${remainingPath}` : ''}${location.hash}`;
     navigate(newPath);
   };
 
   const getThemeIcon = () => {
-    if (themePreference === "light") return <Sun className="w-4 h-4 text-[#C98F55]" />;
-    if (themePreference === "dark") return <Moon className="w-4 h-4 text-[#C98F55]" />;
+    if (themePreference === 'light')
+      return <Sun className="w-4 h-4 text-[#C98F55]" />;
+    if (themePreference === 'dark')
+      return <Moon className="w-4 h-4 text-[#C98F55]" />;
     return <Laptop className="w-4 h-4 text-[#C98F55]" />;
   };
 
@@ -101,11 +103,11 @@ export default function PreferencesMenu() {
             <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)]">
               <button
                 type="button"
-                onClick={() => setTheme("system")}
+                onClick={() => setTheme('system')}
                 className={`flex flex-col items-center py-2 px-1 rounded-lg text-xs font-sans transition-all ${
-                  themePreference === "system"
-                    ? "bg-[var(--surface)] text-[var(--foreground)] font-semibold shadow-xs"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                  themePreference === 'system'
+                    ? 'bg-[var(--surface)] text-[var(--foreground)] font-semibold shadow-xs'
+                    : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'
                 }`}
               >
                 <Laptop className="w-3.5 h-3.5 mb-1" />
@@ -114,11 +116,11 @@ export default function PreferencesMenu() {
 
               <button
                 type="button"
-                onClick={() => setTheme("light")}
+                onClick={() => setTheme('light')}
                 className={`flex flex-col items-center py-2 px-1 rounded-lg text-xs font-sans transition-all ${
-                  themePreference === "light"
-                    ? "bg-[var(--surface)] text-[var(--foreground)] font-semibold shadow-xs"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                  themePreference === 'light'
+                    ? 'bg-[var(--surface)] text-[var(--foreground)] font-semibold shadow-xs'
+                    : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'
                 }`}
               >
                 <Sun className="w-3.5 h-3.5 mb-1" />
@@ -127,11 +129,11 @@ export default function PreferencesMenu() {
 
               <button
                 type="button"
-                onClick={() => setTheme("dark")}
+                onClick={() => setTheme('dark')}
                 className={`flex flex-col items-center py-2 px-1 rounded-lg text-xs font-sans transition-all ${
-                  themePreference === "dark"
-                    ? "bg-[var(--surface)] text-[var(--foreground)] font-semibold shadow-xs"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                  themePreference === 'dark'
+                    ? 'bg-[var(--surface)] text-[var(--foreground)] font-semibold shadow-xs'
+                    : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]'
                 }`}
               >
                 <Moon className="w-3.5 h-3.5 mb-1" />
@@ -148,15 +150,17 @@ export default function PreferencesMenu() {
             <div className="flex flex-col gap-1 max-h-48 overflow-y-auto">
               <button
                 type="button"
-                onClick={() => handleLanguageSelect("system")}
+                onClick={() => handleLanguageSelect('system')}
                 className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs text-left transition-colors ${
-                  languagePreference === "system"
-                    ? "bg-[var(--surface-soft)] text-[var(--foreground)] font-semibold"
-                    : "text-[var(--muted-foreground)] hover:bg-[var(--surface-soft)] hover:text-[var(--foreground)]"
+                  languagePreference === 'system'
+                    ? 'bg-[var(--surface-soft)] text-[var(--foreground)] font-semibold'
+                    : 'text-[var(--muted-foreground)] hover:bg-[var(--surface-soft)] hover:text-[var(--foreground)]'
                 }`}
               >
                 <span>Device / System</span>
-                {languagePreference === "system" && <Check className="w-3.5 h-3.5 text-[#C98F55]" />}
+                {languagePreference === 'system' && (
+                  <Check className="w-3.5 h-3.5 text-[#C98F55]" />
+                )}
               </button>
 
               {SUPPORTED_LOCALES.map((loc) => {
@@ -168,12 +172,14 @@ export default function PreferencesMenu() {
                     onClick={() => handleLanguageSelect(loc.code)}
                     className={`flex items-center justify-between px-3 py-2 rounded-xl text-xs text-left transition-colors ${
                       isSelected
-                        ? "bg-[var(--surface-soft)] text-[var(--foreground)] font-semibold"
-                        : "text-[var(--muted-foreground)] hover:bg-[var(--surface-soft)] hover:text-[var(--foreground)]"
+                        ? 'bg-[var(--surface-soft)] text-[var(--foreground)] font-semibold'
+                        : 'text-[var(--muted-foreground)] hover:bg-[var(--surface-soft)] hover:text-[var(--foreground)]'
                     }`}
                   >
                     <span>{loc.nativeLabel}</span>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-[#C98F55]" />}
+                    {isSelected && (
+                      <Check className="w-3.5 h-3.5 text-[#C98F55]" />
+                    )}
                   </button>
                 );
               })}

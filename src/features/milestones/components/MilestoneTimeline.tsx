@@ -1,64 +1,70 @@
-import MilestoneCard from "@/components/molecules/MilestoneCard";
-import { Clock } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { usePreferences } from "@/features/preferences/context/PreferencesContext";
-import { formatLocalizedDate, formatLocalizedAge } from "@/i18n/formatters";
-import type { Milestone } from "@/types/milestone";
+import MilestoneCard from '@/components/molecules/MilestoneCard';
+import { Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { formatLocalizedDate, formatLocalizedAge } from '@/i18n/formatters';
+import type { Milestone } from '@/types/milestone';
 
 export default function MilestoneTimeline() {
   const { t } = useTranslation();
   const { activeLocale } = usePreferences();
 
-  const birthDateFormatted = formatLocalizedDate("2025-02-13", activeLocale);
-  const oneYearDateFormatted = formatLocalizedDate("2026-02-13", activeLocale);
-  const sevenMonthsAge = formatLocalizedAge({ years: 0, months: 7, days: 0 }, activeLocale);
-  const oneYearAge = formatLocalizedAge({ years: 1, months: 0, days: 0 }, activeLocale);
+  const birthDateFormatted = formatLocalizedDate('2025-02-13', activeLocale);
+  const oneYearDateFormatted = formatLocalizedDate('2026-02-13', activeLocale);
+  const sevenMonthsAge = formatLocalizedAge(
+    { years: 0, months: 7, days: 0 },
+    activeLocale
+  );
+  const oneYearAge = formatLocalizedAge(
+    { years: 1, months: 0, days: 0 },
+    activeLocale
+  );
 
   const localizedMilestones: Milestone[] = [
     {
-      id: "hello-world",
-      title: t("milestones.helloWorld"),
-      description: t("milestones.helloWorldDesc"),
+      id: 'hello-world',
+      title: t('milestones.helloWorld'),
+      description: t('milestones.helloWorldDesc'),
       date: birthDateFormatted,
-      icon: "birth",
+      icon: 'birth',
       confirmed: true,
     },
     {
-      id: "tiny-teeth",
-      title: t("milestones.tinyTeeth"),
-      description: t("milestones.tinyTeethDesc"),
+      id: 'tiny-teeth',
+      title: t('milestones.tinyTeeth'),
+      description: t('milestones.tinyTeethDesc'),
       ageText: `~${sevenMonthsAge}`,
-      icon: "tooth",
+      icon: 'tooth',
       confirmed: true,
     },
     {
-      id: "brave-chapter",
-      title: t("milestones.braveChapter"),
-      description: t("milestones.braveChapterDesc"),
-      icon: "health",
+      id: 'brave-chapter',
+      title: t('milestones.braveChapter'),
+      description: t('milestones.braveChapterDesc'),
+      icon: 'health',
       confirmed: true,
     },
     {
-      id: "first-steps",
-      title: t("milestones.firstSteps"),
-      description: t("milestones.firstStepsDesc"),
+      id: 'first-steps',
+      title: t('milestones.firstSteps'),
+      description: t('milestones.firstStepsDesc'),
       ageText: `~${oneYearAge}`,
-      icon: "steps",
+      icon: 'steps',
       confirmed: true,
     },
     {
-      id: "one-whole-year",
-      title: t("milestones.oneYear"),
-      description: t("milestones.oneYearDesc"),
+      id: 'one-whole-year',
+      title: t('milestones.oneYear'),
+      description: t('milestones.oneYearDesc'),
       date: oneYearDateFormatted,
-      icon: "birthday",
+      icon: 'birthday',
       confirmed: true,
     },
     {
-      id: "future-adventures",
-      title: t("milestones.backToAdventures"),
-      description: t("milestones.backToAdventuresDesc"),
-      icon: "family",
+      id: 'future-adventures',
+      title: t('milestones.backToAdventures'),
+      description: t('milestones.backToAdventuresDesc'),
+      icon: 'family',
       confirmed: true,
     },
   ];
@@ -80,10 +86,10 @@ export default function MilestoneTimeline() {
         </div>
         <div className="pt-1.5 pb-4">
           <p className="text-sm sm:text-base font-semibold text-[var(--foreground)]">
-            {t("milestones.endingText")}
+            {t('milestones.endingText')}
           </p>
           <span className="font-mono text-xs text-[#C98F55] tracking-wider uppercase">
-            {t("milestones.continuedText")}
+            {t('milestones.continuedText')}
           </span>
         </div>
       </div>

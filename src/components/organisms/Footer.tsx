@@ -1,15 +1,15 @@
-import { ArrowUp, Heart } from "lucide-react";
-import LogoMark from "@/components/atoms/LogoMark";
-import { siteContent } from "@/data/siteContent";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { ArrowUp, Heart } from 'lucide-react';
+import LogoMark from '@/components/atoms/LogoMark';
+import { siteContent } from '@/data/siteContent';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -19,7 +19,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
             <LogoMark variant="compact" />
             <p className="text-xs sm:text-sm text-[var(--muted-foreground)]">
-              {t("hero.description")}
+              {t('hero.description')}
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export default function Footer() {
               to="/brand"
               className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors underline decoration-[var(--border)] underline-offset-4"
             >
-              {t("footer.brandLink")}
+              {t('footer.brandLink')}
             </Link>
 
             <button
@@ -36,7 +36,7 @@ export default function Footer() {
               onClick={scrollToTop}
               className="inline-flex items-center gap-2 text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] border border-[var(--border)] px-4 py-2 rounded-full transition-colors cursor-pointer focus-visible:outline-2"
             >
-              <span>{t("footer.backToTop")}</span>
+              <span>{t('footer.backToTop')}</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -47,14 +47,17 @@ export default function Footer() {
             <span>Made with</span>
             <Heart className="w-3.5 h-3.5 text-[#C98F55] fill-[#C98F55]" />
             <span>
-              for <strong className="font-semibold text-[var(--foreground)]">Muhammad Gabriel Luca Senna</strong>
+              for{' '}
+              <strong className="font-semibold text-[var(--foreground)]">
+                Muhammad Gabriel Luca Senna
+              </strong>
             </span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-[var(--muted-foreground)]">
             <span>&copy; {currentYear} &middot; Our Little Senna</span>
             <span>&middot;</span>
-            <span>{t("footer.crafted")}</span>
+            <span>{t('footer.crafted')}</span>
             <span>&middot;</span>
             <a
               href="https://github.com/parikesitad-pm"
@@ -62,7 +65,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-[var(--foreground)] underline decoration-[var(--border)] underline-offset-2 transition-colors"
             >
-              {siteContent.footer.author}
+              {t('footer.author')}
             </a>
           </div>
         </div>

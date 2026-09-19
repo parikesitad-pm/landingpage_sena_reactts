@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
-import LogoMark from "@/components/atoms/LogoMark";
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from 'react';
+import { X } from 'lucide-react';
+import LogoMark from '@/components/atoms/LogoMark';
+import { Link } from 'react-router-dom';
 
 export interface MobileNavigationProps {
   isOpen: boolean;
@@ -18,21 +18,21 @@ export default function MobileNavigation({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
+      if (e.key === 'Escape' && isOpen) {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
     } else {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     }
 
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
 
@@ -75,7 +75,9 @@ export default function MobileNavigation({
         </nav>
 
         <div className="pt-4 border-t border-[var(--border)] flex justify-between items-center text-xs font-mono text-[var(--muted-foreground)]">
-          <span className="font-semibold text-[var(--foreground)]">LUCA &middot; EST. 2025</span>
+          <span className="font-semibold text-[var(--foreground)]">
+            LUCA &middot; EST. 2025
+          </span>
           <Link
             to="/brand"
             onClick={onClose}

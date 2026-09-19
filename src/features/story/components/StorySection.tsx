@@ -1,16 +1,19 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { siteContent } from "@/data/siteContent";
-import { Calendar, HeartHandshake } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { usePreferences } from "@/features/preferences/context/PreferencesContext";
-import { formatLocalizedDate } from "@/i18n/formatters";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { siteContent } from '@/data/siteContent';
+import { Calendar, HeartHandshake } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { formatLocalizedDate } from '@/i18n/formatters';
 
 export default function StorySection() {
   const { t } = useTranslation();
   const { activeLocale } = usePreferences();
-  const localizedArrivalDate = formatLocalizedDate(siteContent.child.birthDate, activeLocale);
+  const localizedArrivalDate = formatLocalizedDate(
+    siteContent.child.birthDate,
+    activeLocale
+  );
 
   return (
     <section
@@ -20,8 +23,8 @@ export default function StorySection() {
     >
       <Container size="lg">
         <SectionTitle
-          eyebrow={t("story.eyebrow")}
-          title={t("story.title")}
+          eyebrow={t('story.eyebrow')}
+          title={t('story.title')}
           align="center"
         />
 
@@ -50,11 +53,9 @@ export default function StorySection() {
           <div className="md:col-span-7 flex flex-col justify-center text-left">
             <div className="space-y-5 text-[var(--muted-foreground)] text-base sm:text-lg leading-relaxed">
               <p className="font-medium text-[var(--foreground)] text-lg sm:text-xl">
-                {t("story.p1")}
+                {t('story.p1')}
               </p>
-              <p>
-                {t("story.p2")}
-              </p>
+              <p>{t('story.p2')}</p>
             </div>
 
             {/* Little arrival metadata highlight */}
@@ -63,7 +64,7 @@ export default function StorySection() {
                 <div className="flex items-center gap-2 text-[#C98F55] mb-1">
                   <Calendar className="w-4 h-4" />
                   <span className="text-xs font-mono font-semibold tracking-wider uppercase">
-                    {t("story.arrival")}
+                    {t('story.arrival')}
                   </span>
                 </div>
                 <time
@@ -78,11 +79,11 @@ export default function StorySection() {
                 <div className="flex items-center gap-2 text-[#C98F55] mb-1">
                   <HeartHandshake className="w-4 h-4" />
                   <span className="text-xs font-mono font-semibold tracking-wider uppercase">
-                    {t("story.journey")}
+                    {t('story.journey')}
                   </span>
                 </div>
                 <span className="text-sm sm:text-base font-bold text-[var(--foreground)] block font-sans">
-                  {t("story.journeyVal")}
+                  {t('story.journeyVal')}
                 </span>
               </div>
             </div>

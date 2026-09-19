@@ -1,54 +1,54 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import { Code, Compass, Sparkles, HeartHandshake } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import { Code, Compass, Sparkles, HeartHandshake } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function LogoPhilosophySection() {
   const { t } = useTranslation();
 
   const meanings = [
     {
-      title: t("brand.createTitle"),
-      symbol: "< >",
-      description: t("brand.createDesc"),
+      title: t('brand.createTitle'),
+      symbol: '< >',
+      description: t('brand.createDesc'),
       icon: <Code className="w-5 h-5 text-[#C98F55]" />,
     },
     {
-      title: t("brand.wonderTitle"),
-      symbol: "✦",
-      description: t("brand.wonderDesc"),
+      title: t('brand.wonderTitle'),
+      symbol: '✦',
+      description: t('brand.wonderDesc'),
       icon: <Sparkles className="w-5 h-5 text-[#C98F55]" />,
     },
     {
-      title: t("brand.exploreTitle"),
-      symbol: "Orbit",
-      description: t("brand.exploreDesc"),
+      title: t('brand.exploreTitle'),
+      symbol: 'Orbit',
+      description: t('brand.exploreDesc'),
       icon: <Compass className="w-5 h-5 text-[#C98F55]" />,
     },
     {
-      title: t("brand.becomeTitle"),
-      symbol: "Hello, World.",
-      description: t("brand.becomeDesc"),
+      title: t('brand.becomeTitle'),
+      symbol: 'Hello, World.',
+      description: t('brand.becomeDesc'),
       icon: <HeartHandshake className="w-5 h-5 text-[#C98F55]" />,
     },
   ];
 
   const values = [
     {
-      title: t("brand.valCurious"),
-      description: t("brand.valCuriousDesc"),
+      title: t('brand.valCurious'),
+      description: t('brand.valCuriousDesc'),
     },
     {
-      title: t("brand.valGrowing"),
-      description: t("brand.valGrowingDesc"),
+      title: t('brand.valGrowing'),
+      description: t('brand.valGrowingDesc'),
     },
     {
-      title: t("brand.valBrighter"),
-      description: t("brand.valBrighterDesc"),
+      title: t('brand.valBrighter'),
+      description: t('brand.valBrighterDesc'),
     },
     {
-      title: t("brand.valPurpose"),
-      description: t("brand.valPurposeDesc"),
+      title: t('brand.valPurpose'),
+      description: t('brand.valPurposeDesc'),
     },
   ];
 
@@ -61,9 +61,9 @@ export default function LogoPhilosophySection() {
       <Container size="lg">
         {/* Section Heading */}
         <SectionTitle
-          eyebrow={t("brand.eyebrow")}
-          title={t("brand.title")}
-          description={t("brand.intro")}
+          eyebrow={t('brand.eyebrow')}
+          title={t('brand.title')}
+          description={t('brand.intro')}
           align="center"
         />
 
@@ -86,10 +86,10 @@ export default function LogoPhilosophySection() {
           {/* Core Philosophy Statement */}
           <div className="mt-6 pt-6 border-t border-[var(--border)] relative z-10 max-w-xl">
             <p className="font-sans text-xl sm:text-2xl font-bold text-[var(--foreground)] tracking-tight">
-              &ldquo;{t("brand.philosophy")}&rdquo;
+              &ldquo;{t('brand.philosophy')}&rdquo;
             </p>
             <p className="mt-3 text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed">
-              {t("brand.narrativeIntro")}
+              {t('brand.narrativeIntro')}
             </p>
           </div>
         </div>
@@ -132,13 +132,13 @@ export default function LogoPhilosophySection() {
         <div className="mt-16 bg-[var(--surface)] rounded-3xl p-8 sm:p-10 border border-[var(--border)]">
           <div className="text-center max-w-xl mx-auto mb-8">
             <span className="font-mono text-xs font-semibold text-[#C98F55] tracking-widest uppercase block mb-1">
-              {t("brand.valuesEyebrow")}
+              {t('brand.valuesEyebrow')}
             </span>
             <h3 className="font-sans text-xl sm:text-2xl font-bold text-[var(--foreground)]">
-              {t("brand.valuesTitle")}
+              {t('brand.valuesTitle')}
             </h3>
             <p className="text-sm text-[var(--muted-foreground)] mt-2">
-              {t("brand.valuesSubtitle")}
+              {t('brand.valuesSubtitle')}
             </p>
           </div>
 
@@ -162,8 +162,10 @@ export default function LogoPhilosophySection() {
           </div>
 
           <div className="mt-8 pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[var(--muted-foreground)]">
-            <span>{t("brand.taglineHuman")}</span>
-            <span className="text-[#C98F55]">EST. 2025 &middot; Muhammad Gabriel Luca Senna</span>
+            <span>{t('brand.taglineHuman')}</span>
+            <span className="text-[#C98F55]">
+              EST. 2025 &middot; Muhammad Gabriel Luca Senna
+            </span>
           </div>
         </div>
       </Container>

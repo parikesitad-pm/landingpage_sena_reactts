@@ -1,8 +1,8 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { ShieldCheck } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { ShieldCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function HospitalSection() {
   const { t } = useTranslation();
@@ -15,20 +15,20 @@ export default function HospitalSection() {
     >
       <Container size="lg">
         <SectionTitle
-          eyebrow={t("hospital.eyebrow")}
-          title={t("hospital.title")}
+          eyebrow={t('hospital.eyebrow')}
+          title={t('hospital.title')}
           align="center"
         />
 
         <div className="max-w-2xl mx-auto text-center mb-12 space-y-3">
           <p className="text-base sm:text-lg text-[var(--muted-foreground)] leading-relaxed">
-            {t("hospital.p1")}
+            {t('hospital.p1')}
           </p>
           <p className="text-base sm:text-lg text-[var(--muted-foreground)] leading-relaxed">
-            {t("hospital.p2")}
+            {t('hospital.p2')}
           </p>
           <p className="text-base sm:text-lg text-[var(--muted-foreground)] leading-relaxed">
-            {t("hospital.p3")}
+            {t('hospital.p3')}
           </p>
         </div>
 
@@ -49,10 +49,10 @@ export default function HospitalSection() {
             </div>
             <figcaption className="pt-3 px-1 text-left">
               <span className="font-mono text-xs font-semibold text-[#C98F55] uppercase tracking-wider block">
-                {t("hospital.card1Title")}
+                {t('hospital.card1Title')}
               </span>
               <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mt-0.5">
-                {t("hospital.card1Desc")}
+                {t('hospital.card1Desc')}
               </p>
             </figcaption>
           </figure>
@@ -72,10 +72,10 @@ export default function HospitalSection() {
             </div>
             <figcaption className="pt-3 px-1 text-left">
               <span className="font-mono text-xs font-semibold text-[#C98F55] uppercase tracking-wider block">
-                {t("hospital.card2Title")}
+                {t('hospital.card2Title')}
               </span>
               <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mt-0.5">
-                {t("hospital.card2Desc")}
+                {t('hospital.card2Desc')}
               </p>
             </figcaption>
           </figure>
@@ -97,11 +97,11 @@ export default function HospitalSection() {
               <div className="flex items-center gap-1 text-[#2E7D32] dark:text-[#81C784]">
                 <ShieldCheck className="w-3.5 h-3.5" />
                 <span className="font-mono text-xs font-semibold uppercase tracking-wider">
-                  {t("hospital.card3Title")}
+                  {t('hospital.card3Title')}
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mt-0.5">
-                {t("hospital.card3Desc")}
+                {t('hospital.card3Desc')}
               </p>
             </figcaption>
           </figure>

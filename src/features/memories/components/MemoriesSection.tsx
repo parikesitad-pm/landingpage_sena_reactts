@@ -1,7 +1,7 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import MemoryGallery from "@/features/memories/components/MemoryGallery";
-import { useTranslation } from "react-i18next";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import MemoryGallery from '@/features/memories/components/MemoryGallery';
+import { useTranslation } from 'react-i18next';
 
 export default function MemoriesSection() {
   const { t } = useTranslation();
@@ -14,9 +14,9 @@ export default function MemoriesSection() {
     >
       <Container size="lg">
         <SectionTitle
-          eyebrow={t("memories.eyebrow")}
-          title={t("memories.title")}
-          description={t("memories.subtitle")}
+          eyebrow={t('memories.eyebrow')}
+          title={t('memories.title')}
+          description={t('memories.subtitle')}
           align="center"
         />
 

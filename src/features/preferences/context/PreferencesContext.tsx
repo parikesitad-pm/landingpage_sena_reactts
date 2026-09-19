@@ -5,25 +5,25 @@ import {
   useEffect,
   type ReactNode,
   useCallback,
-} from "react";
+} from 'react';
 import type {
   ThemePreference,
   ResolvedTheme,
   SupportedLocale,
   LanguagePreference,
-} from "../types";
+} from '../types';
 import {
   getStoredThemePreference,
   resolveTheme,
   applyTheme,
   setStoredThemePreference,
-} from "../lib/theme";
+} from '../lib/theme';
 import {
   getStoredLanguagePreference,
   resolveLocale,
   setStoredLanguagePreference,
-} from "../lib/locale";
-import i18n from "@/i18n/config";
+} from '../lib/locale';
+import i18n from '@/i18n/config';
 
 interface PreferencesContextType {
   themePreference: ThemePreference;
@@ -39,7 +39,9 @@ const PreferencesContext = createContext<PreferencesContextType | null>(null);
 
 export function PreferencesProvider({ children }: { children: ReactNode }) {
   // Theme state
-  const [themePref, setThemePref] = useState<ThemePreference>(() => getStoredThemePreference());
+  const [themePref, setThemePref] = useState<ThemePreference>(() =>
+    getStoredThemePreference()
+  );
   const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() =>
     resolveTheme(getStoredThemePreference())
   );
@@ -67,7 +69,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     const resolved = resolveLocale(newPref);
     setActiveLocale(resolved);
     i18n.changeLanguage(resolved);
-    if (typeof document !== "undefined") {
+    if (typeof document !== 'undefined') {
       document.documentElement.lang = resolved;
     }
   }, []);
@@ -76,35 +78,37 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
   const setActiveLocaleOverride = useCallback((locale: SupportedLocale) => {
     setActiveLocale(locale);
     i18n.changeLanguage(locale);
-    if (typeof document !== "undefined") {
+    if (typeof document !== 'undefined') {
       document.documentElement.lang = locale;
     }
   }, []);
 
   // Listen to OS theme changes when in "system" mode
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
     const handleChange = () => {
-      if (themePref === "system") {
-        const nextResolved: ResolvedTheme = mediaQuery.matches ? "dark" : "light";
+      if (themePref === 'system') {
+        const nextResolved: ResolvedTheme = mediaQuery.matches
+          ? 'dark'
+          : 'light';
         setResolvedTheme(nextResolved);
         applyTheme(nextResolved);
       }
     };
 
-    mediaQuery.addEventListener("change", handleChange);
+    mediaQuery.addEventListener('change', handleChange);
 
     // Apply current theme
     applyTheme(resolvedTheme);
 
     // Enable smooth transitions only after initial load to avoid white flash
     const timer = setTimeout(() => {
-      document.documentElement.dataset.themeReady = "true";
+      document.documentElement.dataset.themeReady = 'true';
     }, 50);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleChange);
+      mediaQuery.removeEventListener('change', handleChange);
       clearTimeout(timer);
     };
   }, [themePref, resolvedTheme]);
@@ -135,7 +139,7 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
 export function usePreferences(): PreferencesContextType {
   const context = useContext(PreferencesContext);
   if (!context) {
-    throw new Error("usePreferences must be used within a PreferencesProvider");
+    throw new Error('usePreferences must be used within a PreferencesProvider');
   }
   return context;
 }

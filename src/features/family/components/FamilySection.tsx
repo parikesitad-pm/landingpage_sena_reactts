@@ -1,8 +1,8 @@
-import Container from "@/components/atoms/Container";
-import SectionTitle from "@/components/atoms/SectionTitle";
-import ResponsiveImage from "@/components/atoms/ResponsiveImage";
-import { Heart } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import Container from '@/components/atoms/Container';
+import SectionTitle from '@/components/atoms/SectionTitle';
+import ResponsiveImage from '@/components/atoms/ResponsiveImage';
+import { Heart } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function FamilySection() {
   const { t } = useTranslation();
@@ -15,9 +15,9 @@ export default function FamilySection() {
     >
       <Container size="lg">
         <SectionTitle
-          eyebrow={t("family.eyebrow")}
-          title={t("family.title")}
-          description={t("family.description")}
+          eyebrow={t('family.eyebrow')}
+          title={t('family.title')}
+          description={t('family.description')}
           align="center"
         />
 
@@ -41,7 +41,7 @@ export default function FamilySection() {
                   Popo
                 </span>
                 <span className="block font-mono text-xs text-[var(--muted-foreground)]">
-                  {t("family.popoRole")}
+                  {t('family.popoRole')}
                 </span>
               </figcaption>
             </figure>
@@ -65,14 +65,14 @@ export default function FamilySection() {
                 <div className="inline-flex items-center gap-1.5 text-[#C98F55] mb-1">
                   <Heart className="w-3.5 h-3.5 fill-[#C98F55]" />
                   <span className="font-mono text-xs font-semibold uppercase tracking-wider">
-                    {t("family.togetherTag")}
+                    {t('family.togetherTag')}
                   </span>
                 </div>
                 <p className="font-sans text-base font-bold text-[var(--foreground)]">
-                  {t("family.togetherTitle")}
+                  {t('family.togetherTitle')}
                 </p>
                 <p className="text-xs sm:text-sm text-[var(--muted-foreground)] mt-1">
-                  {t("family.togetherDesc")}
+                  {t('family.togetherDesc')}
                 </p>
               </figcaption>
             </figure>
@@ -97,7 +97,7 @@ export default function FamilySection() {
                   Momo
                 </span>
                 <span className="block font-mono text-xs text-[var(--muted-foreground)]">
-                  {t("family.momoRole")}
+                  {t('family.momoRole')}
                 </span>
               </figcaption>
             </figure>

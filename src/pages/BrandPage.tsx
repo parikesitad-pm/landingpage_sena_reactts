@@ -1,13 +1,19 @@
-import { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import MainLayout from "@/components/layout/MainLayout";
-import Container from "@/components/atoms/Container";
-import Button from "@/components/atoms/Button";
-import { siteContent } from "@/data/siteContent";
-import { Code, Compass, Sparkles, HeartHandshake, ArrowLeft } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { usePreferences } from "@/features/preferences/context/PreferencesContext";
-import { pathPrefixToLocale } from "@/features/preferences/lib/locale";
+import { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import MainLayout from '@/components/layout/MainLayout';
+import Container from '@/components/atoms/Container';
+import Button from '@/components/atoms/Button';
+import { siteContent } from '@/data/siteContent';
+import {
+  Code,
+  Compass,
+  Sparkles,
+  HeartHandshake,
+  ArrowLeft,
+} from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { pathPrefixToLocale } from '@/features/preferences/lib/locale';
 
 export default function BrandPage() {
   const { lang } = useParams<{ lang?: string }>();
@@ -26,27 +32,27 @@ export default function BrandPage() {
 
   const meanings = [
     {
-      title: t("brand.createTitle"),
-      symbol: "< >",
-      description: t("brand.createDesc"),
+      title: t('brand.createTitle'),
+      symbol: '< >',
+      description: t('brand.createDesc'),
       icon: <Code className="w-5 h-5 text-[#C98F55]" />,
     },
     {
-      title: t("brand.wonderTitle"),
-      symbol: "✦",
-      description: t("brand.wonderDesc"),
+      title: t('brand.wonderTitle'),
+      symbol: '✦',
+      description: t('brand.wonderDesc'),
       icon: <Sparkles className="w-5 h-5 text-[#C98F55]" />,
     },
     {
-      title: t("brand.exploreTitle"),
-      symbol: "Orbit",
-      description: t("brand.exploreDesc"),
+      title: t('brand.exploreTitle'),
+      symbol: 'Orbit',
+      description: t('brand.exploreDesc'),
       icon: <Compass className="w-5 h-5 text-[#C98F55]" />,
     },
     {
-      title: t("brand.becomeTitle"),
-      symbol: "Hello, World.",
-      description: t("brand.becomeDesc"),
+      title: t('brand.becomeTitle'),
+      symbol: 'Hello, World.',
+      description: t('brand.becomeDesc'),
       icon: <HeartHandshake className="w-5 h-5 text-[#C98F55]" />,
     },
   ];
@@ -69,13 +75,13 @@ export default function BrandPage() {
           {/* Editorial Header */}
           <div className="max-w-2xl text-left mb-12">
             <span className="font-mono text-xs font-semibold text-[#C98F55] tracking-widest uppercase block mb-2">
-              {t("brand.eyebrow")}
+              {t('brand.eyebrow')}
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold font-sans text-[var(--foreground)] tracking-tight">
-              {t("brand.title")}
+              {t('brand.title')}
             </h1>
             <p className="mt-4 text-base sm:text-lg text-[var(--muted-foreground)] leading-relaxed">
-              {t("brand.narrativeIntro")}
+              {t('brand.narrativeIntro')}
             </p>
           </div>
 
@@ -141,10 +147,16 @@ export default function BrandPage() {
             </h2>
             <div className="space-y-3 text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed max-w-3xl">
               <p>
-                &ldquo;Build With Purpose&rdquo; is never meant as a rigid expectation or prescribed destiny for Luca. It is simply a gentle value: that whatever he chooses to build or explore in life, he does so with care, empathy, and positive meaning for people.
+                &ldquo;Build With Purpose&rdquo; is never meant as a rigid
+                expectation or prescribed destiny for Luca. It is simply a
+                gentle value: that whatever he chooses to build or explore in
+                life, he does so with care, empathy, and positive meaning for
+                people.
               </p>
               <p>
-                Whether he builds software as an engineer or explores other creative horizons, curiosity is at its best when it serves human kindness.
+                Whether he builds software as an engineer or explores other
+                creative horizons, curiosity is at its best when it serves human
+                kindness.
               </p>
             </div>
           </div>
@@ -152,7 +164,7 @@ export default function BrandPage() {
           {/* Return Home CTA */}
           <div className="text-center pt-4">
             <Link to="/">
-              <Button size="lg">{t("hero.ctaExplore")}</Button>
+              <Button size="lg">{t('hero.ctaExplore')}</Button>
             </Link>
           </div>
         </Container>
