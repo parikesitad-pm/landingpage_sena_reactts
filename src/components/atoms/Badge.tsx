@@ -15,9 +15,9 @@ export default function Badge({
   ...props
 }: BadgeProps) {
   const variantStyles = {
-    neutral: 'bg-[#F4ECE1] text-[#2F3437] border border-[#E4D9C8]',
-    accent: 'bg-[#F8EFE4] text-[#8C5D2C] border border-[#E9D6BE]',
-    mono: 'font-mono bg-[#FFFDF8] text-[#555C61] border border-[#E5DDD0] text-xs',
+    neutral: 'bg-[var(--surface-soft)] text-[var(--foreground)] border border-[var(--border)]',
+    accent: 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20',
+    mono: 'font-mono bg-[var(--surface-soft)] text-[var(--foreground)] border border-[var(--border)] text-xs',
   };
 
   return (
@@ -29,7 +29,7 @@ export default function Badge({
       )}
       {...props}
     >
-      {dot && <span className="w-1.5 h-1.5 rounded-full bg-[#C98F55]" />}
+      {dot && <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />}
       {children}
     </span>
   );

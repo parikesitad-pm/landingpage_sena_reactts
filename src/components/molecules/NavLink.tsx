@@ -20,15 +20,15 @@ export default function NavLink({
       className={cn(
         'relative text-sm font-medium transition-colors py-1 px-2.5 rounded-md focus-visible:outline-2',
         isActive
-          ? 'text-[#2F3437] font-semibold'
-          : 'text-[#73706A] hover:text-[#2F3437]',
+          ? 'text-[var(--foreground-strong)] font-semibold'
+          : 'text-[var(--muted-foreground)] hover:text-[var(--foreground)]',
         className
       )}
       {...props}
     >
       {label}
       {isActive && (
-        <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-[#C98F55] rounded-full" />
+        <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-[var(--accent)] rounded-full" />
       )}
     </a>
   );

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import LucaLogo from '@/components/atoms/LucaLogo';
 
 export interface LogoMarkProps {
   className?: string;
@@ -19,12 +20,11 @@ export default function LogoMark({
         className={cn('inline-block focus-visible:outline-2 group', className)}
         aria-label="Muhammad Gabriel Luca Senna - Home"
       >
-        <img
-          src="/branding/luca-logo.png"
+        <LucaLogo
           alt="LUCA - Muhammad Gabriel Luca Senna Logo"
           width={280}
           height={140}
-          className="h-auto w-auto max-h-16 object-contain group-hover:opacity-90 transition-opacity"
+          className="h-auto w-auto max-h-16 group-hover:opacity-90 transition-opacity"
         />
       </Link>
     );
@@ -57,7 +57,7 @@ export default function LogoMark({
     <Link
       to="/"
       className={cn(
-        'inline-flex items-center gap-2.5 text-[#2F3437] hover:text-[#C98F55] transition-colors focus-visible:outline-2 group',
+        'inline-flex items-center gap-2.5 text-[var(--foreground)] hover:text-[var(--accent)] transition-colors focus-visible:outline-2 group',
         className
       )}
       aria-label="Muhammad Gabriel Luca Senna - Home"
@@ -70,10 +70,10 @@ export default function LogoMark({
         className="w-8 h-8 object-contain group-hover:rotate-6 transition-transform duration-300"
       />
       <div className="flex flex-col text-left">
-        <span className="font-sans text-xl font-bold tracking-wider leading-none text-[#2F3437] group-hover:text-[#C98F55] transition-colors">
+        <span className="font-sans text-xl font-bold tracking-wider leading-none text-[var(--foreground-strong)] group-hover:text-[var(--accent)] transition-colors">
           LUCA
         </span>
-        <span className="font-mono text-[9px] text-[#8C8479] tracking-wider leading-tight uppercase">
+        <span className="font-mono text-[9px] text-[var(--muted-foreground)] tracking-wider leading-tight uppercase">
           EST. 2025
         </span>
       </div>

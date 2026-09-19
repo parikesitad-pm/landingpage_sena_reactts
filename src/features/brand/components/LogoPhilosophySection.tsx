@@ -1,5 +1,6 @@
 import Container from '@/components/atoms/Container';
 import SectionTitle from '@/components/atoms/SectionTitle';
+import LucaLogo from '@/components/atoms/LucaLogo';
 import { Code, Compass, Sparkles, HeartHandshake } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -74,12 +75,11 @@ export default function LogoPhilosophySection() {
 
           {/* Actual Approved Logo Artwork */}
           <div className="relative z-10 max-w-md w-full py-4 px-2">
-            <img
-              src="/branding/luca-logo.png"
+            <LucaLogo
               alt="LUCA — Muhammad Gabriel Luca Senna Logo Artwork"
               width={600}
               height={300}
-              className="w-full h-auto object-contain mx-auto filter drop-shadow-xs dark:brightness-110"
+              className="w-full h-auto object-contain mx-auto filter drop-shadow-xs"
             />
           </div>
 

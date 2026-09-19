@@ -29,13 +29,13 @@ export default function Button({
 
   const variantStyles = {
     primary:
-      'bg-[#2F3437] text-[#FAF7F2] hover:bg-[#1E2224] shadow-sm hover:shadow active:scale-[0.98]',
+      'bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 shadow-sm hover:shadow active:scale-[0.98]',
     secondary:
-      'bg-[#EFE7DA] text-[#2F3437] hover:bg-[#E5DBCB] active:scale-[0.98]',
+      'bg-[var(--surface-soft)] text-[var(--foreground)] hover:bg-[var(--border)] active:scale-[0.98]',
     outline:
-      'border border-[#DCD3C5] text-[#2F3437] hover:bg-[#FAF7F2] hover:border-[#C98F55] active:scale-[0.98]',
+      'border border-[var(--border)] text-[var(--foreground)] hover:bg-[var(--surface-soft)] hover:border-[var(--accent)] active:scale-[0.98]',
     ghost:
-      'text-[#73706A] hover:text-[#2F3437] hover:bg-[#F2ECE1] active:scale-[0.98]',
+      'text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--surface-soft)] active:scale-[0.98]',
   };
 
   const combinedClasses = cn(

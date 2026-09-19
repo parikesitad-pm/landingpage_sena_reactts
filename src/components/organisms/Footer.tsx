@@ -4,9 +4,14 @@ import { siteContent } from '@/data/siteContent';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { localeToPathPrefix } from '@/features/preferences/lib/locale';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const { t } = useTranslation();
+  const { activeLocale } = usePreferences();
+  const prefix = localeToPathPrefix(activeLocale);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -25,7 +30,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <Link
-              to="/brand"
+              to={`/${prefix}/brand`}
               className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors underline decoration-[var(--border)] underline-offset-4"
             >
               {t('footer.brandLink')}

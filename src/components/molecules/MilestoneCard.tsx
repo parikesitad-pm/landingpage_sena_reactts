@@ -47,34 +47,34 @@ export default function MilestoneCard({
           {getIcon()}
         </div>
         {!isLast && (
-          <div className="w-px h-full min-h-[48px] bg-gradient-to-b from-[#E7E0D6] to-[#EFEAE2] my-1" />
+          <div className="w-px h-full min-h-[48px] bg-gradient-to-b from-[var(--border)] to-[var(--border-soft)] my-1" />
         )}
       </div>
 
       {/* Content box */}
       <div className="pb-8 pt-1 flex-1">
         <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-1">
-          <h3 className="text-base sm:text-lg font-bold text-[#2F3437] font-sans">
+          <h3 className="text-base sm:text-lg font-bold text-[var(--foreground)] font-sans">
             {milestone.title}
           </h3>
 
           {milestone.date && (
             <time
               dateTime={milestone.date}
-              className="font-mono text-xs font-medium text-[#C98F55] bg-[#FAF2E8] px-2.5 py-0.5 rounded-full"
+              className="font-mono text-xs font-medium text-[var(--accent)] bg-[var(--surface-soft)] border border-[var(--border)] px-2.5 py-0.5 rounded-full"
             >
               {milestone.date}
             </time>
           )}
 
           {milestone.ageText && (
-            <span className="font-mono text-xs text-[#8C8479] bg-[#F2ECE1] px-2 py-0.5 rounded-full">
+            <span className="font-mono text-xs text-[var(--muted-foreground)] bg-[var(--surface-soft)] border border-[var(--border)] px-2 py-0.5 rounded-full">
               {milestone.ageText}
             </span>
           )}
         </div>
 
-        <p className="text-sm sm:text-base text-[#73706A] leading-relaxed">
+        <p className="text-sm sm:text-base text-[var(--muted-foreground)] leading-relaxed">
           {milestone.description}
         </p>
       </div>

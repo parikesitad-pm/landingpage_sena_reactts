@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import Container from '@/components/atoms/Container';
 import Button from '@/components/atoms/Button';
+import LucaLogo from '@/components/atoms/LucaLogo';
 import { siteContent } from '@/data/siteContent';
 import {
   Code,
@@ -64,7 +65,7 @@ export default function BrandPage() {
           {/* Back link */}
           <div className="mb-8">
             <Link
-              to="/"
+              to={`/${pathPrefixToLocale(lang || '') ? lang : 'en'}/`}
               className="inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -88,12 +89,11 @@ export default function BrandPage() {
           {/* Primary Logo Showcase */}
           <div className="bg-[var(--surface)] rounded-3xl p-8 sm:p-14 border border-[var(--border)] shadow-sm mb-12 text-center">
             <div className="max-w-md mx-auto py-6">
-              <img
-                src="/branding/luca-logo.png"
+              <LucaLogo
                 alt="LUCA — Muhammad Gabriel Luca Senna Logo"
                 width={600}
                 height={300}
-                className="w-full h-auto object-contain mx-auto dark:brightness-110"
+                className="w-full mx-auto"
               />
             </div>
 

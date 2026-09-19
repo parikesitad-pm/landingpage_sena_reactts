@@ -9,9 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Peningkatan kontras tema gelap (dark mode) dengan variabel semantik berstandar WCAG AA dan perbaikan keterbacaan judul, paragraf, kartu, dan navigasi.
+- Implementasi varian logo adaptif tema (`luca-logo-dark.webp` & `luca-logo-light.webp`) serta komponen atom `LucaLogo` dengan warna lettering warm ivory di dark mode tanpa mengubah aksen emas.
+- Pembaruan domain produksi resmi menjadi `https://luca-senna.vercel.app` pada seluruh konfigurasi, sitemap, robots.txt, canonical, dan OpenGraph metadata.
 - Pembaruan teks kredit footer menjadi `Crafted with <3 for Luca` dan tautan ke `a MODULA Project`.
 
 ### Added
+
+- Pipeline build prerender SEO (`scripts/generate-locale-html.mjs`) untuk menghasilkan file HTML statis dengan judul, deskripsi, canonical, dan OpenGraph khusus per bahasa (`/en/`, `/id/`, `/zh-cn/`, `/ja/`, `/ko/`).
 
 - File verifikasi kepemilikan Google Search Console (`google5893aaf2832e50e4.html`) dan meta tag verifikasi di `index.html`.
 - Bagian humor keluarga "Luca Protocol v1.0" (Lima hukum aturan keluarga, House Protection Policy anti-bullying, dan prinsip batas "Belajar Nakal Sama Popo").

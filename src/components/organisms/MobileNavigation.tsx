@@ -3,6 +3,9 @@ import { X } from 'lucide-react';
 import LogoMark from '@/components/atoms/LogoMark';
 import { Link } from 'react-router-dom';
 
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { localeToPathPrefix } from '@/features/preferences/lib/locale';
+
 export interface MobileNavigationProps {
   isOpen: boolean;
   onClose: () => void;
@@ -15,6 +18,8 @@ export default function MobileNavigation({
   navItems,
 }: MobileNavigationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { activeLocale } = usePreferences();
+  const prefix = localeToPathPrefix(activeLocale);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -79,7 +84,7 @@ export default function MobileNavigation({
             LUCA &middot; EST. 2025
           </span>
           <Link
-            to="/brand"
+            to={`/${prefix}/brand`}
             onClick={onClose}
             className="text-[#C98F55] hover:underline"
           >

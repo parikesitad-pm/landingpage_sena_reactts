@@ -6,6 +6,8 @@ import MobileNavigation from '@/components/organisms/MobileNavigation';
 import PreferencesMenu from '@/features/preferences/components/PreferencesMenu';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useTranslation } from 'react-i18next';
+import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { localeToPathPrefix } from '@/features/preferences/lib/locale';
 import { cn } from '@/lib/utils';
 
 export default function Navbar() {
@@ -13,13 +15,15 @@ export default function Navbar() {
   const scrollY = useScrollPosition();
   const isScrolled = scrollY > 20;
   const { t } = useTranslation();
+  const { activeLocale } = usePreferences();
+  const prefix = localeToPathPrefix(activeLocale);
 
   const navItems = [
-    { label: t('nav.story'), href: '#story' },
-    { label: t('nav.growingUp'), href: '#milestones' },
-    { label: t('nav.memories'), href: '#memories' },
-    { label: t('nav.family'), href: '#family' },
-    { label: t('nav.brand'), href: '#brand-mark' },
+    { label: t('nav.story'), href: `/${prefix}/#story` },
+    { label: t('nav.growingUp'), href: `/${prefix}/#milestones` },
+    { label: t('nav.memories'), href: `/${prefix}/#memories` },
+    { label: t('nav.family'), href: `/${prefix}/#family` },
+    { label: t('nav.brand'), href: `/${prefix}/#brand-mark` },
   ];
 
   return (
@@ -27,7 +31,7 @@ export default function Navbar() {
       className={cn(
         'sticky top-0 z-40 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-[var(--surface)]/90 backdrop-blur-md border-b border-[var(--border)] shadow-[0_2px_10px_rgba(0,0,0,0.04)] py-3'
+          ? 'bg-[var(--surface)]/95 backdrop-blur-md border-b border-[var(--border)] shadow-[0_2px_10px_rgba(0,0,0,0.06)] py-3'
           : 'bg-transparent py-5'
       )}
     >
@@ -46,8 +50,8 @@ export default function Navbar() {
           <PreferencesMenu />
 
           <a
-            href="#for-senna"
-            className="text-xs font-mono font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] px-3.5 py-1.5 rounded-full border border-[var(--border)] transition-colors"
+            href={`/${prefix}/#for-senna`}
+            className="text-xs font-mono font-medium text-[var(--foreground)] hover:text-[var(--accent)] bg-[var(--surface-soft)] hover:bg-[var(--border)] px-3.5 py-1.5 rounded-full border border-[var(--border)] transition-colors"
           >
             {t('nav.forSenna')} &rarr;
           </a>
