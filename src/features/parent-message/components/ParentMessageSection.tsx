@@ -7,7 +7,7 @@ export default function ParentMessageSection() {
   return (
     <section
       id="for-senna"
-      className="py-24 sm:py-32 bg-[var(--surface)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
+      className="py-24 sm:py-32 bg-[var(--surface)] border-t border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors"
       aria-labelledby="parent-message-title"
     >
       <Container size="md">

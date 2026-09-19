@@ -19,7 +19,7 @@ export default function StorySection() {
   return (
     <section
       id="story"
-      className="py-20 sm:py-28 bg-[var(--surface)] border-y border-[var(--border)] scroll-mt-12 transition-colors"
+      className="py-20 sm:py-28 bg-[var(--surface)] border-y border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors"
       aria-labelledby="story-title"
     >
       <Container size="lg">

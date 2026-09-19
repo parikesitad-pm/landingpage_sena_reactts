@@ -9,7 +9,7 @@ export default function MilestonesSection() {
   return (
     <section
       id="milestones"
-      className="py-20 sm:py-28 bg-[var(--background)] scroll-mt-12 transition-colors"
+      className="py-20 sm:py-28 bg-[var(--background)] scroll-mt-16 sm:scroll-mt-20 transition-colors"
       aria-labelledby="milestones-title"
     >
       <Container size="md">

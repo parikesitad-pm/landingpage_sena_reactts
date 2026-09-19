@@ -57,7 +57,7 @@ export default function LogoPhilosophySection() {
   return (
     <section
       id="brand-mark"
-      className="py-20 sm:py-32 bg-[var(--surface-soft)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
+      className="py-20 sm:py-32 bg-[var(--surface-soft)] border-t border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors"
       aria-labelledby="logo-philosophy-title"
     >
       <Container size="lg">

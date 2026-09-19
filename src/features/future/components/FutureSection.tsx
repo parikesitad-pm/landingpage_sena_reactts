@@ -9,7 +9,7 @@ export default function FutureSection() {
   return (
     <section
       id="future"
-      className="py-16 sm:py-24 bg-[var(--background)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
+      className="py-16 sm:py-24 bg-[var(--background)] border-t border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors"
       aria-labelledby="future-title"
     >
       <Container size="md">

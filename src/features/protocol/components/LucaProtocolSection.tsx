@@ -44,10 +44,15 @@ const RULES: RuleItem[] = [
 export default function LucaProtocolSection() {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { threshold: 0.25, once: true });
+  // Trigger earlier when section approaches viewport to ensure zero delay even during fast scroll
+  const isInView = useInView(sectionRef, {
+    threshold: 0.1,
+    rootMargin: '120px 0px 0px 0px',
+    once: true,
+  });
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Animation sequence steps: 0..4 (rules 1..5), 5 (metadata bar), 6 (finished)
+  // Animation sequence steps: 0..4 (rules 1..5), 5 (metadata bar complete), 6 (finished)
   const [activeStep, setActiveStep] = useState(prefersReducedMotion ? 6 : -1);
   const [typedRules, setTypedRules] = useState<string[]>(
     prefersReducedMotion ? RULES.map((r) => r.canonical) : ['', '', '', '', '']
@@ -63,6 +68,8 @@ export default function LucaProtocolSection() {
     }
 
     if (isInView && activeStep === -1) {
+      // Immediately reveal metadata bar as section approaches (Requirement 16)
+      setMetadataVisible(true);
       setActiveStep(0);
     }
   }, [isInView, prefersReducedMotion, activeStep]);
@@ -88,21 +95,20 @@ export default function LucaProtocolSection() {
         // Pause briefly before advancing to next rule or metadata bar
         setTimeout(() => {
           setActiveStep((s) => s + 1);
-        }, 140);
+        }, 130);
       }
-    }, 32);
+    }, 30);
 
     return () => clearInterval(typingInterval);
   }, [activeStep, prefersReducedMotion]);
 
-  // Step 5: Reveal metadata bar with quick code typing / fade, then finish
+  // Step 5: After Rule 05 completes, complete sequence and remove cursor
   useEffect(() => {
     if (prefersReducedMotion || activeStep !== 5) return;
 
-    setMetadataVisible(true);
     const completeTimer = setTimeout(() => {
       setActiveStep(6);
-    }, 450);
+    }, 200);
 
     return () => clearTimeout(completeTimer);
   }, [activeStep, prefersReducedMotion]);
@@ -112,7 +118,7 @@ export default function LucaProtocolSection() {
       ref={sectionRef}
       id="protocol"
       aria-label="Luca Protocol"
-      className="py-20 sm:py-24 bg-[var(--surface-soft)] border-y border-[var(--border)] transition-colors duration-300"
+      className="py-20 sm:py-24 bg-[var(--surface-soft)] border-y border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors duration-300"
     >
       <Container>
         {/* Section Header */}

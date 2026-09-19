@@ -15,12 +15,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Top loader bergaya GitHub (`RouteProgress.tsx`) dengan garis tipis aksen emas LUCA, animasi `scaleX` bebas reflow, penundaan anti-flicker 120ms, dan ikon mikro `✦` saat selesai.
+- Smooth scroll terukur dengan Lenis (`SmoothScrollProvider.tsx`) menggunakan single RAF loop, tanpa mengorbankan scroll native mobile (`syncTouch: false`), dan otomatis fallback ke native jika `prefers-reduced-motion: reduce`.
 - Animasi pengetikan ringan (lightweight writing/typing animation) tanpa GSAP via komponen `TypingText` dan `LucaCodeEditor` untuk momen identitas kunci (Hero nama lengkap, nama Popo & Momo, urutan aturan Luca Protocol v1.0, dan jendela kode `luca.ts`), dilengkapi dukungan penuh `prefers-reduced-motion`, pencegahan CLS, dan aksesibilitas screen reader (`sr-only`).
 - Efek reveal lembut (opacity & letter-spacing settle) untuk nama Muhammad Alqi Parikesit serta komponen `RevealOnView` untuk judul sekunder penting.
 - Skrip validator aset build-time otomatis `scripts/validate-assets.mjs` (`npm run validate:assets`) yang memeriksa keberadaan fisik setiap aset, fallback `.webp`, varian resolusi, serta aturan penamaan file kebab-case.
 
 ### Changed
 
+- Penghapusan total konsep splash screen / blocking overlay agar seluruh konten langsung tampil instan tanpa penundaan buatan.
+- Penyesuaian `scroll-margin-top` (`scroll-mt-16 sm:scroll-mt-20`) pada seluruh seksi navigasi jangkar agar tidak tertutup sticky header.
+- Peningkatan deteksi viewport Luca Protocol (`rootMargin: 120px`) agar metadata bar langsung tampil saat seksi mendekat dan sekuens aturan berjalan tanpa jeda.
 - Peningkatan kontras tema gelap (dark mode) dengan variabel semantik berstandar WCAG AA dan perbaikan keterbacaan judul, paragraf, kartu, dan navigasi.
 - Implementasi varian logo adaptif tema (`luca-logo-dark.webp` & `luca-logo-light.webp`) serta komponen atom `LucaLogo` dengan warna lettering warm ivory di dark mode tanpa mengubah aksen emas.
 - Pembaruan domain produksi resmi menjadi `https://luca-senna.vercel.app` pada seluruh konfigurasi, sitemap, robots.txt, canonical, dan OpenGraph metadata.

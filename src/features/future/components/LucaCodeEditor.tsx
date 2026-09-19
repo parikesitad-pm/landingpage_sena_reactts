@@ -132,7 +132,9 @@ export default function LucaCodeEditor() {
   const isInView = useInView(containerRef, { threshold: 0.3, once: true });
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  const [currentLine, setCurrentLine] = useState(prefersReducedMotion ? CODE_LINES.length : -1);
+  const [currentLine, setCurrentLine] = useState(
+    prefersReducedMotion ? CODE_LINES.length : -1
+  );
   const [charOffset, setCharOffset] = useState(prefersReducedMotion ? 999 : 0);
   const [isCompleted, setIsCompleted] = useState(prefersReducedMotion);
 
@@ -152,7 +154,12 @@ export default function LucaCodeEditor() {
 
   // Line by line typing effect
   useEffect(() => {
-    if (prefersReducedMotion || currentLine < 0 || currentLine >= CODE_LINES.length) return;
+    if (
+      prefersReducedMotion ||
+      currentLine < 0 ||
+      currentLine >= CODE_LINES.length
+    )
+      return;
 
     const line = CODE_LINES[currentLine];
     // If empty line, jump to next immediately
@@ -253,8 +260,10 @@ export default function LucaCodeEditor() {
       >
         <div className="space-y-1">
           {CODE_LINES.map((line, idx) => {
-            const isPast = idx < currentLine || prefersReducedMotion || isCompleted;
-            const isCurrent = idx === currentLine && !prefersReducedMotion && !isCompleted;
+            const isPast =
+              idx < currentLine || prefersReducedMotion || isCompleted;
+            const isCurrent =
+              idx === currentLine && !prefersReducedMotion && !isCompleted;
 
             if (line.raw.length === 0) {
               return <div key={idx} className="h-4" />;
@@ -266,7 +275,8 @@ export default function LucaCodeEditor() {
                   {idx + 1}
                 </span>
                 <div className="flex-1 whitespace-pre font-mono">
-                  {isPast && renderTokensWithLimit(line.tokens, line.raw.length)}
+                  {isPast &&
+                    renderTokensWithLimit(line.tokens, line.raw.length)}
                   {isCurrent && renderTokensWithLimit(line.tokens, charOffset)}
                   {isCurrent && (
                     <span className="inline-block ml-0.5 text-[#C98F55] font-mono animate-pulse">

@@ -9,7 +9,7 @@ export default function MemoriesSection() {
   return (
     <section
       id="memories"
-      className="py-20 sm:py-28 bg-[var(--surface)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
+      className="py-20 sm:py-28 bg-[var(--surface)] border-t border-[var(--border)] scroll-mt-16 sm:scroll-mt-20 transition-colors"
       aria-labelledby="memories-title"
     >
       <Container size="lg">
