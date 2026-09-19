@@ -25,7 +25,8 @@ const LOCALES = [
     htmlLang: 'id',
     dir: 'id',
     path: '/id/',
-    title: 'Muhammad Gabriel Luca Senna | Portfolio Pertama & Kisah Perjalanannya',
+    title:
+      'Muhammad Gabriel Luca Senna | Portfolio Pertama & Kisah Perjalanannya',
     description:
       'Portfolio pertama Muhammad Gabriel Luca Senna — memori berharga, langkah tumbuh kembang, momen keluarga, dan kisah perjalanan yang bermula pada 13 Februari 2025.',
     ogLocale: 'id_ID',
@@ -138,7 +139,9 @@ async function generateLocaleHtml() {
 
     const outFilePath = path.join(localeDir, 'index.html');
     fs.writeFileSync(outFilePath, localizedHtml, 'utf-8');
-    console.log(`[SEO Prerender] Generated localized HTML: ${locale.path} -> dist/${locale.dir}/index.html`);
+    console.log(
+      `[SEO Prerender] Generated localized HTML: ${locale.path} -> dist/${locale.dir}/index.html`
+    );
   }
 
   console.log('All localized HTML files successfully generated!');

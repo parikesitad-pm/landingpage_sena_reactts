@@ -28,15 +28,21 @@ export default function ResponsiveImage({
   priority = false,
   ...rest
 }: ResponsiveImageProps) {
+  // Ensure basePath is root-relative (starts with /) to avoid breaking on localized routes (/en/, /id/, etc.)
+  const normalizedBasePath =
+    basePath.startsWith('/') || basePath.startsWith('http')
+      ? basePath
+      : `/${basePath}`;
+
   const avifSrcSet = widths
-    .map((w) => `${basePath}-${w}.avif ${w}w`)
+    .map((w) => `${normalizedBasePath}-${w}.avif ${w}w`)
     .join(', ');
 
   const webpSrcSet = widths
-    .map((w) => `${basePath}-${w}.webp ${w}w`)
+    .map((w) => `${normalizedBasePath}-${w}.webp ${w}w`)
     .join(', ');
 
-  const fallbackSrc = `${basePath}.webp`;
+  const fallbackSrc = `${normalizedBasePath}.webp`;
 
   return (
     <picture className={cn('block overflow-hidden', className)}>

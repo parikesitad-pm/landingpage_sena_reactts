@@ -15,8 +15,10 @@ export default function Badge({
   ...props
 }: BadgeProps) {
   const variantStyles = {
-    neutral: 'bg-[var(--surface-soft)] text-[var(--foreground)] border border-[var(--border)]',
-    accent: 'bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20',
+    neutral:
+      'bg-[var(--surface-soft)] text-[var(--foreground)] border border-[var(--border)]',
+    accent:
+      'bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-500/20',
     mono: 'font-mono bg-[var(--surface-soft)] text-[var(--foreground)] border border-[var(--border)] text-xs',
   };
 

@@ -14,7 +14,10 @@ import ParentMessageSection from '@/features/parent-message/components/ParentMes
 import FutureSection from '@/features/future/components/FutureSection';
 import FamilyHopeSection from '@/features/hopes/components/FamilyHopeSection';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
-import { pathPrefixToLocale, localeToPathPrefix } from '@/features/preferences/lib/locale';
+import {
+  pathPrefixToLocale,
+  localeToPathPrefix,
+} from '@/features/preferences/lib/locale';
 import { localeSeoData } from '@/config/site';
 
 export default function HomePage() {

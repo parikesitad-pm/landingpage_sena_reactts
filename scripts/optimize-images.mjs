@@ -93,23 +93,19 @@ async function optimizeImages() {
       `Processing ${item.source} (${originalWidth}px) -> ${item.destBase}`
     );
 
-    // Generate responsive widths without upscaling
+    // Generate responsive widths (480, 768, 1024, 1280)
     for (const width of targetWidths) {
-      if (width > originalWidth + 40) {
-        continue;
-      }
-
       // Generate AVIF
       const avifDest = path.join(outputDir, `${item.destBase}-${width}.avif`);
       await sharp(sourcePath)
-        .resize({ width, withoutEnlargement: true })
-        .avif({ quality: 60, effort: 4 })
+        .resize({ width, withoutEnlargement: false })
+        .avif({ quality: 65, effort: 4 })
         .toFile(avifDest);
 
       // Generate WebP
       const webpDest = path.join(outputDir, `${item.destBase}-${width}.webp`);
       await sharp(sourcePath)
-        .resize({ width, withoutEnlargement: true })
+        .resize({ width, withoutEnlargement: false })
         .webp({ quality: 82, effort: 4 })
         .toFile(webpDest);
     }

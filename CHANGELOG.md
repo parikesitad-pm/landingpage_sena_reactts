@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Mengatasi 404 pada foto produksi di desktop/retina dengan melengkapi varian responsif 1280px (`.avif` dan `.webp`) untuk semua foto keluarga.
+- Normalisasi `basePath` pada `ResponsiveImage` agar selalu diawali slash root-relative (`/images/...`) untuk menjamin semua foto termuat dengan benar di seluruh rute lokal (`/`, `/en/`, `/id/`, `/zh-cn/`, `/ja/`, `/ko/`).
+- Perbaikan pada `scripts/optimize-images.mjs` agar selalu mengekspor seluruh set ukuran responsif target (480, 768, 1024, 1280) tanpa melewati ukuran 1280px.
+
+### Added
+
+- Skrip validator aset build-time otomatis `scripts/validate-assets.mjs` (`npm run validate:assets`) yang memeriksa keberadaan fisik setiap aset, fallback `.webp`, varian resolusi, serta aturan penamaan file kebab-case.
+
 ### Changed
 
 - Peningkatan kontras tema gelap (dark mode) dengan variabel semantik berstandar WCAG AA dan perbaikan keterbacaan judul, paragraf, kartu, dan navigasi.

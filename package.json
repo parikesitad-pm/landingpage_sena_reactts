@@ -6,8 +6,8 @@
   "author": "parikesitad-pm",
   "license": "MIT",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/generate-locale-html.mjs",
+    "validate:assets": "node scripts/validate-assets.mjs",
+    "build": "npm run validate:assets && tsc -b && vite build && node scripts/generate-locale-html.mjs",
     "preview": "vite preview",
     "optimize:images": "node scripts/optimize-images.mjs"
   },

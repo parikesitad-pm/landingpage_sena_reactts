@@ -2,7 +2,10 @@ import type { ImgHTMLAttributes } from 'react';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
 import { cn } from '@/lib/utils';
 
-export interface LucaLogoProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'> {
+export interface LucaLogoProps extends Omit<
+  ImgHTMLAttributes<HTMLImageElement>,
+  'src' | 'alt'
+> {
   alt?: string;
 }
 
@@ -25,7 +28,10 @@ export default function LucaLogo({
       alt={alt}
       width={width}
       height={height}
-      className={cn('h-auto object-contain transition-opacity duration-200', className)}
+      className={cn(
+        'h-auto object-contain transition-opacity duration-200',
+        className
+      )}
       {...props}
     />
   );
