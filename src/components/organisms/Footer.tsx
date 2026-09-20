@@ -28,9 +28,33 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-2">
+            <a
+              href={`/${prefix}/#story`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.story')}
+            </a>
+            <a
+              href={`/${prefix}/#changelog`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.changelog')}
+            </a>
             <Link
-              to={`/${prefix}/brand`}
+              to={`/${prefix}/moments`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.moments')}
+            </Link>
+            <a
+              href={`/${prefix}/#family`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.family')}
+            </a>
+            <Link
+              to={`/${prefix}/brand-mark`}
               className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors underline decoration-[var(--border)] underline-offset-4"
             >
               {t('footer.brandLink')}
@@ -40,7 +64,7 @@ export default function Footer() {
             <button
               type="button"
               onClick={scrollToTop}
-              className="hidden lg:inline-flex items-center gap-2 text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] border border-[var(--border)] px-4 py-2 rounded-full transition-colors cursor-pointer focus-visible:outline-2"
+              className="hidden lg:inline-flex items-center gap-2 text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] border border-[var(--border)] px-4 py-2 rounded-full transition-colors cursor-pointer focus-visible:outline-2 ml-2"
             >
               <span>{t('footer.backToTop')}</span>
               <ArrowUp className="w-3.5 h-3.5" />

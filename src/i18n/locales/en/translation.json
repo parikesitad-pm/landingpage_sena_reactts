@@ -3,7 +3,8 @@
     "story": "Story",
     "growingUp": "Growing Up",
     "changelog": "Changelog",
-    "memories": "Memories",
+    "moments": "Moments",
+    "memories": "Moments",
     "family": "Family",
     "brand": "The Mark",
     "forSenna": "For Senna",
@@ -124,7 +125,7 @@
     "card3Desc": "Fully recovered, energized, and ready for new joys."
   },
   "brand": {
-    "eyebrow": "BRAND IDENTITY & PHILOSOPHY",
+    "eyebrow": "IDENTITY & PHILOSOPHY",
     "title": "The Mark of Luca",
     "intro": "This little mark was created for Luca as more than a logo. It is a gentle symbol of curiosity, growth, and the bright story still being written.",
     "philosophy": "Hello, World. Keep becoming.",
@@ -236,7 +237,20 @@
     "p5": "We do not need you to become the person we imagined. We hope you become a good man — someone who knows what he believes, treats others with kindness, understands his responsibilities, and has the courage to finish the journey he chooses.",
     "benediction": "May every step you take bring knowledge to your mind, kindness to your heart, and faith to your way.",
     "philosophySignature": "Hello, World. Keep becoming.",
+    "signature": "— Momo & Popo",
     "easterEgg": "journey.status = \"just getting started\";"
+  },
+  "guestbook": {
+    "eyebrow": "GUESTBOOK & BLESSINGS",
+    "title": "Leave a Message for Luca",
+    "subtitle": "Share your prayers, wishes, or warm thoughts for Luca. Your message will be sent directly to Popo & Momo on WhatsApp.",
+    "nameLabel": "Your Name (optional)",
+    "namePlaceholder": "e.g. Uncle Budi / Aunt Sarah",
+    "messageLabel": "Message or Prayer",
+    "messagePlaceholder": "Write your warm prayers or words for Luca...",
+    "sendButton": "Send via WhatsApp",
+    "disclaimer": "This will open WhatsApp with your prefilled message.",
+    "errorRequired": "Please write a message before sending."
   },
   "footer": {
     "dedication": "Made with ♥ for Muhammad Gabriel Luca Senna",

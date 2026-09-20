@@ -3,17 +3,14 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import HeroSection from '@/features/hero/components/HeroSection';
 import StorySection from '@/features/story/components/StorySection';
-import MilestonesSection from '@/features/milestones/components/MilestonesSection';
 import LucaChangelogSection from '@/features/changelog/components/LucaChangelogSection';
-import MemoriesSection from '@/features/memories/components/MemoriesSection';
 import FamilySection from '@/features/family/components/FamilySection';
 import HospitalSection from '@/features/hospital/components/HospitalSection';
-import LogoPhilosophySection from '@/features/brand/components/LogoPhilosophySection';
 import RemembranceSection from '@/features/remembrance/components/RemembranceSection';
-import LucaProtocolSection from '@/features/protocol/components/LucaProtocolSection';
 import ParentMessageSection from '@/features/parent-message/components/ParentMessageSection';
 import FutureSection from '@/features/future/components/FutureSection';
 import FamilyHopeSection from '@/features/hopes/components/FamilyHopeSection';
+import GuestbookSection from '@/features/guestbook/components/GuestbookSection';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
 import {
   pathPrefixToLocale,
@@ -85,17 +82,14 @@ export default function HomePage() {
         className="h-px pointer-events-none"
       />
       <StorySection />
-      <MilestonesSection />
       <LucaChangelogSection />
-      <MemoriesSection />
       <FamilySection />
       <HospitalSection />
       <RemembranceSection />
-      <LogoPhilosophySection />
-      <LucaProtocolSection />
       <ParentMessageSection />
       <FutureSection />
       <FamilyHopeSection />
+      <GuestbookSection />
     </MainLayout>
   );
 }

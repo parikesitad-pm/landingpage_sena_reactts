@@ -3,9 +3,10 @@
     "story": "故事",
     "growingUp": "成长足迹",
     "changelog": "更新日志",
-    "memories": "珍贵瞬间",
+    "moments": "精彩瞬间",
+    "memories": "精彩瞬间",
     "family": "家人相伴",
-    "brand": "标志寓意",
+    "brand": "Luca 的印记",
     "forSenna": "写给 Senna",
     "preferences": "偏好设置",
     "theme": "外观主题",
@@ -124,8 +125,8 @@
     "card3Desc": "完全康复，生机勃勃，拥抱生活里新的快乐。"
   },
   "brand": {
-    "eyebrow": "品牌标识与哲学",
-    "title": "The Mark of Luca",
+    "eyebrow": "身份标识与人生哲理",
+    "title": "Luca 的印记",
     "intro": "这个精心设计的印记不仅是一个徽标，更是为 Luca 定制的成长象征 —— 寓意着对世界的好奇、不断生长的生命力，以及正在展开的光明未来。",
     "philosophy": "Hello, World. Keep becoming.",
     "narrativeIntro": "LUCA 徽标是专为 Muhammad Gabriel Luca Senna 设计的人生第一个个人标识。它记录着今天的他，也见证着未来的他 —— 怀揣好奇，稳健成长，一步一个脚印探索世界。",
@@ -236,13 +237,26 @@
     "p5": "我们并不苛求你成为我们想象中的模样。我们只希望你能成长为一个品行端正的好人 —— 清楚自己的信仰，以善良待人，懂得承担责任，并有勇气将自己选择的人生旅程走完。",
     "benediction": "愿你的每一步足迹，都为头脑带来智慧，为心灵带来温柔，为前路带来信仰的指引。",
     "philosophySignature": "Hello, World. Keep becoming.",
+    "signature": "— Momo & Popo",
     "easterEgg": "journey.status = \"just getting started\";"
+  },
+  "guestbook": {
+    "eyebrow": "留言与祝福",
+    "title": "为 Luca 送上祝福",
+    "subtitle": "写下您对 Luca 的温暖祝福与美好期许，信息将直接发送至 Popo 与 Momo 的 WhatsApp。",
+    "nameLabel": "您的姓名（选填）",
+    "namePlaceholder": "例如：王叔叔 / 李阿姨",
+    "messageLabel": "祝福语或留言",
+    "messagePlaceholder": "写下给 Luca 的温暖寄语...",
+    "sendButton": "通过 WhatsApp 发送",
+    "disclaimer": "点击后将打开 WhatsApp 并自动填入您的留言内容。",
+    "errorRequired": "发送前请先填写留言内容。"
   },
   "footer": {
     "dedication": "Made with ♥ for Muhammad Gabriel Luca Senna",
     "crafted": "Crafted with <3 for Luca",
     "author": "a MODULA Project",
-    "brandLink": "The Mark of Luca →",
+    "brandLink": "Luca 的印记 →",
     "backToTop": "返回顶部",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
   },

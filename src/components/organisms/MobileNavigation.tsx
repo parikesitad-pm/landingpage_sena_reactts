@@ -67,16 +67,31 @@ export default function MobileNavigation({
         </div>
 
         <nav className="flex flex-col gap-2 py-6">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={onClose}
-              className="px-3 py-3 text-lg font-medium text-[var(--foreground)] hover:text-[#C98F55] hover:bg-[var(--surface-soft)] rounded-xl transition-colors"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const isHash = item.href.includes('#') || item.href.startsWith('http');
+            if (isHash) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={onClose}
+                  className="px-3 py-3 text-lg font-medium text-[var(--foreground)] hover:text-[#C98F55] hover:bg-[var(--surface-soft)] rounded-xl transition-colors"
+                >
+                  {item.label}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={item.href}
+                to={item.href}
+                onClick={onClose}
+                className="px-3 py-3 text-lg font-medium text-[var(--foreground)] hover:text-[#C98F55] hover:bg-[var(--surface-soft)] rounded-xl transition-colors"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="pt-4 border-t border-[var(--border)] flex justify-between items-center text-xs font-mono text-[var(--muted-foreground)]">
@@ -84,11 +99,11 @@ export default function MobileNavigation({
             LUCA &middot; EST. 2025
           </span>
           <Link
-            to={`/${prefix}/brand`}
+            to={`/${prefix}/brand-mark`}
             onClick={onClose}
             className="text-[#C98F55] hover:underline"
           >
-            The Mark &rarr;
+            {navItems.find((i) => i.href.includes('brand-mark'))?.label || 'The Mark'} &rarr;
           </Link>
         </div>
       </div>

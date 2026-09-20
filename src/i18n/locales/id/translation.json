@@ -3,9 +3,10 @@
     "story": "Kisah",
     "growingUp": "Tumbuh",
     "changelog": "Changelog",
-    "memories": "Memori",
+    "moments": "Momen",
+    "memories": "Momen",
     "family": "Keluarga",
-    "brand": "Makna Logo",
+    "brand": "Tanda Luca",
     "forSenna": "Untuk Senna",
     "preferences": "Pengaturan",
     "theme": "Tampilan",
@@ -124,8 +125,8 @@
     "card3Desc": "Sembuh total, berenergi, dan siap menyambut kebahagiaan baru."
   },
   "brand": {
-    "eyebrow": "IDENTITAS & FILOSOFI",
-    "title": "The Mark of Luca",
+    "eyebrow": "FILOSOFI & IDENTITAS KECIL",
+    "title": "Tanda Luca",
     "intro": "Tanda kecil ini diciptakan untuk Luca lebih dari sekadar logo. Ia adalah simbol kehangatan atas rasa ingin tahu, pertumbuhan, dan masa depan cerah yang tengah dirajut.",
     "philosophy": "Hello, World. Keep becoming.",
     "narrativeIntro": "Simbol LUCA dirancang sebagai identitas personal pertama bagi Muhammad Gabriel Luca Senna. Menggambarkan siapa dirinya hari ini dan siapa ia kelak — penuh ingin tahu, bertumbuh, dan menyusuri dunia langkah demi langkah.",
@@ -236,13 +237,26 @@
     "p5": "Kami tidak menuntutmu menjadi sosok seperti apa yang kami angankan. Kami hanya berharap kamu menjadi lelaki yang saleh dan baik — yang kokoh keyakinannya, santun perilakunya, bertanggung jawab atas perbuatannya, dan berani menyelesaikan perjalanan yang telah ia pilih.",
     "benediction": "Semoga setiap langkah yang kamu ayunkan membawa ilmu bagi pikiranmu, kelembutan bagi hatimu, dan iman sebagai suluh jalan hidupmu.",
     "philosophySignature": "Hello, World. Keep becoming.",
+    "signature": "— Momo & Popo",
     "easterEgg": "journey.status = \"just getting started\";"
+  },
+  "guestbook": {
+    "eyebrow": "TITIP PESAN & DOA",
+    "title": "Kirim Pesan untuk Luca",
+    "subtitle": "Tuliskan doa, harapan, atau sapaan hangat untuk Luca. Pesan akan langsung diteruskan ke WhatsApp Popo & Momo.",
+    "nameLabel": "Nama Anda (opsional)",
+    "namePlaceholder": "Contoh: Om Budi / Tante Sarah",
+    "messageLabel": "Pesan atau Doa",
+    "messagePlaceholder": "Tulis doa atau pesan hangat untuk Luca...",
+    "sendButton": "Kirim via WhatsApp",
+    "disclaimer": "Akan membuka WhatsApp dengan pesan yang sudah terisi otomatis.",
+    "errorRequired": "Mohon tuliskan pesan terlebih dahulu."
   },
   "footer": {
     "dedication": "Made with ♥ for Muhammad Gabriel Luca Senna",
     "crafted": "Crafted with <3 for Luca",
     "author": "a MODULA Project",
-    "brandLink": "The Mark of Luca →",
+    "brandLink": "Tanda Luca →",
     "backToTop": "Kembali ke atas",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
   },

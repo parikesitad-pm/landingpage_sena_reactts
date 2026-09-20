@@ -76,11 +76,14 @@ export default function FamilyHopeSection() {
                 &ldquo;{t('hopes.benediction')}&rdquo;
               </p>
 
-              <div className="mt-8 flex flex-col items-center gap-3">
+              <div className="mt-8 flex flex-col items-center gap-2.5">
                 <span className="font-mono text-sm font-semibold tracking-wider text-[#C98F55]">
                   {t('hopes.philosophySignature')}
                 </span>
-                <code className="text-xs font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-3 py-1 rounded-md border border-[var(--border)]">
+                <span className="text-sm font-sans font-medium text-[var(--foreground)] tracking-wide">
+                  {t('hopes.signature')}
+                </span>
+                <code className="text-xs font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-3 py-1 rounded-md border border-[var(--border)] mt-1">
                   {t('hopes.easterEgg')}
                 </code>
               </div>

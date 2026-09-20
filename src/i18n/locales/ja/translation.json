@@ -3,9 +3,10 @@
     "story": "物語",
     "growingUp": "成長の記録",
     "changelog": "変更履歴",
-    "memories": "日々の記憶",
+    "moments": "日々の瞬間",
+    "memories": "日々の瞬間",
     "family": "家族とともに",
-    "brand": "ロゴの想い",
+    "brand": "Luca のマーク",
     "forSenna": "Senna へ",
     "preferences": "設定",
     "theme": "テーマ",
@@ -124,8 +125,8 @@
     "card3Desc": "すっかり元気になり、また新しい喜びの日々を迎えています。"
   },
   "brand": {
-    "eyebrow": "アイデンティティと想い",
-    "title": "The Mark of Luca",
+    "eyebrow": "小さなアイデンティティと哲学",
+    "title": "Luca のマーク",
     "intro": "この小さなシンボルは、単なるロゴではありません。Luca の尽きない好奇心、健やかな成長、そしてこれから描かれる明るい未来を象徴する優しい印です。",
     "philosophy": "Hello, World. Keep becoming.",
     "narrativeIntro": "LUCA のシンボルは、Muhammad Gabriel Luca Senna にとって最初の個人アイデンティティとして生まれました。いまの彼を映し出し、未来の彼へ寄り添うもの —— 好奇心を胸に、一歩ずつ世界を知っていく姿を表しています。",
@@ -236,13 +237,26 @@
     "p5": "私たちが思い描いた通りの人間になってほしいとは思いません。自分の信じる道を知り、他者に優しく接し、責任を果たし、自ら選んだ旅路を歩み切る勇気を持った、立派な男性になってくれることを心から願っています。",
     "benediction": "君の踏み出す一歩一歩が、頭脳に知恵を、心に優しさを、そして歩みに信仰の光をもたらしますように。",
     "philosophySignature": "Hello, World. Keep becoming.",
+    "signature": "— Momo & Popo",
     "easterEgg": "journey.status = \"just getting started\";"
+  },
+  "guestbook": {
+    "eyebrow": "メッセージと祝福",
+    "title": "Luca へメッセージを送る",
+    "subtitle": "Luca への温かい祝福や応援の言葉をお寄せください。メッセージは Popo と Momo の WhatsApp へ直接送信されます。",
+    "nameLabel": "お名前（任意）",
+    "namePlaceholder": "例：山田おじさん / さくらおばさん",
+    "messageLabel": "メッセージ・お祝いの言葉",
+    "messagePlaceholder": "Luca への温かいメッセージをお書きください...",
+    "sendButton": "WhatsApp で送信",
+    "disclaimer": "入力したメッセージが入力済みの状態で WhatsApp が開きます。",
+    "errorRequired": "メッセージを入力してください。"
   },
   "footer": {
     "dedication": "Made with ♥ for Muhammad Gabriel Luca Senna",
     "crafted": "Crafted with <3 for Luca",
     "author": "a MODULA Project",
-    "brandLink": "The Mark of Luca →",
+    "brandLink": "Luca のマーク →",
     "backToTop": "トップへ戻る",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
   },

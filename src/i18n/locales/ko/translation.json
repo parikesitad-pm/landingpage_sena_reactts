@@ -3,9 +3,10 @@
     "story": "이야기",
     "growingUp": "성장 기록",
     "changelog": "변경 로그",
-    "memories": "소중한 순간",
+    "moments": "순간들",
+    "memories": "순간들",
     "family": "가족과 함께",
-    "brand": "로고의 의미",
+    "brand": "Luca의 표식",
     "forSenna": "Senna에게",
     "preferences": "설정",
     "theme": "테마",
@@ -124,8 +125,8 @@
     "card3Desc": "완전히 회복하여 활기를 되찾고, 새로운 행복을 맞이하고 있습니다."
   },
   "brand": {
-    "eyebrow": "브랜드 아이덴티티와 철학",
-    "title": "The Mark of Luca",
+    "eyebrow": "작은 정체성과 철학",
+    "title": "Luca의 표식",
     "intro": "이 작은 상징은 단순한 로고 그 이상의 의미를 담고 있습니다. Luca의 무한한 호기심과 건강한 성장, 그리고 눈부시게 펼쳐질 미래를 품은 따뜻한 약속입니다.",
     "philosophy": "Hello, World. Keep becoming.",
     "narrativeIntro": "LUCA 마크는 Muhammad Gabriel Luca Senna를 위한 첫 번째 고유 아이덴티티로 탄생했습니다. 오늘의 그를 담아내고, 미래의 그를 응원하는 상징 — 호기심을 품고 한 걸음씩 세상을 알아가는 모습을 의미합니다.",
@@ -236,13 +237,26 @@
     "p5": "우리가 머릿속으로 그린 완벽한 모습이 되기를 강요하지 않는단다. 오직 스스로 무엇을 믿는지 알고, 타인에게 따뜻하며, 책임을 다할 줄 알고, 자신이 선택한 여정을 끝까지 완주할 용기를 지닌 훌륭한 사람으로 자라나기를 소망한단다.",
     "benediction": "네가 내딛는 모든 발걸음이 머리에는 지혜를, 마음에는 다정함을, 걸어가는 길에는 신앙의 빛을 비추어주기를.",
     "philosophySignature": "Hello, World. Keep becoming.",
+    "signature": "— Momo & Popo",
     "easterEgg": "journey.status = \"just getting started\";"
+  },
+  "guestbook": {
+    "eyebrow": "방명록",
+    "title": "Luca에게 보내는 메시지",
+    "subtitle": "Luca와 가족에게 따뜻한 기도와 사랑의 메시지를 남겨주세요. WhatsApp을 통해 직접 전달됩니다.",
+    "nameLabel": "보내는 분 이름 (선택사항)",
+    "namePlaceholder": "이름이나 별칭을 적어주세요...",
+    "messageLabel": "Luca에게 남길 말",
+    "messagePlaceholder": "Luca를 위한 따뜻한 기도나 축복의 말을 적어주세요...",
+    "sendButton": "WhatsApp으로 메시지 보내기",
+    "disclaimer": "버튼을 누르면 사전 작성된 메시지와 함께 WhatsApp이 열립니다.",
+    "errorRequired": "메시지 내용을 입력해 주세요."
   },
   "footer": {
     "dedication": "Made with ♥ for Muhammad Gabriel Luca Senna",
     "crafted": "Crafted with <3 for Luca",
     "author": "a MODULA Project",
-    "brandLink": "The Mark of Luca →",
+    "brandLink": "Luca의 표식 →",
     "backToTop": "맨 위로",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
   },

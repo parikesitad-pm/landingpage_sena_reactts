@@ -9,11 +9,14 @@ import { siteContent } from '@/data/siteContent';
 import { calculateAge } from '@/lib/age';
 import { useTranslation } from 'react-i18next';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
+import { localeToPathPrefix } from '@/features/preferences/lib/locale';
+import { Link } from 'react-router-dom';
 import { formatLocalizedDate, formatLocalizedAge } from '@/i18n/formatters';
 
 export default function HeroSection() {
   const { t } = useTranslation();
   const { activeLocale } = usePreferences();
+  const prefix = localeToPathPrefix(activeLocale);
   const [heroLine1Done, setHeroLine1Done] = useState(false);
   const age = calculateAge(siteContent.child.birthDate);
   const localizedAge = formatLocalizedAge(age, activeLocale);
@@ -148,12 +151,12 @@ export default function HeroSection() {
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
               </Button>
 
-              <a
-                href="#memories"
+              <Link
+                to={`/${prefix}/moments`}
                 className="text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] px-4 py-3 rounded-full hover:bg-[var(--surface-soft)] transition-colors"
               >
                 {t('hero.ctaMemories')} &rarr;
-              </a>
+              </Link>
             </div>
           </div>
 

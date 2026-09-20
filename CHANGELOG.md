@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Form buku tamu interaktif terhubung WhatsApp (`GuestbookSection.tsx`) pada halaman beranda dengan field nama (opsional) dan pesan (wajib), validasi ramah, serta tautan pre-filled `https://wa.me/6282298503412` via `encodeURIComponent()`.
+- Halaman galeri foto terpisah `MomentsPage.tsx` (`/moments` dan `/:lang/moments`) dengan koleksi lengkap momen foto, caption terlokalisasi, dan navigasi kembali ke beranda.
+- Halaman identitas terpisah `BrandMarkPage.tsx` (`/brand-mark` dan `/:lang/brand-mark`) yang menyatukan Logo LUCA, 4 kartu makna simbolis (Create, Wonder, Explore, Become), Guiding Values (Curious Today, Growing Always, Brighter Tomorrows, Build With Purpose), dan Luca Protocol v1.0, serta pengalihan rute kompatibel dari `/brand`, `/the-logo`, dan `/signature-logo`.
+- Tanda tangan penutup eksplisit `— Momo & Popo` pada seksi harapan keluarga (`FamilyHopeSection.tsx`) di seluruh 5 bahasa.
+
+### Changed
+
+- Mengganti label "Memories" menjadi "Moments" dan mengarahkan navigasi header serta footer ke route `/moments`.
+- Menghubungkan tautan "The Mark of Luca" / "Tanda Luca" di header dan footer ke route baru `/brand-mark`.
+- Menyelaraskan navigasi footer dengan navbar utama.
+- Memperbarui tombol CTA foto di Hero section untuk mengarah ke `/moments` tanpa broken anchor.
+
+### Removed
+
+- Menghapus seksi "Growing Up" (`MilestonesSection`) dari halaman utama dan navbar, menjadikan `LucaChangelogSection` sebagai representasi tunggal pertumbuhan berkala.
+- Menghapus galeri foto dan filosofi logo dari halaman utama untuk dipindahkan ke halaman terpisah masing-masing (`/moments` dan `/brand-mark`).
+
 ### Fixed
 
 - Memperbaiki tata letak nomor baris (gutter) pada `LucaCodeEditor.tsx` dengan sistem grid dua kolom, angka `tabular-nums` rata kanan, lebar gutter tetap (`2.75rem`), tinggi baris identik (`lineHeight: 1.9`), nomor baris aktif beraksen Tokyo Night (`#e0af68`), border kanan pemisah halus, dan pencegahan kolaps baris kosong.
@@ -22,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Blok verifikasi sistem **Protocol Verification** (`ProtocolVerification.tsx`) di akhir seksi Luca Protocol dengan animasi sekuensial (~90ms per item) untuk validasi aturan keluarga, centang Tokyo Night cyan/green (`#73daca`), dan penutup status `protocol.status = "ENFORCED";` beraksen emas LUCA tepat sebelum disclaimer keamanan keluarga.
 - Easter egg konsol DevTools (`devtoolsEasterEgg.ts`) yang mencetak satu pesan hangat bertema LUCA (`✦ LUCA`, `momo.love = Infinity;`, `authority.level = "Popo";`, `Hello, World. Keep becoming.`) satu kali saat startup dengan guard duplikasi window dan beban komputasi teramat minim.
-- Halaman kustom 404 (`NotFoundPage.tsx`) dengan desain identitas LUCA, pelestarian bahasa aktif dari prefix rute URL (misal `/id/unknown` -> bahasa Indonesia), pengalihan CTA *"Return Home"* ke beranda terlokalisasi, tag meta `noindex, follow`, dan proteksi rute invalid pada `HomePage` dan `BrandPage`.
+- Halaman kustom 404 (`NotFoundPage.tsx`) dengan desain identitas LUCA, pelestarian bahasa aktif dari prefix rute URL (misal `/id/unknown` -> bahasa Indonesia), pengalihan CTA _"Return Home"_ ke beranda terlokalisasi, tag meta `noindex, follow`, dan proteksi rute invalid pada `HomePage` dan `BrandPage`.
 - Kontrol Back to Top mengambang khusus mobile dan tablet (`MobileBackToTop.tsx`) berposisi fixed di sudut kanan bawah dengan kompensasi `safe-area-inset-bottom`, terpicu oleh sentinel `IntersectionObserver` tepat setelah Hero section, transisi transform/opacity bebas reflow, terintegrasi mulus dengan Lenis / reduced motion, dan tersembunyi di desktop.
 - Seksi baru **Luca Changelog** (`RELEASE NOTES`) yang menghubungkan perjalanan tumbuh kembang Luca dengan konsep release versioning software engineer (`v0.1.0`, `v0.7.x`, `v1.0.0`, `v1.x`, `NEXT`, chip `status = "growing";`, dan kutipan filosofis penutup) dengan dukungan penuh 5 bahasa dan integrasi menu navigasi header.
 
