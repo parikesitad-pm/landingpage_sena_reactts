@@ -1,13 +1,12 @@
 {
   "nav": {
     "story": "Story",
-    "growingUp": "Growing Up",
-    "changelog": "Changelog",
-    "moments": "Moments",
-    "memories": "Moments",
     "family": "Family",
-    "brand": "The Mark",
+    "protocol": "Luca Protocol",
     "forSenna": "For Senna",
+    "future": "Future",
+    "moments": "Moments",
+    "logoPhilosophy": "Logo Philosophy",
     "preferences": "Preferences",
     "theme": "Appearance",
     "language": "Language",
@@ -248,6 +247,9 @@
     "namePlaceholder": "e.g. Uncle Budi / Aunt Sarah",
     "messageLabel": "Message or Prayer",
     "messagePlaceholder": "Write your warm prayers or words for Luca...",
+    "openComposer": "Leave a Message",
+    "modalTitle": "Leave a Little Message for Luca",
+    "modalSubtitle": "Compose, decorate with Luca Lab, & preview before sending",
     "sendButton": "Send via WhatsApp",
     "disclaimer": "This will open WhatsApp with your prefilled message.",
     "errorRequired": "Please write a message before sending."

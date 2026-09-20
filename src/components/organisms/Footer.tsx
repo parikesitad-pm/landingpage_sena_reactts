@@ -36,10 +36,28 @@ export default function Footer() {
               {t('nav.story')}
             </a>
             <a
-              href={`/${prefix}/#changelog`}
+              href={`/${prefix}/#family`}
               className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
             >
-              {t('nav.changelog')}
+              {t('nav.family')}
+            </a>
+            <a
+              href={`/${prefix}/#protocol`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.protocol')}
+            </a>
+            <a
+              href={`/${prefix}/#for-senna`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.forSenna')}
+            </a>
+            <a
+              href={`/${prefix}/#future`}
+              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              {t('nav.future')}
             </a>
             <Link
               to={`/${prefix}/moments`}
@@ -47,17 +65,11 @@ export default function Footer() {
             >
               {t('nav.moments')}
             </Link>
-            <a
-              href={`/${prefix}/#family`}
-              className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-            >
-              {t('nav.family')}
-            </a>
             <Link
-              to={`/${prefix}/brand-mark`}
+              to={`/${prefix}/logo-philosophy`}
               className="text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors underline decoration-[var(--border)] underline-offset-4"
             >
-              {t('footer.brandLink')}
+              {t('nav.logoPhilosophy')}
             </Link>
 
             {/* Desktop-only back to top button to avoid duplicate floating control on mobile/tablet */}
@@ -93,13 +105,19 @@ export default function Footer() {
           {/* Build Signature (3 wrapping tokens) */}
           <div className="flex flex-wrap items-center justify-center gap-2 max-w-xl">
             <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)] shadow-2xs">
-              portfolio.version = <span className="text-[#9ece6a]">&quot;1.0&quot;</span>;
+              portfolio.version ={' '}
+              <span className="text-[#9ece6a]">&quot;1.0&quot;</span>;
             </code>
             <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)] shadow-2xs">
-              status = <span className="text-[#e0af68]">&quot;growing&quot;</span>;
+              status ={' '}
+              <span className="text-[#e0af68]">&quot;growing&quot;</span>;
             </code>
             <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)] shadow-2xs">
-              next.release = <span className="text-[#7aa2f7]">&quot;whenever Luca is ready&quot;</span>;
+              next.release ={' '}
+              <span className="text-[#7aa2f7]">
+                &quot;whenever Luca is ready&quot;
+              </span>
+              ;
             </code>
           </div>
 

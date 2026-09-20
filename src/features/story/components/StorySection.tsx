@@ -1,7 +1,6 @@
 import Container from '@/components/atoms/Container';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import ResponsiveImage from '@/components/atoms/ResponsiveImage';
-import RevealOnView from '@/components/atoms/RevealOnView';
 import { siteContent } from '@/data/siteContent';
 import { Calendar, HeartHandshake } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -23,18 +22,18 @@ export default function StorySection() {
       aria-labelledby="story-title"
     >
       <Container size="lg">
-        <RevealOnView duration={650}>
+        <div className="scroll-reveal">
           <SectionTitle
             eyebrow={t('story.eyebrow')}
             title={t('story.title')}
             align="center"
           />
-        </RevealOnView>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Newborn Photograph with editorial border */}
           <div className="md:col-span-5 flex justify-center">
-            <figure className="relative w-full max-w-sm">
+            <figure className="relative w-full max-w-sm photo-scroll-reveal">
               <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] shadow-md bg-[var(--surface-soft)] aspect-[4/5]">
                 <ResponsiveImage
                   basePath="/images/senna/muhammad-gabriel-luca-senna-newborn"

@@ -1,13 +1,12 @@
 {
   "nav": {
     "story": "Kisah",
-    "growingUp": "Tumbuh",
-    "changelog": "Changelog",
-    "moments": "Momen",
-    "memories": "Momen",
     "family": "Keluarga",
-    "brand": "Tanda Luca",
+    "protocol": "Luca Protocol",
     "forSenna": "Untuk Senna",
+    "future": "Masa Depan",
+    "moments": "Momen",
+    "logoPhilosophy": "Filosofi Logo",
     "preferences": "Pengaturan",
     "theme": "Tampilan",
     "language": "Bahasa",
@@ -248,6 +247,9 @@
     "namePlaceholder": "Contoh: Om Budi / Tante Sarah",
     "messageLabel": "Pesan atau Doa",
     "messagePlaceholder": "Tulis doa atau pesan hangat untuk Luca...",
+    "openComposer": "Tulis Pesan untuk Luca",
+    "modalTitle": "Tulis Pesan Kecil untuk Luca",
+    "modalSubtitle": "Rangkai pesan, hias dengan stempel Luca Lab, & lihat preview sebelum dikirim",
     "sendButton": "Kirim via WhatsApp",
     "disclaimer": "Akan membuka WhatsApp dengan pesan yang sudah terisi otomatis.",
     "errorRequired": "Mohon tuliskan pesan terlebih dahulu."

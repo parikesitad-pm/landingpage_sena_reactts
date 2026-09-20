@@ -15,12 +15,14 @@ export default function FamilySection() {
       aria-labelledby="family-title"
     >
       <Container size="lg">
-        <SectionTitle
-          eyebrow={t('family.eyebrow')}
-          title={t('family.title')}
-          description={t('family.description')}
-          align="center"
-        />
+        <div className="scroll-reveal">
+          <SectionTitle
+            eyebrow={t('family.eyebrow')}
+            title={t('family.title')}
+            description={t('family.description')}
+            align="center"
+          />
+        </div>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
           {/* Popo Photo */}

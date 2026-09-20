@@ -25,7 +25,7 @@ export default function MemoryCard({
   return (
     <figure
       className={cn(
-        'group relative flex flex-col bg-[var(--surface)] rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300',
+        'group relative flex flex-col bg-[var(--surface)] rounded-2xl overflow-hidden border border-[var(--border)] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] transition-all duration-300 photo-scroll-reveal',
         className
       )}
     >

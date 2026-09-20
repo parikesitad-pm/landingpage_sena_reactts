@@ -1,13 +1,12 @@
 {
   "nav": {
     "story": "故事",
-    "growingUp": "成长足迹",
-    "changelog": "更新日志",
-    "moments": "精彩瞬间",
-    "memories": "精彩瞬间",
     "family": "家人相伴",
-    "brand": "Luca 的印记",
+    "protocol": "Luca Protocol",
     "forSenna": "写给 Senna",
+    "future": "未来畅想",
+    "moments": "精彩瞬间",
+    "logoPhilosophy": "标志哲学",
     "preferences": "偏好设置",
     "theme": "外观主题",
     "language": "语言",
@@ -248,6 +247,9 @@
     "namePlaceholder": "例如：王叔叔 / 李阿姨",
     "messageLabel": "祝福语或留言",
     "messagePlaceholder": "写下给 Luca 的温暖寄语...",
+    "openComposer": "给 Luca 写下祝福",
+    "modalTitle": "为 Luca 留下小小心意",
+    "modalSubtitle": "撰写寄语，搭配 Luca Lab 印记，并在发送前实时预览",
     "sendButton": "通过 WhatsApp 发送",
     "disclaimer": "点击后将打开 WhatsApp 并自动填入您的留言内容。",
     "errorRequired": "发送前请先填写留言内容。"

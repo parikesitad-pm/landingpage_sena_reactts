@@ -2,44 +2,29 @@ import { useState } from 'react';
 import Container from '@/components/atoms/Container';
 import RevealOnView from '@/components/atoms/RevealOnView';
 import Button from '@/components/atoms/Button';
-import { MessageSquareHeart, Send, Sparkles } from 'lucide-react';
+import { MessageSquareHeart, Sparkles, Send, PenTool } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import MessageComposerModal from './MessageComposerModal';
 
 export default function GuestbookSection() {
   const { t } = useTranslation();
-  const [senderName, setSenderName] = useState('');
-  const [message, setMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [quickMessage, setQuickMessage] = useState('');
+  const [quickName, setQuickName] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const trimmedMessage = message.trim();
-    if (!trimmedMessage) {
-      setErrorMessage(t('guestbook.errorRequired'));
-      return;
-    }
-
-    setErrorMessage('');
-
-    const trimmedName = senderName.trim();
-    const formattedText = trimmedName
-      ? `Halo, ini pesan untuk Luca dari ${trimmedName}:\n\n${trimmedMessage}`
-      : `Halo, ini pesan untuk Luca:\n\n${trimmedMessage}`;
-
-    const waUrl = `https://wa.me/6282298503412?text=${encodeURIComponent(formattedText)}`;
-    window.open(waUrl, '_blank', 'noopener,noreferrer');
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
   };
 
   return (
     <section
       id="guestbook"
-      className="py-20 sm:py-28 bg-[var(--surface-soft)] border-t border-[var(--border)] scroll-mt-12 transition-colors"
+      className="py-20 sm:py-28 bg-[var(--surface-soft)] border-t border-[var(--border)] scroll-mt-12 transition-colors scroll-reveal"
       aria-labelledby="guestbook-title"
     >
       <Container size="md">
-        <div className="bg-[var(--surface)] rounded-3xl p-8 sm:p-12 border border-[var(--border)] shadow-[0_8px_32px_rgba(0,0,0,0.03)] relative overflow-hidden">
-          <div className="max-w-xl mx-auto text-center">
+        <div className="bg-[var(--surface)] rounded-3xl p-8 sm:p-12 border border-[var(--border)] shadow-[0_8px_32px_rgba(0,0,0,0.03)] relative overflow-hidden text-center">
+          <div className="max-w-xl mx-auto">
             <RevealOnView duration={600}>
               <div className="inline-flex items-center gap-2 mb-3 text-[#C98F55]">
                 <Sparkles className="w-4 h-4" />
@@ -60,80 +45,64 @@ export default function GuestbookSection() {
               </p>
             </RevealOnView>
 
-            <form onSubmit={handleSubmit} className="text-left space-y-5">
-              <div>
-                <label
-                  htmlFor="guestbook-name"
-                  className="block text-xs font-mono uppercase tracking-wider text-[var(--foreground)] mb-2"
-                >
-                  {t('guestbook.nameLabel')}
-                </label>
+            {/* Interactive Composer Trigger Area */}
+            <div className="bg-[var(--surface-soft)] rounded-2xl p-6 border border-[var(--border)] text-left shadow-xs mb-6">
+              <div className="flex items-center gap-2 mb-3 text-xs font-mono text-[#C98F55] font-semibold">
+                <PenTool className="w-3.5 h-3.5" />
+                <span>Guestbook Composer &bull; Luca Lab</span>
+              </div>
+
+              <div className="space-y-3">
                 <input
-                  id="guestbook-name"
                   type="text"
-                  value={senderName}
-                  onChange={(e) => setSenderName(e.target.value)}
+                  value={quickName}
+                  onChange={(e) => setQuickName(e.target.value)}
                   placeholder={t('guestbook.namePlaceholder')}
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 text-sm focus:outline-none focus:border-[#C98F55] focus:ring-1 focus:ring-[#C98F55] transition-all"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 text-sm focus:outline-none focus:border-[#C98F55] transition-all"
                 />
-              </div>
 
-              <div>
-                <label
-                  htmlFor="guestbook-message"
-                  className="block text-xs font-mono uppercase tracking-wider text-[var(--foreground)] mb-2"
-                >
-                  {t('guestbook.messageLabel')}{' '}
-                  <span className="text-[#C98F55]">*</span>
-                </label>
                 <textarea
-                  id="guestbook-message"
-                  rows={4}
-                  value={message}
-                  onChange={(e) => {
-                    setMessage(e.target.value);
-                    if (errorMessage && e.target.value.trim()) {
-                      setErrorMessage('');
-                    }
-                  }}
+                  rows={3}
+                  value={quickMessage}
+                  onChange={(e) => setQuickMessage(e.target.value)}
+                  onClick={handleOpenModal}
                   placeholder={t('guestbook.messagePlaceholder')}
-                  aria-invalid={Boolean(errorMessage)}
-                  aria-describedby={
-                    errorMessage ? 'guestbook-error' : undefined
-                  }
-                  className="w-full px-4 py-3 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 text-sm focus:outline-none focus:border-[#C98F55] focus:ring-1 focus:ring-[#C98F55] transition-all resize-y"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface)] border border-[var(--border)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 text-sm focus:outline-none focus:border-[#C98F55] transition-all resize-none cursor-pointer"
                 />
-                {errorMessage && (
-                  <p
-                    id="guestbook-error"
-                    className="mt-2 text-xs font-medium text-[#f7768e]"
-                  >
-                    {errorMessage}
-                  </p>
-                )}
               </div>
 
-              <div className="pt-2">
+              <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <span className="text-[11px] font-mono text-[var(--muted-foreground)]">
+                  Klik untuk membuka live preview & stempel Luca Lab
+                </span>
+
                 <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full justify-center gap-2"
+                  type="button"
+                  size="md"
+                  onClick={handleOpenModal}
+                  className="w-full sm:w-auto justify-center gap-2 shadow-sm"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>{t('guestbook.sendButton')}</span>
+                  <Send className="w-3.5 h-3.5" />
+                  <span>{t('guestbook.openComposer', 'Leave a Message')}</span>
                 </Button>
               </div>
+            </div>
 
-              <div className="flex items-center justify-center gap-2 pt-1 text-center">
-                <MessageSquareHeart className="w-3.5 h-3.5 text-[#C98F55]" />
-                <p className="text-xs text-[var(--muted-foreground)]">
-                  {t('guestbook.disclaimer')}
-                </p>
-              </div>
-            </form>
+            <div className="flex items-center justify-center gap-2 text-center text-xs text-[var(--muted-foreground)]">
+              <MessageSquareHeart className="w-3.5 h-3.5 text-[#C98F55]" />
+              <p>{t('guestbook.disclaimer')}</p>
+            </div>
           </div>
         </div>
       </Container>
+
+      {/* Full Message Composer Modal */}
+      <MessageComposerModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        initialName={quickName}
+        initialMessage={quickMessage}
+      />
     </section>
   );
 }

@@ -33,7 +33,7 @@ export default function FutureSection() {
           </p>
 
           {/* Animated luca.ts code editor window */}
-          <div className="w-full mb-8">
+          <div className="w-full mb-8 ide-scroll-reveal">
             <LucaCodeEditor />
           </div>
 

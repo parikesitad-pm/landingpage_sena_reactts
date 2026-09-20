@@ -20,10 +20,12 @@ export default function Navbar() {
 
   const navItems = [
     { label: t('nav.story'), href: `/${prefix}/#story` },
-    { label: t('nav.changelog'), href: `/${prefix}/#changelog` },
-    { label: t('nav.moments'), href: `/${prefix}/moments` },
     { label: t('nav.family'), href: `/${prefix}/#family` },
-    { label: t('nav.brand'), href: `/${prefix}/brand-mark` },
+    { label: t('nav.protocol'), href: `/${prefix}/#protocol` },
+    { label: t('nav.forSenna'), href: `/${prefix}/#for-senna` },
+    { label: t('nav.future'), href: `/${prefix}/#future` },
+    { label: t('nav.moments'), href: `/${prefix}/moments` },
+    { label: t('nav.logoPhilosophy'), href: `/${prefix}/logo-philosophy` },
   ];
 
   return (
@@ -32,33 +34,26 @@ export default function Navbar() {
         'sticky top-0 z-40 w-full transition-all duration-300',
         isScrolled
           ? 'bg-[var(--surface)]/95 backdrop-blur-md border-b border-[var(--border)] shadow-[0_2px_10px_rgba(0,0,0,0.06)] py-3'
-          : 'bg-transparent py-5'
+          : 'bg-transparent py-4'
       )}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <LogoMark />
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 sm:gap-2">
+        <nav className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <NavLink key={item.href} href={item.href} label={item.label} />
           ))}
         </nav>
 
-        {/* Right side controls: Preferences menu + "For Senna" pill */}
-        <div className="hidden md:flex items-center gap-3">
+        {/* Right side controls: Preferences menu */}
+        <div className="hidden lg:flex items-center gap-3">
           <PreferencesMenu />
-
-          <a
-            href={`/${prefix}/#for-senna`}
-            className="text-xs font-mono font-medium text-[var(--foreground)] hover:text-[var(--accent)] bg-[var(--surface-soft)] hover:bg-[var(--border)] px-3.5 py-1.5 rounded-full border border-[var(--border)] transition-colors"
-          >
-            {t('nav.forSenna')} &rarr;
-          </a>
         </div>
 
         {/* Mobile controls: Preferences menu + menu toggle */}
-        <div className="flex md:hidden items-center gap-2">
+        <div className="flex lg:hidden items-center gap-2">
           <PreferencesMenu />
 
           <button

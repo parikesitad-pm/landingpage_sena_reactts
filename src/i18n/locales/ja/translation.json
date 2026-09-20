@@ -1,13 +1,12 @@
 {
   "nav": {
     "story": "物語",
-    "growingUp": "成長の記録",
-    "changelog": "変更履歴",
-    "moments": "日々の瞬間",
-    "memories": "日々の瞬間",
     "family": "家族とともに",
-    "brand": "Luca のマーク",
+    "protocol": "Luca Protocol",
     "forSenna": "Senna へ",
+    "future": "未来の夢",
+    "moments": "日々の瞬間",
+    "logoPhilosophy": "ロゴの哲学",
     "preferences": "設定",
     "theme": "テーマ",
     "language": "言語",
@@ -248,6 +247,9 @@
     "namePlaceholder": "例：山田おじさん / さくらおばさん",
     "messageLabel": "メッセージ・お祝いの言葉",
     "messagePlaceholder": "Luca への温かいメッセージをお書きください...",
+    "openComposer": "Luca へメッセージを残す",
+    "modalTitle": "Luca への小さなお手紙",
+    "modalSubtitle": "メッセージを書き、Luca Lab のスタンプで飾り、送信前にプレビューできます",
     "sendButton": "WhatsApp で送信",
     "disclaimer": "入力したメッセージが入力済みの状態で WhatsApp が開きます。",
     "errorRequired": "メッセージを入力してください。"

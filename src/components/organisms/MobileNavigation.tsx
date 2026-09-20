@@ -100,12 +100,12 @@ export default function MobileNavigation({
             LUCA &middot; EST. 2025
           </span>
           <Link
-            to={`/${prefix}/brand-mark`}
+            to={`/${prefix}/logo-philosophy`}
             onClick={onClose}
             className="text-[#C98F55] hover:underline"
           >
-            {navItems.find((i) => i.href.includes('brand-mark'))?.label ||
-              'The Mark'}{' '}
+            {navItems.find((i) => i.href.includes('logo-philosophy'))?.label ||
+              'Logo Philosophy'}{' '}
             &rarr;
           </Link>
         </div>

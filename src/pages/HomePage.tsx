@@ -7,6 +7,7 @@ import LucaChangelogSection from '@/features/changelog/components/LucaChangelogS
 import FamilySection from '@/features/family/components/FamilySection';
 import HospitalSection from '@/features/hospital/components/HospitalSection';
 import RemembranceSection from '@/features/remembrance/components/RemembranceSection';
+import LucaProtocolSection from '@/features/protocol/components/LucaProtocolSection';
 import ParentMessageSection from '@/features/parent-message/components/ParentMessageSection';
 import FutureSection from '@/features/future/components/FutureSection';
 import FamilyHopeSection from '@/features/hopes/components/FamilyHopeSection';
@@ -86,6 +87,7 @@ export default function HomePage() {
       <FamilySection />
       <HospitalSection />
       <RemembranceSection />
+      <LucaProtocolSection />
       <ParentMessageSection />
       <FutureSection />
       <FamilyHopeSection />

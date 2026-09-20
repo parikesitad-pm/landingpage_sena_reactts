@@ -1,13 +1,12 @@
 {
   "nav": {
     "story": "이야기",
-    "growingUp": "성장 기록",
-    "changelog": "변경 로그",
-    "moments": "순간들",
-    "memories": "순간들",
     "family": "가족과 함께",
-    "brand": "Luca의 표식",
+    "protocol": "Luca Protocol",
     "forSenna": "Senna에게",
+    "future": "미래의 꿈",
+    "moments": "순간들",
+    "logoPhilosophy": "로고 철학",
     "preferences": "설정",
     "theme": "테마",
     "language": "언어",
@@ -248,6 +247,9 @@
     "namePlaceholder": "이름이나 별칭을 적어주세요...",
     "messageLabel": "Luca에게 남길 말",
     "messagePlaceholder": "Luca를 위한 따뜻한 기도나 축복의 말을 적어주세요...",
+    "openComposer": "Luca에게 메시지 남기기",
+    "modalTitle": "Luca에게 남기는 작은 메시지",
+    "modalSubtitle": "메시지를 적고, Luca Lab 스탬프로 꾸며 전송 전에 미리 확인해보세요",
     "sendButton": "WhatsApp으로 메시지 보내기",
     "disclaimer": "버튼을 누르면 사전 작성된 메시지와 함께 WhatsApp이 열립니다.",
     "errorRequired": "메시지 내용을 입력해 주세요."

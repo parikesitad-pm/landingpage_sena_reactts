@@ -1,12 +1,12 @@
 import { createBrowserRouter, Navigate, useParams } from 'react-router-dom';
 import HomePage from '@/pages/HomePage';
-import BrandMarkPage from '@/pages/BrandMarkPage';
+import LogoPhilosophyPage from '@/pages/LogoPhilosophyPage';
 import MomentsPage from '@/pages/MomentsPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 
-function BrandRedirect() {
+function LogoPhilosophyRedirect() {
   const { lang } = useParams<{ lang?: string }>();
-  return <Navigate to={lang ? `/${lang}/brand-mark` : '/brand-mark'} replace />;
+  return <Navigate to={lang ? `/${lang}/logo-philosophy` : '/logo-philosophy'} replace />;
 }
 
 function MomentsRedirect() {
@@ -24,12 +24,12 @@ export const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: '/brand-mark',
-    element: <BrandMarkPage />,
+    path: '/logo-philosophy',
+    element: <LogoPhilosophyPage />,
   },
   {
-    path: '/:lang/brand-mark',
-    element: <BrandMarkPage />,
+    path: '/:lang/logo-philosophy',
+    element: <LogoPhilosophyPage />,
   },
   {
     path: '/moments',
@@ -39,30 +39,38 @@ export const router = createBrowserRouter([
     path: '/:lang/moments',
     element: <MomentsPage />,
   },
-  // Backwards compatibility & alias redirects
+  // Backwards compatibility & alias redirects to /logo-philosophy
+  {
+    path: '/brand-mark',
+    element: <Navigate to="/logo-philosophy" replace />,
+  },
+  {
+    path: '/:lang/brand-mark',
+    element: <LogoPhilosophyRedirect />,
+  },
   {
     path: '/brand',
-    element: <Navigate to="/brand-mark" replace />,
+    element: <Navigate to="/logo-philosophy" replace />,
   },
   {
     path: '/:lang/brand',
-    element: <BrandRedirect />,
+    element: <LogoPhilosophyRedirect />,
   },
   {
     path: '/the-logo',
-    element: <Navigate to="/brand-mark" replace />,
+    element: <Navigate to="/logo-philosophy" replace />,
   },
   {
     path: '/:lang/the-logo',
-    element: <BrandRedirect />,
+    element: <LogoPhilosophyRedirect />,
   },
   {
     path: '/signature-logo',
-    element: <Navigate to="/brand-mark" replace />,
+    element: <Navigate to="/logo-philosophy" replace />,
   },
   {
     path: '/:lang/signature-logo',
-    element: <BrandRedirect />,
+    element: <LogoPhilosophyRedirect />,
   },
   {
     path: '/memories',
