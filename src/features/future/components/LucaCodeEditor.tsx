@@ -325,8 +325,8 @@ export default function LucaCodeEditor() {
       {/* Editor Body with Active Line Highlighting */}
       <div
         aria-hidden="true"
-        className="p-3 sm:p-5 font-mono text-[11px] sm:text-xs md:text-sm leading-relaxed overflow-x-auto min-h-[380px] flex flex-col justify-between"
-        style={{ color: '#c0caf5' }}
+        className="py-3 sm:py-4 px-1 sm:px-2 font-mono text-[11px] sm:text-xs md:text-sm overflow-x-auto min-h-[380px] flex flex-col justify-between"
+        style={{ color: '#c0caf5', lineHeight: '1.9' }}
       >
         <div className="space-y-0.5">
           {CODE_LINES.map((line, idx) => {
@@ -335,50 +335,53 @@ export default function LucaCodeEditor() {
             const isCurrent =
               idx === currentLine && !prefersReducedMotion && !isCompleted;
 
-            if (line.raw.length === 0) {
-              return (
-                <div key={idx} className="flex items-baseline gap-3 h-4">
-                  <span
-                    className="text-[11px] select-none w-5 text-right font-mono"
-                    style={{ color: '#565f89', opacity: 0.5 }}
-                  >
-                    {idx + 1}
-                  </span>
-                </div>
-              );
-            }
-
             return (
               <div
                 key={idx}
                 className={cn(
-                  'flex items-baseline gap-3 px-1.5 py-0.5 rounded transition-colors duration-150',
-                  isCurrent && 'bg-[#24283b]/80 shadow-[inset_2px_0_0_#7aa2f7]'
+                  'grid grid-cols-[2.75rem_minmax(0,1fr)] sm:grid-cols-[3rem_minmax(0,1fr)] items-center rounded transition-colors duration-150',
+                  isCurrent && 'bg-[#24283b]/70 shadow-[inset_2px_0_0_#e0af68]'
                 )}
+                style={{
+                  minHeight: '1.75rem',
+                  lineHeight: '1.9',
+                }}
               >
-                {/* Line Numbers in JetBrains Mono */}
+                {/* Right-aligned Tabular Line Number Gutter */}
                 <span
-                  className="text-[11px] select-none w-5 text-right font-mono flex-shrink-0"
+                  className="select-none text-right font-mono pr-3 border-r text-[11px] sm:text-xs"
                   style={{
-                    color: isCurrent ? '#c0caf5' : '#565f89',
-                    opacity: isCurrent ? 1 : 0.6,
+                    fontVariantNumeric: 'tabular-nums',
+                    borderColor: 'rgba(52, 54, 74, 0.65)',
+                    color: isCurrent ? '#e0af68' : '#565f89',
+                    opacity: isCurrent ? 1 : 0.75,
                   }}
                 >
                   {idx + 1}
                 </span>
 
                 {/* Line Code Content */}
-                <div className="flex-1 whitespace-pre font-mono">
-                  {isPast &&
-                    renderTokensWithLimit(line.tokens, line.raw.length)}
-                  {isCurrent && renderTokensWithLimit(line.tokens, charOffset)}
-                  {isCurrent && (
-                    <span
-                      className="inline-block ml-0.5 font-mono animate-pulse"
-                      style={{ color: '#e0af68' }} // LUCA gold cursor
-                    >
-                      ▌
-                    </span>
+                <div
+                  className="pl-3.5 sm:pl-4 whitespace-pre font-mono overflow-x-hidden"
+                  style={{ lineHeight: '1.9' }}
+                >
+                  {line.raw.length === 0 ? (
+                    <span className="opacity-0 select-none">&nbsp;</span>
+                  ) : (
+                    <>
+                      {isPast &&
+                        renderTokensWithLimit(line.tokens, line.raw.length)}
+                      {isCurrent &&
+                        renderTokensWithLimit(line.tokens, charOffset)}
+                      {isCurrent && (
+                        <span
+                          className="inline-block ml-0.5 font-mono animate-pulse font-normal"
+                          style={{ color: '#e0af68' }} // LUCA gold cursor
+                        >
+                          ▌
+                        </span>
+                      )}
+                    </>
                   )}
                 </div>
               </div>

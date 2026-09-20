@@ -1,8 +1,9 @@
 {
   "nav": {
-    "story": "他的故事",
+    "story": "故事",
     "growingUp": "成长足迹",
-    "memories": "美好瞬间",
+    "changelog": "更新日志",
+    "memories": "珍贵瞬间",
     "family": "家人相伴",
     "brand": "标志寓意",
     "forSenna": "写给 Senna",
@@ -51,6 +52,44 @@
     "backToAdventuresDesc": "恢复了健康与活力，继续在 Popo 和 Momo 的陪伴下快乐认识世界。",
     "endingText": "未来的故事，依然在每一天中继续书写……",
     "continuedText": "To be continued..."
+  },
+  "changelog": {
+    "eyebrow": "版本发布记录",
+    "title": "Luca Changelog",
+    "subtitle": "一部关于成长的发布日志 —— 从最初的代码到未来的每一步。",
+    "entries": {
+      "v010": {
+        "tag": "初始版本",
+        "title": "Hello, World.",
+        "date": "2025年2月13日",
+        "note": "最初的发布伴随着小小的双手、轻柔的呼吸，和一个全新探索的世界。"
+      },
+      "v07x": {
+        "tag": "新特性",
+        "title": "乳牙萌出",
+        "date": "约七个月大",
+        "note": "小小的更新，却是格外难忘的记忆。"
+      },
+      "v100": {
+        "tag": "重要里程碑",
+        "title": "完整的一周岁",
+        "date": "2026年2月13日",
+        "note": "一整年充满成长、欢笑、学习与深深被爱的时光。"
+      },
+      "v1x": {
+        "tag": "稳定性",
+        "title": "蹒跚学步",
+        "date": "约一周岁大",
+        "note": "仍在学习平衡，始终向前迈进。"
+      },
+      "next": {
+        "tag": "持续开发中",
+        "title": "更多更新正在书写中...",
+        "date": "故事仍在继续",
+        "note": "全新的篇章、全新的词汇与无尽的可能正在前方。"
+      }
+    },
+    "closing": "没有所谓的终版发布。保持探索，持续成长。"
   },
   "memories": {
     "eyebrow": "定格时光",

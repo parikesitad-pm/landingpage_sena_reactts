@@ -58,16 +58,36 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     }
     rafId = requestAnimationFrame(raf);
 
-    // Handle hash anchor clicks smoothly with offset consideration
+    // Handle hash anchor clicks smoothly with offset consideration (including header route links)
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       const anchor = target?.closest('a');
       if (!anchor) return;
 
-      const href = anchor.getAttribute('href');
-      // Only handle local hash links like #story, #protocol, etc.
-      if (href?.startsWith('#') && href.length > 1) {
-        const targetElement = document.querySelector(href);
+      const rawHref = anchor.getAttribute('href');
+      if (!rawHref) return;
+
+      // Check if this is a hash link for the current page:
+      // Can be either '#milestones' or '/[prefix]/#milestones'
+      let hash = '';
+      if (rawHref.startsWith('#') && rawHref.length > 1) {
+        hash = rawHref;
+      } else if (rawHref.includes('#')) {
+        try {
+          const url = new URL(anchor.href, window.location.href);
+          if (
+            url.pathname === window.location.pathname &&
+            url.hash.length > 1
+          ) {
+            hash = url.hash;
+          }
+        } catch {
+          // Ignore malformed URL
+        }
+      }
+
+      if (hash) {
+        const targetElement = document.querySelector(hash);
         if (targetElement) {
           e.preventDefault();
           // Scroll with breathing room for sticky navbar (64px)
@@ -76,7 +96,7 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
             duration: 0.9,
           });
           // Update URL hash without jumping
-          window.history.pushState(null, '', href);
+          window.history.pushState(null, '', hash);
         }
       }
     };

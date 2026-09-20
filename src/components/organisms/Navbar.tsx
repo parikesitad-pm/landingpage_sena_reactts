@@ -21,6 +21,7 @@ export default function Navbar() {
   const navItems = [
     { label: t('nav.story'), href: `/${prefix}/#story` },
     { label: t('nav.growingUp'), href: `/${prefix}/#milestones` },
+    { label: t('nav.changelog'), href: `/${prefix}/#changelog` },
     { label: t('nav.memories'), href: `/${prefix}/#memories` },
     { label: t('nav.family'), href: `/${prefix}/#family` },
     { label: t('nav.brand'), href: `/${prefix}/#brand-mark` },

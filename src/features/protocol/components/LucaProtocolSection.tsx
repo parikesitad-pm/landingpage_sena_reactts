@@ -382,8 +382,12 @@ export default function LucaProtocolSection() {
                   trainingGround = &ldquo;home&rdquo;;
                 </span>
                 <code className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono bg-[var(--warning-soft)] border border-[var(--warning-border)] shadow-2xs">
-                  <span className="text-[var(--muted-foreground)]">difficulty =&nbsp;</span>
-                  <span className="text-[var(--warning)] font-semibold">&ldquo;insanity&rdquo;;</span>
+                  <span className="text-[var(--muted-foreground)]">
+                    difficulty =&nbsp;
+                  </span>
+                  <span className="text-[var(--warning)] font-semibold">
+                    &ldquo;insanity&rdquo;;
+                  </span>
                 </code>
               </div>
               <p className="text-[11px] text-[var(--muted-foreground)] leading-tight italic">

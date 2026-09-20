@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Memperbaiki tata letak nomor baris (gutter) pada `LucaCodeEditor.tsx` dengan sistem grid dua kolom, angka `tabular-nums` rata kanan, lebar gutter tetap (`2.75rem`), tinggi baris identik (`lineHeight: 1.9`), nomor baris aktif beraksen Tokyo Night (`#e0af68`), border kanan pemisah halus, dan pencegahan kolaps baris kosong.
+- Memperbaiki penanganan klik tautan berjangkar rute (`/[prefix]/#...`) pada `SmoothScrollProvider.tsx` agar menggunakan pergerakan mulus (smooth scroll) Lenis alih-alih loncat instan bawaan browser.
 - Mengembalikan animasi pengetikan karakter demi karakter (typing animation) beserta kursor berkedip `▌` pada seluruh deklarasi aturan keluarga (Rules 01–05) di seksi Luca Protocol dengan tetap menjaga aksesibilitas `sr-only` dan fallback `prefers-reduced-motion`.
 - Memperbaiki bug pembatalan timer di seksi Luca Protocol (`LucaProtocolSection.tsx`) di mana state `step` di dalam dependency array `useEffect` menyebabkan pembersihan timer setelah step 1 sehingga judul, stempel, dan seluruh kelima aturan keluarga membeku dan tidak muncul.
 - Menambahkan efek stempel fisik karet berotasi (`@keyframes stamp-land`) pada badge `POPO APPROVED` dan membersihkan markup semantik deklarasi aturan.
@@ -17,6 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Perbaikan pada `scripts/optimize-images.mjs` agar selalu mengekspor seluruh set ukuran responsif target (480, 768, 1024, 1280) tanpa melewati ukuran 1280px.
 
 ### Added
+
+- Seksi baru **Luca Changelog** (`RELEASE NOTES`) yang menghubungkan perjalanan tumbuh kembang Luca dengan konsep release versioning software engineer (`v0.1.0`, `v0.7.x`, `v1.0.0`, `v1.x`, `NEXT`, chip `status = "growing";`, dan kutipan filosofis penutup) dengan dukungan penuh 5 bahasa dan integrasi menu navigasi header.
 
 - Semantic warning tokens (`--warning`, `--warning-strong`, `--warning-soft`, `--warning-border`) yang selaras dengan Tokyo Night rose/red untuk penandaan status otoritas/larangan tertentu (`outsideBullies = false`, `appeal.allowed = false`, `FINAL AUTHORITY`, `difficulty = "insanity"`).
 - Catatan klarifikasi ringan di bawah `difficulty = "insanity"` ("Insanity = absurdly difficult, not actually harmful") serta penegasan konteks humor keluarga yang aman dan penuh kasih sayang di semua 5 bahasa.

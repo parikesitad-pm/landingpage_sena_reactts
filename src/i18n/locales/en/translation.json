@@ -2,6 +2,7 @@
   "nav": {
     "story": "Story",
     "growingUp": "Growing Up",
+    "changelog": "Changelog",
     "memories": "Memories",
     "family": "Family",
     "brand": "The Mark",
@@ -51,6 +52,44 @@
     "backToAdventuresDesc": "Healthy, curious, and continuing to explore the world with Popo and Momo.",
     "endingText": "More chapters are still being written...",
     "continuedText": "To be continued..."
+  },
+  "changelog": {
+    "eyebrow": "RELEASE NOTES",
+    "title": "Luca Changelog",
+    "subtitle": "A release journal of growing up — from initial commit to every next step.",
+    "entries": {
+      "v010": {
+        "tag": "INITIAL RELEASE",
+        "title": "Hello, World.",
+        "date": "13 February 2025",
+        "note": "The first release arrived with tiny hands, tiny breaths, and a whole new world to discover."
+      },
+      "v07x": {
+        "tag": "FEATURE",
+        "title": "Tiny Teeth",
+        "date": "Around seven months old",
+        "note": "A small update, but a memorable one."
+      },
+      "v100": {
+        "tag": "MAJOR MILESTONE",
+        "title": "One Whole Year",
+        "date": "13 February 2026",
+        "note": "One year of growing, laughing, learning, and being deeply loved."
+      },
+      "v1x": {
+        "tag": "STABILITY",
+        "title": "First Steps",
+        "date": "Around one year old",
+        "note": "Still learning balance, still moving forward."
+      },
+      "next": {
+        "tag": "IN PROGRESS",
+        "title": "More updates are being written...",
+        "date": "The story is ongoing",
+        "note": "New chapters, new words, and endless possibilities ahead."
+      }
+    },
+    "closing": "No final release planned. Keep becoming."
   },
   "memories": {
     "eyebrow": "CAPTURED IN TIME",

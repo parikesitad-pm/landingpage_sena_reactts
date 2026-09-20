@@ -1,8 +1,9 @@
 {
   "nav": {
     "story": "Kisah",
-    "growingUp": "Tumbuh Kembang",
-    "memories": "Kenangan",
+    "growingUp": "Tumbuh",
+    "changelog": "Changelog",
+    "memories": "Memori",
     "family": "Keluarga",
     "brand": "Makna Logo",
     "forSenna": "Untuk Senna",
@@ -51,6 +52,44 @@
     "backToAdventuresDesc": "Sehat, ceria, dan kembali menjelajahi dunia ditemani Popo dan Momo.",
     "endingText": "Kisah-kisah berikutnya masih terus ditulis...",
     "continuedText": "To be continued..."
+  },
+  "changelog": {
+    "eyebrow": "CATATAN RILIS",
+    "title": "Luca Changelog",
+    "subtitle": "Jurnal rilis bertumbuh — dari baris pertama hingga langkah-langkah berikutnya.",
+    "entries": {
+      "v010": {
+        "tag": "RILIS PERDANA",
+        "title": "Hello, World.",
+        "date": "13 Februari 2025",
+        "note": "Rilis pertama tiba dengan tangan mungil, napas kecil, dan seluruh dunia baru yang siap dijelajahi."
+      },
+      "v07x": {
+        "tag": "FITUR BARU",
+        "title": "Gigi Pertama",
+        "date": "Sekitar usia tujuh bulan",
+        "note": "Pembaruan kecil yang sangat berkesan dan penuh tawa."
+      },
+      "v100": {
+        "tag": "MILESTONE UTAMA",
+        "title": "Satu Tahun Penuh",
+        "date": "13 Februari 2026",
+        "note": "Satu tahun bertumbuh, tertawa, belajar banyak hal, dan dikelilingi cinta tanpa batas."
+      },
+      "v1x": {
+        "tag": "STABILITAS",
+        "title": "Langkah-Langkah Pertama",
+        "date": "Sekitar usia satu tahun",
+        "note": "Masih belajar menjaga keseimbangan, terus melangkah maju ke depan."
+      },
+      "next": {
+        "tag": "DALAM PROSES",
+        "title": "Pembaruan berikutnya sedang ditulis...",
+        "date": "Kisah terus berlanjut",
+        "note": "Bab-bab baru, kata-kata baru, dan kemungkinan tanpa akhir di masa depan."
+      }
+    },
+    "closing": "Tidak ada rilis final yang direncanakan. Teruslah bertumbuh."
   },
   "memories": {
     "eyebrow": "TERABADIKAN OLEH WAKTU",

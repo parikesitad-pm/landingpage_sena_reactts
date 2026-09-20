@@ -4,6 +4,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import HeroSection from '@/features/hero/components/HeroSection';
 import StorySection from '@/features/story/components/StorySection';
 import MilestonesSection from '@/features/milestones/components/MilestonesSection';
+import LucaChangelogSection from '@/features/changelog/components/LucaChangelogSection';
 import MemoriesSection from '@/features/memories/components/MemoriesSection';
 import FamilySection from '@/features/family/components/FamilySection';
 import HospitalSection from '@/features/hospital/components/HospitalSection';
@@ -62,6 +63,7 @@ export default function HomePage() {
       <HeroSection />
       <StorySection />
       <MilestonesSection />
+      <LucaChangelogSection />
       <MemoriesSection />
       <FamilySection />
       <HospitalSection />
