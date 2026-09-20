@@ -4,7 +4,7 @@ import { SUPPORTED_LOCALES, type LanguagePreference } from '../types';
 import { Settings, Sun, Moon, Laptop, Check } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { localeToPathPrefix, pathPrefixToLocale } from '../lib/locale';
-import { captureLocaleSwitchProgress } from '@/lib/scrollRestoration';
+import { captureScrollSnapshot } from '@/lib/scrollRestoration';
 
 export default function PreferencesMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +46,7 @@ export default function PreferencesMenu() {
   }, [isOpen]);
 
   const handleLanguageSelect = (pref: LanguagePreference) => {
-    captureLocaleSwitchProgress();
+    const scrollSnapshot = captureScrollSnapshot();
     setLanguage(pref);
     setIsOpen(false);
 
@@ -63,8 +63,16 @@ export default function PreferencesMenu() {
       ? pathParts.slice(1).join('/')
       : pathParts.join('/');
 
-    const newPath = `/${targetPrefix}${remainingPath ? `/${remainingPath}` : ''}${location.hash}`;
-    navigate(newPath);
+    const hash = location.hash;
+    const newPath = `/${targetPrefix}${remainingPath ? `/${remainingPath}` : ''}${hash}`;
+
+    navigate(newPath, {
+      state: {
+        preserveScroll: true,
+        reason: 'locale-change',
+        scrollSnapshot,
+      },
+    });
   };
 
   const getThemeIcon = () => {

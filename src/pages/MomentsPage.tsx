@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import MainLayout from '@/components/layout/MainLayout';
 import Container from '@/components/atoms/Container';
 import SectionTitle from '@/components/atoms/SectionTitle';
 import Button from '@/components/atoms/Button';
@@ -41,52 +40,50 @@ export default function MomentsPage() {
   const homePath = `/${prefix}/`;
 
   return (
-    <MainLayout>
-      <div className="py-16 sm:py-24 bg-[var(--background)] transition-colors min-h-screen">
-        <Container size="lg">
-          {/* Top Back Link */}
-          <div className="mb-8">
-            <Link
-              to={homePath}
-              className="inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-            >
+    <div className="py-16 sm:py-24 bg-[var(--background)] transition-colors min-h-screen">
+      <Container size="lg">
+        {/* Top Back Link */}
+        <div className="mb-8">
+          <Link
+            to={homePath}
+            className="inline-flex items-center gap-2 text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>{t('notFound.returnHome')}</span>
+          </Link>
+        </div>
+
+        <div
+          id="hero-scroll-sentinel"
+          aria-hidden="true"
+          className="h-px pointer-events-none"
+        />
+
+        {/* Editorial Header */}
+        <div className="max-w-2xl text-left mb-12">
+          <SectionTitle
+            eyebrow={t('memories.eyebrow')}
+            title={t('memories.title')}
+            description={t('memories.subtitle')}
+            align="left"
+          />
+        </div>
+
+        {/* Photo Gallery Grid */}
+        <div className="mt-8 mb-16">
+          <MemoryGallery />
+        </div>
+
+        {/* Bottom Back / Navigation CTA */}
+        <div className="text-center pt-8 border-t border-[var(--border)]">
+          <Link to={homePath}>
+            <Button size="lg" className="gap-2">
               <ArrowLeft className="w-4 h-4" />
               <span>{t('notFound.returnHome')}</span>
-            </Link>
-          </div>
-
-          <div
-            id="hero-scroll-sentinel"
-            aria-hidden="true"
-            className="h-px pointer-events-none"
-          />
-
-          {/* Editorial Header */}
-          <div className="max-w-2xl text-left mb-12">
-            <SectionTitle
-              eyebrow={t('memories.eyebrow')}
-              title={t('memories.title')}
-              description={t('memories.subtitle')}
-              align="left"
-            />
-          </div>
-
-          {/* Photo Gallery Grid */}
-          <div className="mt-8 mb-16">
-            <MemoryGallery />
-          </div>
-
-          {/* Bottom Back / Navigation CTA */}
-          <div className="text-center pt-8 border-t border-[var(--border)]">
-            <Link to={homePath}>
-              <Button size="lg" className="gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                <span>{t('notFound.returnHome')}</span>
-              </Button>
-            </Link>
-          </div>
-        </Container>
-      </div>
-    </MainLayout>
+            </Button>
+          </Link>
+        </div>
+      </Container>
+    </div>
   );
 }

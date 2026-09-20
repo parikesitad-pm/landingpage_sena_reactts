@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Compass, Sparkles, ArrowLeft } from 'lucide-react';
-import MainLayout from '@/components/layout/MainLayout';
+import { Sparkles, ArrowLeft, Compass } from 'lucide-react';
 import Container from '@/components/atoms/Container';
 import Button from '@/components/atoms/Button';
 import LogoMark from '@/components/atoms/LogoMark';
@@ -56,8 +55,7 @@ export default function NotFoundPage() {
   }, []);
 
   return (
-    <MainLayout>
-      <div className="flex-1 flex flex-col items-center justify-center py-16 sm:py-24 px-4">
+    <div className="flex-1 flex flex-col items-center justify-center py-16 sm:py-24 px-4">
         <Container size="sm" className="text-center">
           {/* Logo Brand Mark */}
           <div className="flex justify-center mb-6">
@@ -116,6 +114,5 @@ export default function NotFoundPage() {
           </div>
         </Container>
       </div>
-    </MainLayout>
   );
 }

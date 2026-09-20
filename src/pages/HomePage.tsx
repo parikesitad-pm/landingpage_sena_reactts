@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import MainLayout from '@/components/layout/MainLayout';
 import HeroSection from '@/features/hero/components/HeroSection';
 import StorySection from '@/features/story/components/StorySection';
 import LucaChangelogSection from '@/features/changelog/components/LucaChangelogSection';
@@ -74,7 +73,7 @@ export default function HomePage() {
   }
 
   return (
-    <MainLayout>
+    <>
       <HeroSection />
       {/* Sentinel for Mobile & Tablet Floating Back To Top */}
       <div
@@ -92,6 +91,6 @@ export default function HomePage() {
       <FutureSection />
       <FamilyHopeSection />
       <GuestbookSection />
-    </MainLayout>
+    </>
   );
 }

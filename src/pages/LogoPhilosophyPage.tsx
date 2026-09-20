@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import MainLayout from '@/components/layout/MainLayout';
 import Container from '@/components/atoms/Container';
 import Button from '@/components/atoms/Button';
 import LucaLogo from '@/components/atoms/LucaLogo';
@@ -94,8 +93,7 @@ export default function LogoPhilosophyPage() {
   ];
 
   return (
-    <MainLayout>
-      <div className="py-16 sm:py-24 bg-[var(--background)] transition-colors">
+    <div className="py-16 sm:py-24 bg-[var(--background)] transition-colors">
         <Container size="lg">
           {/* Back link */}
           <div className="mb-8">
@@ -273,6 +271,5 @@ export default function LogoPhilosophyPage() {
           </div>
         </Container>
       </div>
-    </MainLayout>
   );
 }

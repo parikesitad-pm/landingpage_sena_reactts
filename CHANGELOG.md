@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Mengubah seksi Buku Tamu di halaman utama menjadi CTA-only murni tanpa formulir/input inline (`GuestbookSection.tsx`), tombol terpusat langsung membuka `MessageComposerModal` sebagai satu-satunya komposer.
+- Menghapus seluruh redaksi kata doa (*prayer/prayers/doa*) khusus pada fitur Buku Tamu di seluruh 5 bahasa, berfokus murni pada harapan kecil (*little wishes*), pesan hangat, dan sapaan untuk Luca.
+- Merestrukturisasi arsitektur router dengan `RootLayout` (`router.tsx`) sehingga `MainLayout`, `SmoothScrollProvider`, dan `ScrollManager` terpasang permanen di level root dan tidak pernah mengalami unmount/remount saat perpindahan rute maupun pergantian tema.
+- Mengimplementasikan `ScrollSnapshot` semantik terpusat (`scrollRestoration.ts` & `ScrollManager.tsx`) untuk mengunci ID seksi dan offset visual dalam seksi saat perpindahan bahasa, serta menjamin 0px pergerakan scroll saat beralih tema (Dark/Light/Device).
 - Mengembalikan seksi lengkap Luca Protocol ke halaman utama (`/#protocol`) di antara seksi Keluarga dan Untuk Senna.
 - Mengubah canonical route filosofi logo menjadi `/logo-philosophy` yang berfokus murni pada identitas logo LUCA dan nilai-nilai panduan, dengan cross-link ke Luca Protocol.
 - Mengunci urutan 7 navigasi utama pada navbar dan footer: _Story_, _Family_, _Luca Protocol_, _For Senna_, _Future_, _Moments_, dan _Logo Philosophy_.
@@ -32,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Menghapus seluruh input inline (nama, textarea pesan, penghitung karakter, kartu komposer inline) dari seksi buku tamu beranda.
 - Menghapus seksi "Growing Up" (`MilestonesSection`) dari halaman utama dan navbar, menjadikan `LucaChangelogSection` sebagai representasi tunggal pertumbuhan berkala.
 - Menghapus galeri foto dan filosofi logo dari halaman utama untuk dipindahkan ke halaman terpisah masing-masing (`/moments` dan `/brand-mark`).
 

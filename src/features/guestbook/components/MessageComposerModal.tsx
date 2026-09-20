@@ -429,8 +429,9 @@ export default function MessageComposerModal({
               {activeTab === 'message' && (
                 <div className="p-3 rounded-xl bg-[var(--surface-soft)]/60 border border-[var(--border)] text-xs text-[var(--muted-foreground)] leading-relaxed">
                   <p>
-                    Tulis pesan hangat atau doa untuk Luca. Pesanmu akan
-                    diformat rapi dan dibuka di WhatsApp keluarga Luca.
+                    Tulis harapan kecil, pesan hangat, atau sekadar menyapa
+                    Luca. Pesanmu akan diformat rapi dan dibuka di WhatsApp
+                    keluarga Luca.
                   </p>
                 </div>
               )}

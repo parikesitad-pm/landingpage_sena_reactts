@@ -5,6 +5,7 @@ import {
   useEffect,
   type ReactNode,
   useCallback,
+  useMemo,
 } from 'react';
 import type {
   ThemePreference,
@@ -119,18 +120,29 @@ export function PreferencesProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = activeLocale;
   }, [activeLocale]);
 
+  const contextValue = useMemo<PreferencesContextType>(
+    () => ({
+      themePreference: themePref,
+      resolvedTheme,
+      setTheme,
+      languagePreference: langPref,
+      activeLocale,
+      setLanguage,
+      setActiveLocaleOverride,
+    }),
+    [
+      themePref,
+      resolvedTheme,
+      setTheme,
+      langPref,
+      activeLocale,
+      setLanguage,
+      setActiveLocaleOverride,
+    ]
+  );
+
   return (
-    <PreferencesContext.Provider
-      value={{
-        themePreference: themePref,
-        resolvedTheme,
-        setTheme,
-        languagePreference: langPref,
-        activeLocale,
-        setLanguage,
-        setActiveLocaleOverride,
-      }}
-    >
+    <PreferencesContext.Provider value={contextValue}>
       {children}
     </PreferencesContext.Provider>
   );
