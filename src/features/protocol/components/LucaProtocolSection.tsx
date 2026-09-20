@@ -205,8 +205,8 @@ export default function LucaProtocolSection() {
               <span className="text-[var(--accent)] font-semibold">&gt;</span>
               <span>authority.level = &ldquo;Popo&rdquo;;</span>
             </div>
-            <div className="flex items-center gap-1.5 font-medium">
-              <span className="text-[var(--accent)] font-semibold">&gt;</span>
+            <div className="flex items-center gap-1.5 font-medium px-2 py-0.5 rounded bg-[var(--warning-soft)] text-[var(--warning)] border border-[var(--warning-border)] shadow-2xs">
+              <span className="text-[var(--warning)] font-semibold">&gt;</span>
               <span>appeal.allowed = false;</span>
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function LucaProtocolSection() {
                         RULE {rule.id}
                       </span>
                       {isRule05 ? (
-                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-800 dark:text-amber-300 font-bold border border-amber-500/30">
+                        <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--warning-soft)] text-[var(--warning)] font-bold border border-[var(--warning-border)] font-mono tracking-wider shadow-2xs">
                           FINAL AUTHORITY
                         </span>
                       ) : (
@@ -342,7 +342,7 @@ export default function LucaProtocolSection() {
               <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono bg-amber-500/10 text-amber-800 dark:text-amber-300 font-semibold border border-amber-500/20">
                 {t('lucaProtocol.protection.tag')}
               </span>
-              <code className="text-[11px] font-mono text-[var(--muted-foreground)]">
+              <code className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono text-[var(--warning)] bg-[var(--warning-soft)] border border-[var(--warning-border)] font-semibold shadow-2xs">
                 outsideBullies = false;
               </code>
             </div>
@@ -376,15 +376,26 @@ export default function LucaProtocolSection() {
               </p>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-2">
-              <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono bg-[var(--surface-soft)] text-[var(--foreground)] font-medium border border-[var(--border)]">
-                trainingGround = &ldquo;home&rdquo;;
-              </span>
-              <code className="text-[11px] font-mono text-[var(--muted-foreground)]">
-                difficulty = &ldquo;unfair&rdquo;;
-              </code>
+            <div className="mt-6 pt-4 border-t border-[var(--border)] flex flex-col gap-2.5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono bg-[var(--surface-soft)] text-[var(--foreground)] font-medium border border-[var(--border)]">
+                  trainingGround = &ldquo;home&rdquo;;
+                </span>
+                <code className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] font-mono bg-[var(--warning-soft)] border border-[var(--warning-border)] shadow-2xs">
+                  <span className="text-[var(--muted-foreground)]">difficulty =&nbsp;</span>
+                  <span className="text-[var(--warning)] font-semibold">&ldquo;insanity&rdquo;;</span>
+                </code>
+              </div>
+              <p className="text-[11px] text-[var(--muted-foreground)] leading-tight italic">
+                {t('lucaProtocol.mischief.insanityNote')}
+              </p>
             </div>
           </div>
+        </div>
+
+        {/* Subtle Safety & Human Context Note */}
+        <div className="mt-8 text-center text-xs text-[var(--muted-foreground)]/80 leading-relaxed max-w-xl mx-auto">
+          {t('lucaProtocol.safetyDisclaimer')}
         </div>
       </Container>
     </section>

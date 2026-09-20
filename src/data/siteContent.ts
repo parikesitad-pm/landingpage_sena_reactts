@@ -177,7 +177,7 @@ export const siteContent = {
         'Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.',
       supporting:
         'Better to test the limits at home, where the lesson still comes with love.',
-      code: 'training.mode = "Popo"; difficulty = "unfair";',
+      code: 'training.mode = "Popo"; difficulty = "insanity";',
     },
   },
 

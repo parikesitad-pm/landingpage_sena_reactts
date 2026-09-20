@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Semantic warning tokens (`--warning`, `--warning-strong`, `--warning-soft`, `--warning-border`) yang selaras dengan Tokyo Night rose/red untuk penandaan status otoritas/larangan tertentu (`outsideBullies = false`, `appeal.allowed = false`, `FINAL AUTHORITY`, `difficulty = "insanity"`).
+- Catatan klarifikasi ringan di bawah `difficulty = "insanity"` ("Insanity = absurdly difficult, not actually harmful") serta penegasan konteks humor keluarga yang aman dan penuh kasih sayang di semua 5 bahasa.
 - Top loader bergaya GitHub (`RouteProgress.tsx`) dengan garis tipis aksen emas LUCA, animasi `scaleX` bebas reflow, penundaan anti-flicker 120ms, dan ikon mikro `✦` saat selesai.
 - Smooth scroll terukur dengan Lenis (`SmoothScrollProvider.tsx`) menggunakan single RAF loop, tanpa mengorbankan scroll native mobile (`syncTouch: false`), dan otomatis fallback ke native jika `prefers-reduced-motion: reduce`.
 - Animasi pengetikan ringan (lightweight writing/typing animation) tanpa GSAP via komponen `TypingText` dan `LucaCodeEditor` untuk momen identitas kunci (Hero nama lengkap, nama Popo & Momo, urutan aturan Luca Protocol v1.0, dan jendela kode `luca.ts`), dilengkapi dukungan penuh `prefers-reduced-motion`, pencegahan CLS, dan aksesibilitas screen reader (`sr-only`).

@@ -151,8 +151,10 @@
       "title": "Popo와 함께하는 장난 훈련",
       "canonical": "Sebelum nakal sama orang lain, ayo sini belajar nakal sama Popo.",
       "supporting": "세상 밖에서 선을 넘기 전에, 집에서 Popo와 먼저 경계를 시험해 보세요. 이곳의 모든 규칙에는 언제나 사랑이 담겨 있으니까요.",
-      "quoteAuthor": "— Popo의 특별 초대장"
-    }
+      "quoteAuthor": "— Popo의 특별 초대장",
+      "insanityNote": "Insanity = 터무니없이 어렵다는 뜻일 뿐, 실제 해가 되지 않습니다."
+    },
+    "safetyDisclaimer": "실제 피해나 폭력, 모욕은 없습니다. 가족 간의 장난과 집에서 안전하게 배우는 규칙일 뿐입니다."
   },
   "parentMessage": {
     "eyebrow": "POPO와 MOMO가 보내는 편지",
