@@ -84,8 +84,8 @@ export default function HomePage() {
       <StorySection />
       <LucaChangelogSection />
       <FamilySection />
-      <HospitalSection />
       <RemembranceSection />
+      <HospitalSection />
       <LucaProtocolSection />
       <ParentMessageSection />
       <FutureSection />

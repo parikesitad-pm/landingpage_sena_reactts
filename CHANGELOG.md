@@ -21,8 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Menyusun ulang urutan seksi kisah keluarga di halaman beranda menjadi: _Loved From The Beginning_ → _Always In Our Hearts_ → _A Little Brave Chapter_ (`HomePage.tsx`).
+- Memperbarui kisah kanonikal keluarga pada seksi _Always In Our Hearts_ (`RemembranceSection.tsx`) tentang Muhammad Alqi Parikesit — dipanggil _Junior_ oleh Popo & Momo, dan dikenal sebagai _Abang Aqi_ oleh Luca — dengan tanggal persis 10 April 2023, kutipan emosional _"A very short hello, but a love that never left"_, serta jembatan transisi halus di akhir seksi keluarga dan seksi kenangan.
 - Mengubah seksi Buku Tamu di halaman utama menjadi CTA-only murni tanpa formulir/input inline (`GuestbookSection.tsx`), tombol terpusat langsung membuka `MessageComposerModal` sebagai satu-satunya komposer.
-- Menghapus seluruh redaksi kata doa (*prayer/prayers/doa*) khusus pada fitur Buku Tamu di seluruh 5 bahasa, berfokus murni pada harapan kecil (*little wishes*), pesan hangat, dan sapaan untuk Luca.
+- Menghapus seluruh redaksi kata doa (_prayer/prayers/doa_) khusus pada fitur Buku Tamu di seluruh 5 bahasa, berfokus murni pada harapan kecil (_little wishes_), pesan hangat, dan sapaan untuk Luca.
 - Merestrukturisasi arsitektur router dengan `RootLayout` (`router.tsx`) sehingga `MainLayout`, `SmoothScrollProvider`, dan `ScrollManager` terpasang permanen di level root dan tidak pernah mengalami unmount/remount saat perpindahan rute maupun pergantian tema.
 - Mengimplementasikan `ScrollSnapshot` semantik terpusat (`scrollRestoration.ts` & `ScrollManager.tsx`) untuk mengunci ID seksi dan offset visual dalam seksi saat perpindahan bahasa, serta menjamin 0px pergerakan scroll saat beralih tema (Dark/Light/Device).
 - Mengembalikan seksi lengkap Luca Protocol ke halaman utama (`/#protocol`) di antara seksi Keluarga dan Untuk Senna.

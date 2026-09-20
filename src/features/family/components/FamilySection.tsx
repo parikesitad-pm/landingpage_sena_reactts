@@ -124,6 +124,16 @@ export default function FamilySection() {
             </figure>
           </div>
         </div>
+
+        {/* Soft transition into the deeper family story */}
+        <div className="mt-14 pt-8 border-t border-[var(--border)] text-center max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm font-sans text-[var(--muted-foreground)] leading-relaxed italic">
+            {t(
+              'family.bridge',
+              "Before Luca's little adventures began, this family already carried a love that never left."
+            )}
+          </p>
+        </div>
       </Container>
     </section>
   );

@@ -143,7 +143,11 @@ export default function ScrollManager() {
           if (lenis) {
             lenis.scrollTo(snapshot.absoluteY, { immediate: true });
           } else {
-            window.scrollTo({ top: snapshot.absoluteY, left: 0, behavior: 'auto' });
+            window.scrollTo({
+              top: snapshot.absoluteY,
+              left: 0,
+              behavior: 'auto',
+            });
           }
         }
       };

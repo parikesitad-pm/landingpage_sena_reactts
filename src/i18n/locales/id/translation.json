@@ -108,7 +108,8 @@
     "momoRole": "Kasih sayang tulus tanpa henti",
     "togetherTag": "Bersama",
     "togetherTitle": "Tumbuh Besar Bersama Popo & Momo",
-    "togetherDesc": "Tangan-tangan paling hangat dan senyuman paling tulus sepanjang perjalanannya."
+    "togetherDesc": "Tangan-tangan paling hangat dan senyuman paling tulus sepanjang perjalanannya.",
+    "bridge": "Sebelum petualangan kecil Luca dimulai, keluarga ini telah membawa cinta yang tidak pernah pergi."
   },
   "hospital": {
     "eyebrow": "BABAK KECIL DENGAN KETEGARAN",
@@ -151,11 +152,16 @@
     "taglineHuman": "A more human tomorrow."
   },
   "remembrance": {
-    "eyebrow": "SELALU DI HATI KAMI",
-    "title": "A Story That Started With Love",
-    "p1": "Sebelum kisah Luca bermula, ada Muhammad Alqi Parikesit — kakak laki-lakinya yang selamanya menjadi bagian dari keluarga ini dan kini damai di surga.",
-    "p2": "Kini, Luca meneruskan langkah perjalanan keluarga ini, bertumbuh hari demi hari sambil menemani Popo dan Momo melewati seluruh momen sederhana yang perlahan menjadi kenangan abadi.",
-    "tag": "damai di surga · forever loved"
+    "eyebrow": "ALWAYS IN OUR HEARTS",
+    "title": "Sebelum Luca, Ada Junior",
+    "isoDate": "2023-04-10",
+    "dateText": "10 April 2023",
+    "p1": "Sebelum kisah Luca dimulai, ada Muhammad Alqi Parikesit — anak pertama Popo dan Momo, yang dengan penuh sayang dipanggil Junior.",
+    "p2": "10 April 2023 menjadi hari ketika Junior hadir di dunia, sekaligus hari ketika ia kembali ke surga.",
+    "quote": "Sapaan yang sangat singkat, tapi cinta yang tidak pernah pergi.",
+    "p3": "Bagi Popo dan Momo, ia akan selalu menjadi Junior. Dan sekarang, di dalam kisah Luca, ia adalah Abang Aqi — sang kakak yang selamanya menjadi bagian dari keluarga ini.",
+    "p4": "Hari ini, Luca melanjutkan kisah kecilnya sendiri, tumbuh satu hari demi satu hari, dikelilingi oleh cinta yang sejak dulu selalu tinggal di rumah ini.",
+    "bridge": "Dan kisah Luca pun terus berlanjut — satu hari kecil, satu tantangan kecil, dan satu petualangan kecil demi satu petualangan."
   },
   "lucaProtocol": {
     "eyebrow": "LIMA HUKUM UTAMA LUCA",

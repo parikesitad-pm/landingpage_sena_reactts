@@ -108,7 +108,8 @@
     "momoRole": "Endless gentle care",
     "togetherTag": "Together",
     "togetherTitle": "Growing Up with Popo & Momo",
-    "togetherDesc": "The warmest hands and biggest smiles along the journey."
+    "togetherDesc": "The warmest hands and biggest smiles along the journey.",
+    "bridge": "Before Luca's little adventures began, this family already carried a love that never left."
   },
   "hospital": {
     "eyebrow": "A GENTLE CHAPTER",
@@ -152,10 +153,15 @@
   },
   "remembrance": {
     "eyebrow": "ALWAYS IN OUR HEARTS",
-    "title": "A Story That Started With Love",
-    "p1": "Before Luca's story began, there was Muhammad Alqi Parikesit — his older brother, forever part of this family and now at peace in heaven.",
-    "p2": "Today, Luca carries his own little story forward, growing one day at a time while keeping Popo and Momo company through all the ordinary moments that slowly become memories.",
-    "tag": "damai di surga · forever loved"
+    "title": "Before Luca, There Was Junior",
+    "isoDate": "2023-04-10",
+    "dateText": "10 April 2023",
+    "p1": "Before Luca's story began, there was Muhammad Alqi Parikesit — Popo and Momo's first little boy, lovingly called Junior.",
+    "p2": "10 April 2023 was both the day Junior came into this world and the day he returned to heaven.",
+    "quote": "A very short hello, but a love that never left.",
+    "p3": "To Popo and Momo, he will always be Junior. And now, in Luca's story, he is Abang Aqi — his older brother, forever part of this family.",
+    "p4": "Today, Luca carries his own little story forward, growing one day at a time, surrounded by the same love that has always lived here.",
+    "bridge": "And so Luca's story continues — one little day, one little challenge, and one little adventure at a time."
   },
   "lucaProtocol": {
     "eyebrow": "THE FIVE LAWS OF LUCA",

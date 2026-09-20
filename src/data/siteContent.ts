@@ -140,11 +140,20 @@ export const siteContent = {
 
   remembrance: {
     eyebrow: 'ALWAYS IN OUR HEARTS',
-    title: 'A Story That Started With Love',
+    title: 'Before Luca, There Was Junior',
+    date: '2023-04-10',
+    dateFormatted: '10 April 2023',
+    quote: 'A very short hello, but a love that never left.',
     paragraph1:
-      "Before Luca's story began, there was Muhammad Alqi Parikesit — his older brother, forever part of this family and now at peace in heaven.",
+      "Before Luca's story began, there was Muhammad Alqi Parikesit — Popo and Momo's first little boy, lovingly called Junior.",
     paragraph2:
-      'Today, Luca carries his own little story forward, growing one day at a time while keeping Popo and Momo company through all the ordinary moments that slowly become memories.',
+      '10 April 2023 was both the day Junior came into this world and the day he returned to heaven.',
+    paragraph3:
+      'To Popo and Momo, he will always be Junior. And now, in Luca\'s story, he is Abang Aqi — his older brother, forever part of this family.',
+    paragraph4:
+      'Today, Luca carries his own little story forward, growing one day at a time, surrounded by the same love that has always lived here.',
+    bridge:
+      'And so Luca\'s story continues — one little day, one little challenge, and one little adventure at a time.',
   },
 
   lucaProtocol: {

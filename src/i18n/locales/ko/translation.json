@@ -108,7 +108,8 @@
     "momoRole": "언제나 다정한 사랑과 보살핌",
     "togetherTag": "함께",
     "togetherTitle": "Popo와 Momo와 함께하는 날들",
-    "togetherDesc": "성장의 길목에서 가장 따뜻한 손길과 자애로운 미소."
+    "togetherDesc": "성장의 길목에서 가장 따뜻한 손길과 자애로운 미소.",
+    "bridge": "Luca의 작은 모험이 시작되기 전부터, 이 가족에게는 결코 떠나지 않는 사랑이 머물고 있었습니다."
   },
   "hospital": {
     "eyebrow": "씩씩했던 작은 시간",
@@ -151,11 +152,16 @@
     "taglineHuman": "더 따뜻한 내일을 향하여."
   },
   "remembrance": {
-    "eyebrow": "언제나 마음속에",
-    "title": "A Story That Started With Love",
-    "p1": "Luca의 이야기가 시작되기 전, 이 가족에게는 영원한 가족이자 맏형인 Muhammad Alqi Parikesit이 있었습니다. 지금은 천국에서 평안히 쉬고 있습니다 (damai di surga).",
-    "p2": "오늘날 Luca는 가족의 사랑을 이어받아 매일매일 자라나며, Popo와 Momo 곁에서 평범한 일상을 영원히 빛날 소중한 추억으로 가꾸어가고 있습니다.",
-    "tag": "damai di surga · forever loved"
+    "eyebrow": "언제나 우리 마음속에",
+    "title": "Luca 이전에, Junior가 있었습니다",
+    "isoDate": "2023-04-10",
+    "dateText": "2023년 4월 10일",
+    "p1": "Luca의 이야기가 시작되기 전, Muhammad Alqi Parikesit이 있었습니다 — Popo와 Momo의 첫 번째 아이이자, 사랑을 담아 Junior라 불렸던 천사.",
+    "p2": "2023년 4월 10일은 Junior가 세상에 온 날이자, 다시 하늘로 돌아간 날이었습니다.",
+    "quote": "너무나 짧은 안녕이었지만, 영원히 곁에 남은 사랑.",
+    "p3": "Popo와 Momo에게 그는 언제나 Junior입니다. 그리고 이제 Luca의 이야기 속에서 그는 형인 Abang Aqi로서 영원히 이 가족의 일부로 살아갑니다.",
+    "p4": "오늘날 Luca는 자신만의 작은 이야기를 이어가며, 언제나 이곳에 머물러 온 따뜻한 사랑 속에서 하루하루 자라나고 있습니다.",
+    "bridge": "그렇게 Luca의 이야기는 계속됩니다 — 하루하루 작은 도전과 작은 모험을 마주하며."
   },
   "lucaProtocol": {
     "eyebrow": "LUCA 가문 5대 헌법",

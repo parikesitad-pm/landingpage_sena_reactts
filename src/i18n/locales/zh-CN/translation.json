@@ -108,7 +108,8 @@
     "momoRole": "温柔细致的永恒关怀",
     "togetherTag": "温暖相聚",
     "togetherTitle": "与 Popo 和 Momo 共同成长",
-    "togetherDesc": "漫漫成长路上，最温暖的臂弯与最慈爱的笑容。"
+    "togetherDesc": "漫漫成长路上，最温暖的臂弯与最慈爱的笑容。",
+    "bridge": "在 Luca 的小冒险开始之前，这个家就已经承载着一份从未离去的爱。"
   },
   "hospital": {
     "eyebrow": "温柔勇敢的章节",
@@ -151,11 +152,16 @@
     "taglineHuman": "走向更具温度的明天。"
   },
   "remembrance": {
-    "eyebrow": "永远珍藏在心底",
-    "title": "A Story That Started With Love",
-    "p1": "在 Luca 的故事开始之前，有一位永远属于这个家庭的哥哥 —— Muhammad Alqi Parikesit，如今在天堂得享安宁 (damai di surga)。",
-    "p2": "今天，Luca 带着爱的温度继续书写家庭的新篇章，在每一天的成长中陪伴着 Popo 和 Momo，把无数平凡温馨的时光慢慢变为永恒的珍贵记忆。",
-    "tag": "damai di surga · forever loved"
+    "eyebrow": "永远在我们心中",
+    "title": "在 Luca 之前，曾有 Junior",
+    "isoDate": "2023-04-10",
+    "dateText": "2023年4月10日",
+    "p1": "在 Luca 的故事开始之前，曾有 Muhammad Alqi Parikesit —— Popo 和 Momo 的第一个小男孩，被深情地唤作 Junior。",
+    "p2": "2023年4月10日，既是 Junior 来到这个世界的日子，也是他回归天堂的日子。",
+    "quote": "一声格外短暂的问候，却是一份从未离去的爱。",
+    "p3": "对 Popo 和 Momo 而言，他永远是 Junior。而如今在 Luca 的故事里，他是 Abang Aqi —— 他的大哥哥，永远是这个家的一部分。",
+    "p4": "今天，Luca 带着属于自己的小小故事前行，一天天地成长，被一直深植于此的温暖爱意所包围。",
+    "bridge": "于是 Luca 的故事继续书写 —— 一天天、一步步挑战、一次次小小冒险。"
   },
   "lucaProtocol": {
     "eyebrow": "LUCA 家规五大守则",

@@ -108,7 +108,8 @@
     "momoRole": "絶え間なく注がれる優しい愛情",
     "togetherTag": "いっしょに",
     "togetherTitle": "Popo と Momo とともに歩む日々",
-    "togetherDesc": "成長の道のりの中で、もっともあたたかい手と優しい笑顔。"
+    "togetherDesc": "成長の道のりの中で、もっともあたたかい手と優しい笑顔。",
+    "bridge": "Luca の小さな冒険が始まる前から、この家族には決して消えることのない愛がありました。"
   },
   "hospital": {
     "eyebrow": "静かな勇気の章",
@@ -151,11 +152,16 @@
     "taglineHuman": "より温もりある明日へ。"
   },
   "remembrance": {
-    "eyebrow": "いつも心の中に",
-    "title": "A Story That Started With Love",
-    "p1": "Luca の物語がはじまる前、この家族にはお兄さんである Muhammad Alqi Parikesit がいました。今も家族の大切な一員であり、天国で安らかに憩っています（damai di surga）。",
-    "p2": "いま、Luca は家族の想いを受け継ぎ、Popo と Momo のそばで日常を過ごしながら、すべてのささやかな瞬間をかけがえのない記憶へと変えています。",
-    "tag": "damai di surga · forever loved"
+    "eyebrow": "いつまでも私たちの心に",
+    "title": "Luca の前に、Junior がいた",
+    "isoDate": "2023-04-10",
+    "dateText": "2023年4月10日",
+    "p1": "Luca の物語が始まる前、Muhammad Alqi Parikesit がいました —— Popo と Momo の最初の男の子で、愛情を込めて Junior と呼ばれていました。",
+    "p2": "2023年4月10日は、Junior がこの世に生まれ、そして天国へと旅立った日でした。",
+    "quote": "とても短い出会いだったけれど、決して消えることのない愛。",
+    "p3": "Popo と Momo にとって、彼はいつまでも Junior です。そして今、Luca の物語の中で、彼はお兄ちゃんである Abang Aqi として、永遠にこの家族の一員です。",
+    "p4": "今日、Luca は自分の小さな物語を一歩ずつ紡ぎ、ずっとこの家にあり続ける同じ深い愛に包まれながら成長しています。",
+    "bridge": "こうして Luca の物語は続いていきます —— 一日一日、小さな挑戦と小さな冒険を重ねながら。"
   },
   "lucaProtocol": {
     "eyebrow": "LUCA 家の五箇条",
