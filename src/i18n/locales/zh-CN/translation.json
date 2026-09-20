@@ -193,6 +193,14 @@
       "quoteAuthor": "— Popo 的常设挑战",
       "insanityNote": "Insanity = 难度极高，并非真正伤害。"
     },
+    "verification": {
+      "title": "协议验证",
+      "badge": "✦ 已验证",
+      "momoLove": "Momo 的无尽爱意已验证",
+      "popoAuthority": "Popo 的家规权威已确认",
+      "bulliesBlocked": "外部霸凌已全数拦截",
+      "mischiefAvailable": "调皮特训已就绪"
+    },
     "safetyDisclaimer": "绝无伤害、暴力或羞辱。纯属家庭玩笑与幽默家规，在家安全探索界限。"
   },
   "parentMessage": {
@@ -233,5 +241,10 @@
     "brandLink": "The Mark of Luca →",
     "backToTop": "返回顶部",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
+  },
+  "notFound": {
+    "title": "小探索家走岔了路。",
+    "description": "即使是再棒的小冒险，有时也会偏离原本的方向。",
+    "returnHome": "返回首页"
   }
 }

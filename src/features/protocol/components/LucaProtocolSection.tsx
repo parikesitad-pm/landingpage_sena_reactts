@@ -5,6 +5,7 @@ import Container from '@/components/atoms/Container';
 import { useInView } from '@/hooks/useInView';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { cn } from '@/lib/utils';
+import ProtocolVerification from './ProtocolVerification';
 
 interface RuleItem {
   id: string;
@@ -396,6 +397,9 @@ export default function LucaProtocolSection() {
             </div>
           </div>
         </div>
+
+        {/* Protocol Verification Block */}
+        <ProtocolVerification />
 
         {/* Subtle Safety & Human Context Note */}
         <div className="mt-8 text-center text-xs text-[var(--muted-foreground)]/80 leading-relaxed max-w-xl mx-auto">

@@ -193,6 +193,14 @@
       "quoteAuthor": "— Pesan Terbuka Popo",
       "insanityNote": "Insanity = absurdly difficult, not actually harmful."
     },
+    "verification": {
+      "title": "VERIFIKASI PROTOKOL",
+      "badge": "✦ terverifikasi",
+      "momoLove": "Kasih sayang Momo terverifikasi",
+      "popoAuthority": "Otoritas Popo terkonfirmasi",
+      "bulliesBlocked": "Perundung luar diblokir total",
+      "mischiefAvailable": "Latihan nakal siap dilaksanakan"
+    },
     "safetyDisclaimer": "Tidak ada kekerasan, penghinaan, atau tindakan yang menyakiti. Ini hanya candaan keluarga, aturan lucu, dan cara belajar batasan dengan aman di rumah."
   },
   "parentMessage": {
@@ -233,5 +241,10 @@
     "brandLink": "The Mark of Luca →",
     "backToTop": "Kembali ke atas",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
+  },
+  "notFound": {
+    "title": "Penjelajah kecil salah jalan.",
+    "description": "Petualangan kecil pun kadang bisa berbelok ke jalan yang salah.",
+    "returnHome": "Kembali ke Beranda"
   }
 }

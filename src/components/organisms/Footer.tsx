@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mt-20 border-t border-[var(--border)] bg-[var(--surface)] py-12 sm:py-16 text-[var(--muted-foreground)] transition-colors">
+    <footer className="mt-20 border-t border-[var(--border)] bg-[var(--surface)] pt-12 sm:pt-16 pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-16 text-[var(--muted-foreground)] transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[var(--border)]">
           <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
@@ -36,10 +36,11 @@ export default function Footer() {
               {t('footer.brandLink')}
             </Link>
 
+            {/* Desktop-only back to top button to avoid duplicate floating control on mobile/tablet */}
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] border border-[var(--border)] px-4 py-2 rounded-full transition-colors cursor-pointer focus-visible:outline-2"
+              className="hidden lg:inline-flex items-center gap-2 text-xs font-mono text-[var(--muted-foreground)] hover:text-[var(--foreground)] bg-[var(--surface-soft)] hover:bg-[var(--border)] border border-[var(--border)] px-4 py-2 rounded-full transition-colors cursor-pointer focus-visible:outline-2"
             >
               <span>{t('footer.backToTop')}</span>
               <ArrowUp className="w-3.5 h-3.5" />
@@ -47,8 +48,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-1.5 text-center">
+        {/* Dedication Row */}
+        <div className="pt-8 flex flex-col items-center justify-center gap-4 text-center">
+          <div className="flex items-center gap-1.5 text-xs sm:text-sm">
             <span>Made with</span>
             <Heart className="w-3.5 h-3.5 text-[#C98F55] fill-[#C98F55]" />
             <span>
@@ -59,7 +61,20 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-[var(--muted-foreground)]">
+          {/* Build Signature */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-3 py-1 rounded-md border border-[var(--border)] shadow-2xs">
+              {siteContent.footer.portfolioMetadata}
+            </code>
+          </div>
+
+          {/* Optional Closing Line */}
+          <span className="font-mono text-[11px] text-[var(--muted-foreground)]/80 italic">
+            &ldquo;Hello, World. Keep becoming.&rdquo;
+          </span>
+
+          {/* Copyright & Author Row */}
+          <div className="pt-2 flex flex-wrap items-center justify-center gap-3 font-mono text-xs text-[var(--muted-foreground)]">
             <span>&copy; {currentYear} &middot; Our Little Senna</span>
             <span>&middot;</span>
             <span>{t('footer.crafted')}</span>
@@ -73,15 +88,6 @@ export default function Footer() {
               {t('footer.author')}
             </a>
           </div>
-        </div>
-
-        <div className="mt-4 text-center flex flex-wrap items-center justify-center gap-3">
-          <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)]">
-            {siteContent.footer.portfolioMetadata}
-          </code>
-          <span className="font-mono text-[11px] text-[var(--muted-foreground)]">
-            &ldquo;Hello, World. Keep becoming.&rdquo;
-          </span>
         </div>
       </div>
     </footer>

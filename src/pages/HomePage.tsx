@@ -20,6 +20,7 @@ import {
   localeToPathPrefix,
 } from '@/features/preferences/lib/locale';
 import { localeSeoData } from '@/config/site';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -27,7 +28,11 @@ export default function HomePage() {
   const { lang } = useParams<{ lang?: string }>();
   const { activeLocale, setActiveLocaleOverride } = usePreferences();
 
+  const isInvalidLocale = lang !== undefined && pathPrefixToLocale(lang) === null;
+
   useEffect(() => {
+    if (isInvalidLocale) return;
+
     if (lang) {
       const resolved = pathPrefixToLocale(lang);
       if (resolved) {
@@ -38,7 +43,7 @@ export default function HomePage() {
       const prefix = localeToPathPrefix(activeLocale);
       navigate(`/${prefix}/${location.hash}`, { replace: true });
     }
-  }, [lang, activeLocale, setActiveLocaleOverride, navigate, location.hash]);
+  }, [lang, isInvalidLocale, activeLocale, setActiveLocaleOverride, navigate, location.hash]);
 
   useEffect(() => {
     const seo = localeSeoData[activeLocale] || localeSeoData.en;
@@ -57,6 +62,10 @@ export default function HomePage() {
       );
     }
   }, [activeLocale]);
+
+  if (isInvalidLocale) {
+    return <NotFoundPage />;
+  }
 
   return (
     <MainLayout>

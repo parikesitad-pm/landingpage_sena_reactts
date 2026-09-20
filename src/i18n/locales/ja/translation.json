@@ -193,6 +193,14 @@
       "quoteAuthor": "— Popo からの挑戦状",
       "insanityNote": "Insanity = 難易度が狂気的という意味であり、実害はありません。"
     },
+    "verification": {
+      "title": "プロトコル検証",
+      "badge": "✦ 検証完了",
+      "momoLove": "Momo の深い愛情を確認",
+      "popoAuthority": "Popo の権限を確認",
+      "bulliesBlocked": "外部のいじめを完全ブロック",
+      "mischiefAvailable": "いたずら特訓の準備完了"
+    },
     "safetyDisclaimer": "暴力や侮辱、実害は一切ありません。家庭内のユーモアと安全な境界線の学びです。"
   },
   "parentMessage": {
@@ -233,5 +241,10 @@
     "brandLink": "The Mark of Luca →",
     "backToTop": "トップへ戻る",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
+  },
+  "notFound": {
+    "title": "小さな冒険家が道に迷ってしまったようです。",
+    "description": "どんなに楽しい冒険でも、たまには違う道へ迷い込むことがあります。",
+    "returnHome": "ホームへ戻る"
   }
 }

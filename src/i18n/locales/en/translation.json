@@ -193,6 +193,14 @@
       "quoteAuthor": "— Popo's Standing Invitation",
       "insanityNote": "Insanity = absurdly difficult, not actually harmful."
     },
+    "verification": {
+      "title": "PROTOCOL VERIFICATION",
+      "badge": "✦ verified",
+      "momoLove": "Momo love verified",
+      "popoAuthority": "Popo authority confirmed",
+      "bulliesBlocked": "Outside bullies blocked",
+      "mischiefAvailable": "Mischief training available"
+    },
     "safetyDisclaimer": "No actual harm, violence, or humiliation. Just playful family teasing and learning boundaries safely at home."
   },
   "parentMessage": {
@@ -233,5 +241,10 @@
     "brandLink": "The Mark of Luca →",
     "backToTop": "Back to top",
     "version": "portfolio.version = \"1.0\"; status = \"growing\";"
+  },
+  "notFound": {
+    "title": "Little explorer took a wrong turn.",
+    "description": "Even the best little adventures sometimes end up on the wrong path.",
+    "returnHome": "Return Home"
   }
 }

@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Blok verifikasi sistem **Protocol Verification** (`ProtocolVerification.tsx`) di akhir seksi Luca Protocol dengan animasi sekuensial (~90ms per item) untuk validasi aturan keluarga dan penutup status `protocol.status = "ENFORCED";` beraksen emas LUCA tanpa warna merah warning.
+- Easter egg konsol DevTools (`devtoolsEasterEgg.ts`) yang mencetak satu pesan hangat bertema LUCA (`✦ LUCA`, `momo.love = Infinity;`, `authority.level = "Popo";`, `Hello, World. Keep becoming.`) satu kali saat startup tanpa mempengaruhi performa rendering.
+- Halaman kustom 404 (`NotFoundPage.tsx`) dengan desain identitas LUCA, indikator `route.status = "lost";`, tombol CTA kembali ke beranda multibahasa, dan perlindungan rute invalid pada `HomePage` dan `BrandPage`.
+- Kontrol Back to Top mengambang khusus mobile dan tablet (`MobileBackToTop.tsx`) berposisi fixed di sudut kanan bawah dengan kompensasi `safe-area-inset-bottom`, terpicu oleh `IntersectionObserver` (~500px threshold), terintegrasi mulus dengan Lenis / reduced motion, dan tersembunyi di desktop untuk mencegah duplikasi.
 - Seksi baru **Luca Changelog** (`RELEASE NOTES`) yang menghubungkan perjalanan tumbuh kembang Luca dengan konsep release versioning software engineer (`v0.1.0`, `v0.7.x`, `v1.0.0`, `v1.x`, `NEXT`, chip `status = "growing";`, dan kutipan filosofis penutup) dengan dukungan penuh 5 bahasa dan integrasi menu navigasi header.
 
 - Semantic warning tokens (`--warning`, `--warning-strong`, `--warning-soft`, `--warning-border`) yang selaras dengan Tokyo Night rose/red untuk penandaan status otoritas/larangan tertentu (`outsideBullies = false`, `appeal.allowed = false`, `FINAL AUTHORITY`, `difficulty = "insanity"`).
@@ -32,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Memperbarui build signature pengembang di footer menjadi `portfolio.version = "1.0"; status = "growing"; lastBuild = "today";` dan merapikan hierarki visual serta clearance padding mobile (`pb-[calc(4.5rem+env(safe-area-inset-bottom))]`).
 - Mengoreksi hierarki dan urutan tampilan seksi Luca Protocol: Blok judul (`eyebrow` -> `title` -> `subtitle`) tampil paling pertama, disusul 4 baris protokol (`protocol.version`, `momo.love`, `authority.level`, `appeal.allowed`) dalam satu baris horizontal terpadu berformat chip/strip JetBrains Mono, diikuti stempel fisik `POPO APPROVED`, dan kemudian seksi artikel serta aturan 01–05.
 - Penerapan tema Tokyo Night khusus pada jendela editor `luca.ts` (latar `#1a1b26`, chrome `#202231`, tab, highlight baris aktif, penomoran baris JetBrains Mono, dan sintaks violet/green/cyan/gold) tanpa mengubah tema hangat editorial situs utama.
 - Penghapusan total konsep splash screen / blocking overlay agar seluruh konten langsung tampil instan tanpa penundaan buatan.

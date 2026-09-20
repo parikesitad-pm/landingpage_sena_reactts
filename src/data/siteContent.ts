@@ -205,6 +205,7 @@ export const siteContent = {
     dedication: 'Made with ♥ for Muhammad Gabriel Luca Senna',
     secondary: 'Crafted with <3 for Luca',
     author: 'a MODULA Project',
-    portfolioMetadata: 'portfolio.version = "1.0"; status = "growing";',
+    portfolioMetadata:
+      'portfolio.version = "1.0"; status = "growing"; lastBuild = "today";',
   },
 } as const;

@@ -15,6 +15,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
 import { pathPrefixToLocale } from '@/features/preferences/lib/locale';
+import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function BrandPage() {
   const { lang } = useParams<{ lang?: string }>();
@@ -22,14 +23,22 @@ export default function BrandPage() {
   const { t } = useTranslation();
   const { brand } = siteContent;
 
+  const isInvalidLocale = lang !== undefined && pathPrefixToLocale(lang) === null;
+
   useEffect(() => {
+    if (isInvalidLocale) return;
+
     if (lang) {
       const resolved = pathPrefixToLocale(lang);
       if (resolved) {
         setActiveLocaleOverride(resolved);
       }
     }
-  }, [lang, setActiveLocaleOverride]);
+  }, [lang, isInvalidLocale, setActiveLocaleOverride]);
+
+  if (isInvalidLocale) {
+    return <NotFoundPage />;
+  }
 
   const meanings = [
     {

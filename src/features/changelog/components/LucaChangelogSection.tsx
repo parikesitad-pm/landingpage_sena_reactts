@@ -87,9 +87,7 @@ export default function LucaChangelogSection() {
                         backgroundColor: isNext
                           ? 'var(--accent-soft)'
                           : 'var(--surface-soft)',
-                        borderColor: isNext
-                          ? 'var(--accent)'
-                          : 'var(--border)',
+                        borderColor: isNext ? 'var(--accent)' : 'var(--border)',
                         color: isNext
                           ? 'var(--foreground-strong)'
                           : 'var(--accent-strong)',
@@ -132,8 +130,12 @@ export default function LucaChangelogSection() {
         <div className="mt-10 sm:mt-12 pt-8 border-t border-[var(--border)] text-center flex flex-col items-center gap-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[var(--surface)] border border-[var(--border)] font-mono text-xs shadow-2xs select-none">
             <Sparkles className="w-3.5 h-3.5 text-[var(--accent)]" />
-            <span className="text-[var(--muted-foreground)]">status =&nbsp;</span>
-            <span className="text-[var(--accent)] font-semibold">&ldquo;growing&rdquo;;</span>
+            <span className="text-[var(--muted-foreground)]">
+              status =&nbsp;
+            </span>
+            <span className="text-[var(--accent)] font-semibold">
+              &ldquo;growing&rdquo;;
+            </span>
           </div>
 
           <p className="text-sm sm:text-base font-medium text-[var(--foreground)] max-w-md mx-auto leading-relaxed">
