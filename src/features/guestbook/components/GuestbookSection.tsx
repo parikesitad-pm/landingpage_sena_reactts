@@ -98,7 +98,9 @@ export default function GuestbookSection() {
                   }}
                   placeholder={t('guestbook.messagePlaceholder')}
                   aria-invalid={Boolean(errorMessage)}
-                  aria-describedby={errorMessage ? 'guestbook-error' : undefined}
+                  aria-describedby={
+                    errorMessage ? 'guestbook-error' : undefined
+                  }
                   className="w-full px-4 py-3 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 text-sm focus:outline-none focus:border-[#C98F55] focus:ring-1 focus:ring-[#C98F55] transition-all resize-y"
                 />
                 {errorMessage && (

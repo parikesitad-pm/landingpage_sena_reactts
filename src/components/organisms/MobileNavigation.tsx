@@ -68,7 +68,8 @@ export default function MobileNavigation({
 
         <nav className="flex flex-col gap-2 py-6">
           {navItems.map((item) => {
-            const isHash = item.href.includes('#') || item.href.startsWith('http');
+            const isHash =
+              item.href.includes('#') || item.href.startsWith('http');
             if (isHash) {
               return (
                 <a
@@ -103,7 +104,9 @@ export default function MobileNavigation({
             onClick={onClose}
             className="text-[#C98F55] hover:underline"
           >
-            {navItems.find((i) => i.href.includes('brand-mark'))?.label || 'The Mark'} &rarr;
+            {navItems.find((i) => i.href.includes('brand-mark'))?.label ||
+              'The Mark'}{' '}
+            &rarr;
           </Link>
         </div>
       </div>

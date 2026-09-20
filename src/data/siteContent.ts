@@ -203,9 +203,10 @@ export const siteContent = {
 
   footer: {
     dedication: 'Made with ♥ for Muhammad Gabriel Luca Senna',
+    storySignature: '// Popo wrote the code. Luca writes the story.',
     secondary: 'Crafted with <3 for Luca',
     author: 'a MODULA Project',
     portfolioMetadata:
-      'portfolio.version = "1.0"; status = "growing"; lastBuild = "today";',
+      'portfolio.version = "1.0"; status = "growing"; next.release = "whenever Luca is ready";',
   },
 } as const;

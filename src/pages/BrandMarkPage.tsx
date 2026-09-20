@@ -14,7 +14,10 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
-import { pathPrefixToLocale, localeToPathPrefix } from '@/features/preferences/lib/locale';
+import {
+  pathPrefixToLocale,
+  localeToPathPrefix,
+} from '@/features/preferences/lib/locale';
 import NotFoundPage from '@/pages/NotFoundPage';
 
 export default function BrandMarkPage() {

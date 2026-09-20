@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Easter egg konsol pengembang bertema Tokyo Night (`consoleEasterEgg.ts`) yang berjalan satu kali saat bootstrap dengan guard `__LUCA_CONSOLE_SHOWN__`, metadata personal Popo & Momo, serta tautan publik WhatsApp.
+- Story signature pengembang `// Popo wrote the code. Luca writes the story.` pada footer tepat sebelum build signature.
 - Form buku tamu interaktif terhubung WhatsApp (`GuestbookSection.tsx`) pada halaman beranda dengan field nama (opsional) dan pesan (wajib), validasi ramah, serta tautan pre-filled `https://wa.me/6282298503412` via `encodeURIComponent()`.
 - Halaman galeri foto terpisah `MomentsPage.tsx` (`/moments` dan `/:lang/moments`) dengan koleksi lengkap momen foto, caption terlokalisasi, dan navigasi kembali ke beranda.
 - Halaman identitas terpisah `BrandMarkPage.tsx` (`/brand-mark` dan `/:lang/brand-mark`) yang menyatukan Logo LUCA, 4 kartu makna simbolis (Create, Wonder, Explore, Become), Guiding Values (Curious Today, Growing Always, Brighter Tomorrows, Build With Purpose), dan Luca Protocol v1.0, serta pengalihan rute kompatibel dari `/brand`, `/the-logo`, dan `/signature-logo`.
@@ -16,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Memecah tampilan build metadata footer menjadi 3 token chip responsif (`portfolio.version = "1.0"`, `status = "growing"`, `next.release = "whenever Luca is ready"`) yang membungkus rapi di mobile.
 - Mengganti label "Memories" menjadi "Moments" dan mengarahkan navigasi header serta footer ke route `/moments`.
 - Menghubungkan tautan "The Mark of Luca" / "Tanda Luca" di header dan footer ke route baru `/brand-mark`.
 - Menyelaraskan navigasi footer dengan navbar utama.

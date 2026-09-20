@@ -85,10 +85,21 @@ export default function Footer() {
             </span>
           </div>
 
-          {/* Build Signature */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5">
-            <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-3 py-1 rounded-md border border-[var(--border)] shadow-2xs">
-              {siteContent.footer.portfolioMetadata}
+          {/* Story Signature */}
+          <p className="text-xs font-mono italic text-[var(--muted-foreground)]/80 tracking-wide">
+            {siteContent.footer.storySignature}
+          </p>
+
+          {/* Build Signature (3 wrapping tokens) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 max-w-xl">
+            <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)] shadow-2xs">
+              portfolio.version = <span className="text-[#9ece6a]">&quot;1.0&quot;</span>;
+            </code>
+            <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)] shadow-2xs">
+              status = <span className="text-[#e0af68]">&quot;growing&quot;</span>;
+            </code>
+            <code className="text-[11px] font-mono text-[var(--muted-foreground)] bg-[var(--surface-soft)] px-2.5 py-1 rounded-md border border-[var(--border)] shadow-2xs">
+              next.release = <span className="text-[#7aa2f7]">&quot;whenever Luca is ready&quot;</span>;
             </code>
           </div>
 
