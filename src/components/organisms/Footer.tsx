@@ -18,7 +18,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mt-20 border-t border-[var(--border)] bg-[var(--surface)] pt-12 sm:pt-16 pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-16 text-[var(--muted-foreground)] transition-colors">
+    <footer className="mt-20 border-t border-[var(--border)] bg-[var(--surface)] pt-12 sm:pt-16 pb-[calc(2.5rem+env(safe-area-inset-bottom))] lg:pb-16 text-[var(--muted-foreground)] transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[var(--border)]">
           <div className="flex flex-col items-center md:items-start gap-2 text-center md:text-left">

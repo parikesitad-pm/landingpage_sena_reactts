@@ -9,10 +9,10 @@ interface VerificationItem {
 }
 
 const ITEMS: VerificationItem[] = [
-  { id: 'momoLove', translationKey: 'lucaProtocol.verification.momoLove' },
-  { id: 'popoAuthority', translationKey: 'lucaProtocol.verification.popoAuthority' },
-  { id: 'bulliesBlocked', translationKey: 'lucaProtocol.verification.bulliesBlocked' },
-  { id: 'mischiefAvailable', translationKey: 'lucaProtocol.verification.mischiefAvailable' },
+  { id: 'momo', translationKey: 'lucaProtocol.verification.momo' },
+  { id: 'popo', translationKey: 'lucaProtocol.verification.popo' },
+  { id: 'bullies', translationKey: 'lucaProtocol.verification.bullies' },
+  { id: 'training', translationKey: 'lucaProtocol.verification.training' },
 ];
 
 export default function ProtocolVerification() {
@@ -89,7 +89,10 @@ export default function ProtocolVerification() {
       </div>
 
       {/* Verification Items List */}
-      <ul className="mt-3.5 space-y-2 font-mono text-xs sm:text-[13px] text-[var(--foreground)]" role="list">
+      <ul
+        className="mt-3.5 space-y-2 font-mono text-xs sm:text-[13px] text-[var(--foreground)]"
+        role="list"
+      >
         {ITEMS.map((item, index) => {
           const isRevealed = visibleStep > index;
 
@@ -123,8 +126,12 @@ export default function ProtocolVerification() {
         }`}
       >
         <code className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[var(--surface-soft)] border border-[var(--border)] shadow-2xs">
-          <span className="text-[var(--muted-foreground)]">protocol.status =&nbsp;</span>
-          <span className="text-[var(--accent)] font-bold tracking-wide">&ldquo;ENFORCED&rdquo;;</span>
+          <span className="text-[var(--muted-foreground)]">
+            protocol.status =&nbsp;
+          </span>
+          <span className="text-[var(--accent)] font-bold tracking-wide">
+            &ldquo;ENFORCED&rdquo;;
+          </span>
         </code>
         <span className="text-[10px] text-[var(--muted-foreground)] uppercase tracking-wider select-none hidden sm:inline">
           System Validated

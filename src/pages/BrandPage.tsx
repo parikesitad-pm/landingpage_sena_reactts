@@ -23,7 +23,8 @@ export default function BrandPage() {
   const { t } = useTranslation();
   const { brand } = siteContent;
 
-  const isInvalidLocale = lang !== undefined && pathPrefixToLocale(lang) === null;
+  const isInvalidLocale =
+    lang !== undefined && pathPrefixToLocale(lang) === null;
 
   useEffect(() => {
     if (isInvalidLocale) return;
@@ -81,6 +82,11 @@ export default function BrandPage() {
               <span>Back to Home</span>
             </Link>
           </div>
+          <div
+            id="hero-scroll-sentinel"
+            aria-hidden="true"
+            className="h-px pointer-events-none"
+          />
 
           {/* Editorial Header */}
           <div className="max-w-2xl text-left mb-12">

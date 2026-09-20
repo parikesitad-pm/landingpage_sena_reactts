@@ -28,7 +28,8 @@ export default function HomePage() {
   const { lang } = useParams<{ lang?: string }>();
   const { activeLocale, setActiveLocaleOverride } = usePreferences();
 
-  const isInvalidLocale = lang !== undefined && pathPrefixToLocale(lang) === null;
+  const isInvalidLocale =
+    lang !== undefined && pathPrefixToLocale(lang) === null;
 
   useEffect(() => {
     if (isInvalidLocale) return;
@@ -43,7 +44,14 @@ export default function HomePage() {
       const prefix = localeToPathPrefix(activeLocale);
       navigate(`/${prefix}/${location.hash}`, { replace: true });
     }
-  }, [lang, isInvalidLocale, activeLocale, setActiveLocaleOverride, navigate, location.hash]);
+  }, [
+    lang,
+    isInvalidLocale,
+    activeLocale,
+    setActiveLocaleOverride,
+    navigate,
+    location.hash,
+  ]);
 
   useEffect(() => {
     const seo = localeSeoData[activeLocale] || localeSeoData.en;
@@ -70,6 +78,12 @@ export default function HomePage() {
   return (
     <MainLayout>
       <HeroSection />
+      {/* Sentinel for Mobile & Tablet Floating Back To Top */}
+      <div
+        id="hero-scroll-sentinel"
+        aria-hidden="true"
+        className="h-px pointer-events-none"
+      />
       <StorySection />
       <MilestonesSection />
       <LucaChangelogSection />

@@ -1,12 +1,17 @@
-let hasInitialized = false;
+declare global {
+  interface Window {
+    __LUCA_EASTER_EGG_SHOWN__?: boolean;
+  }
+}
 
 /**
  * Tasteful console easter egg for visitors who open browser DevTools.
- * Runs strictly once per page load with zero impact on rendering, SEO, or a11y.
+ * Runs once per actual page load outside component lifecycle logic.
  */
 export function initDevToolsEasterEgg(): void {
-  if (typeof window === 'undefined' || hasInitialized) return;
-  hasInitialized = true;
+  if (typeof window === 'undefined') return;
+  if (window.__LUCA_EASTER_EGG_SHOWN__) return;
+  window.__LUCA_EASTER_EGG_SHOWN__ = true;
 
   try {
     const goldStyle =

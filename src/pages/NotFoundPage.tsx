@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Compass, Sparkles, ArrowLeft } from 'lucide-react';
 import MainLayout from '@/components/layout/MainLayout';
@@ -7,15 +7,52 @@ import Container from '@/components/atoms/Container';
 import Button from '@/components/atoms/Button';
 import LogoMark from '@/components/atoms/LogoMark';
 import { usePreferences } from '@/features/preferences/context/PreferencesContext';
-import { localeToPathPrefix } from '@/features/preferences/lib/locale';
+import {
+  localeToPathPrefix,
+  pathPrefixToLocale,
+} from '@/features/preferences/lib/locale';
 
 export default function NotFoundPage() {
   const { t } = useTranslation();
-  const { activeLocale } = usePreferences();
-  const prefix = localeToPathPrefix(activeLocale);
+  const location = useLocation();
+  const { activeLocale, setActiveLocaleOverride } = usePreferences();
+
+  // Resolve locale from URL if the first path segment is a valid locale prefix (e.g. /id/unknown -> 'id')
+  // If invalid (e.g. /foobar), keep the resolved device/default locale
+  const segments = location.pathname.split('/').filter(Boolean);
+  const firstSegment = segments[0]?.toLowerCase();
+  const matchedLocale = firstSegment ? pathPrefixToLocale(firstSegment) : null;
+
+  useEffect(() => {
+    if (matchedLocale && matchedLocale !== activeLocale) {
+      setActiveLocaleOverride(matchedLocale);
+    }
+  }, [matchedLocale, activeLocale, setActiveLocaleOverride]);
+
+  const effectiveLocale = matchedLocale || activeLocale;
+  const prefix = localeToPathPrefix(effectiveLocale);
 
   useEffect(() => {
     document.title = '404 · Page Not Found | LUCA';
+
+    // Ensure 404 page is not indexed by search engines
+    let metaRobots = document.querySelector('meta[name="robots"]');
+    const prevContent = metaRobots ? metaRobots.getAttribute('content') : null;
+
+    if (!metaRobots) {
+      metaRobots = document.createElement('meta');
+      metaRobots.setAttribute('name', 'robots');
+      document.head.appendChild(metaRobots);
+    }
+    metaRobots.setAttribute('content', 'noindex, follow');
+
+    return () => {
+      if (prevContent !== null) {
+        metaRobots?.setAttribute('content', prevContent);
+      } else {
+        metaRobots?.remove();
+      }
+    };
   }, []);
 
   return (
@@ -55,8 +92,12 @@ export default function NotFoundPage() {
           <div className="mb-8 flex justify-center">
             <code className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[var(--surface-soft)] border border-[var(--border)] font-mono text-xs shadow-2xs">
               <Compass className="w-3.5 h-3.5 text-[var(--accent)] animate-spin-slow" />
-              <span className="text-[var(--muted-foreground)]">route.status =&nbsp;</span>
-              <span className="text-[var(--accent)] font-semibold">&ldquo;lost&rdquo;;</span>
+              <span className="text-[var(--muted-foreground)]">
+                route.status =&nbsp;
+              </span>
+              <span className="text-[var(--accent)] font-semibold">
+                &ldquo;lost&rdquo;;
+              </span>
             </code>
           </div>
 

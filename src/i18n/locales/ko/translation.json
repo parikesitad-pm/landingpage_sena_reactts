@@ -196,6 +196,10 @@
     "verification": {
       "title": "프로토콜 검증",
       "badge": "✦ 검증 완료",
+      "momo": "Momo의 무한한 사랑 검증 완료",
+      "popo": "Popo의 절대 권한 확인 완료",
+      "bullies": "외부 괴롭힘 차단 완료",
+      "training": "장난 특훈 준비 완료",
       "momoLove": "Momo의 무한한 사랑 검증 완료",
       "popoAuthority": "Popo의 절대 권한 확인 완료",
       "bulliesBlocked": "외부 괴롭힘 차단 완료",
