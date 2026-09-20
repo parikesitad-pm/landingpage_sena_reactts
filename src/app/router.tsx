@@ -6,7 +6,12 @@ import NotFoundPage from '@/pages/NotFoundPage';
 
 function LogoPhilosophyRedirect() {
   const { lang } = useParams<{ lang?: string }>();
-  return <Navigate to={lang ? `/${lang}/logo-philosophy` : '/logo-philosophy'} replace />;
+  return (
+    <Navigate
+      to={lang ? `/${lang}/logo-philosophy` : '/logo-philosophy'}
+      replace
+    />
+  );
 }
 
 function MomentsRedirect() {

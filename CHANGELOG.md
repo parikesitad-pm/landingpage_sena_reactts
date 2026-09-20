@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Modal komposer buku tamu interaktif (`MessageComposerModal.tsx`) dengan live chat preview, emoji cepat, status draft (`drafting...` -> `ready to send ✦`), dan alat stempel/kartu spesial Luca Lab (*Popo Authority Certificate*, *LUCA Card*, *Love Meter*).
-- Animasi scroll native CSS (*Scroll-Driven Animations*) via `animation-timeline: view()` untuk header seksi, foto, dan IDE container dengan progressive enhancement dan fallback penuh ke reduced motion.
+- Restorasi dan reset scroll global (`scrollRestoration.ts` & `ScrollManager.tsx`) di seluruh rute: reset instan ke posisi paling atas (`(0, 0)`) tanpa animasi saat browser reload, pembersihan hash basi dari URL bar (`history.replaceState`), preservasi posisi relatif scroll saat beralih bahasa, dan penonaktifan scroll saat beralih tema (Dark/Light/Device).
+- Modal komposer buku tamu interaktif (`MessageComposerModal.tsx`) dengan live chat preview, emoji cepat, status draft (`drafting...` -> `ready to send ✦`), dan alat stempel/kartu spesial Luca Lab (_Popo Authority Certificate_, _LUCA Card_, _Love Meter_).
+- Animasi scroll native CSS (_Scroll-Driven Animations_) via `animation-timeline: view()` untuk header seksi, foto, dan IDE container dengan progressive enhancement dan fallback penuh ke reduced motion.
 - Easter egg konsol pengembang bertema Tokyo Night (`consoleEasterEgg.ts`) yang berjalan satu kali saat bootstrap dengan guard `__LUCA_CONSOLE_SHOWN__`, metadata personal Popo & Momo, serta tautan publik WhatsApp.
 - Story signature pengembang `// Popo wrote the code. Luca writes the story.` pada footer tepat sebelum build signature.
 - Form buku tamu interaktif terhubung WhatsApp (`GuestbookSection.tsx`) pada halaman beranda dengan field nama (opsional) dan pesan (wajib), validasi ramah, serta tautan pre-filled `https://wa.me/6282298503412` via `encodeURIComponent()`.
@@ -22,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Mengembalikan seksi lengkap Luca Protocol ke halaman utama (`/#protocol`) di antara seksi Keluarga dan Untuk Senna.
 - Mengubah canonical route filosofi logo menjadi `/logo-philosophy` yang berfokus murni pada identitas logo LUCA dan nilai-nilai panduan, dengan cross-link ke Luca Protocol.
-- Mengunci urutan 7 navigasi utama pada navbar dan footer: *Story*, *Family*, *Luca Protocol*, *For Senna*, *Future*, *Moments*, dan *Logo Philosophy*.
+- Mengunci urutan 7 navigasi utama pada navbar dan footer: _Story_, _Family_, _Luca Protocol_, _For Senna_, _Future_, _Moments_, dan _Logo Philosophy_.
 - Memecah tampilan build metadata footer menjadi 3 token chip responsif (`portfolio.version = "1.0"`, `status = "growing"`, `next.release = "whenever Luca is ready"`) yang membungkus rapi di mobile.
 - Mengganti label "Memories" menjadi "Moments" dan mengarahkan navigasi header serta footer ke route `/moments`.
 - Menghubungkan tautan "The Mark of Luca" / "Tanda Luca" di header dan footer ke route baru `/brand-mark`.

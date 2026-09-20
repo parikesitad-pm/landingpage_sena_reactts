@@ -22,7 +22,20 @@ export interface MessageComposerModalProps {
   initialMessage?: string;
 }
 
-const CURATED_EMOJIS = ['♥', '✨', '👋', '🥹', '😂', '🚀', '💻', '🦉', '🌱', '⭐', '🧸', '🎉'];
+const CURATED_EMOJIS = [
+  '♥',
+  '✨',
+  '👋',
+  '🥹',
+  '😂',
+  '🚀',
+  '💻',
+  '🦉',
+  '🌱',
+  '⭐',
+  '🧸',
+  '🎉',
+];
 
 interface ReactionItem {
   id: string;
@@ -37,7 +50,11 @@ const LUCA_REACTIONS: ReactionItem[] = [
   { id: 'keep-becoming', label: '🚀 Keep Becoming', badge: 'Keep Becoming' },
   { id: 'still-growing', label: '🌱 Still Growing', badge: 'Still Growing' },
   { id: 'future-builder', label: '💻 Future Builder', badge: 'Future Builder' },
-  { id: 'tunduk-popo', label: '😂 Tunduk sama Popo', badge: 'Tunduk sama Popo' },
+  {
+    id: 'tunduk-popo',
+    label: '😂 Tunduk sama Popo',
+    badge: 'Tunduk sama Popo',
+  },
 ];
 
 type CardPresetId = 'none' | 'certificate' | 'lucaCard' | 'loveMeter';
@@ -103,7 +120,9 @@ export default function MessageComposerModal({
   const [message, setMessage] = useState(initialMessage);
   const [selectedReaction, setSelectedReaction] = useState<string | null>(null);
   const [selectedCard, setSelectedCard] = useState<CardPresetId>('none');
-  const [activeTab, setActiveTab] = useState<'message' | 'reactions' | 'cards'>('message');
+  const [activeTab, setActiveTab] = useState<'message' | 'reactions' | 'cards'>(
+    'message'
+  );
   const [errorMessage, setErrorMessage] = useState('');
   const [copied, setCopied] = useState(false);
 
@@ -252,7 +271,10 @@ export default function MessageComposerModal({
                 {t('guestbook.modalTitle', 'Leave a Little Message for Luca')}
               </h2>
               <p className="text-xs text-[var(--muted-foreground)]">
-                {t('guestbook.modalSubtitle', 'Compose, decorate with Luca Lab, & preview before sending')}
+                {t(
+                  'guestbook.modalSubtitle',
+                  'Compose, decorate with Luca Lab, & preview before sending'
+                )}
               </p>
             </div>
           </div>
@@ -296,12 +318,15 @@ export default function MessageComposerModal({
                   htmlFor="modal-message"
                   className="block text-xs font-mono uppercase tracking-wider text-[var(--foreground)]"
                 >
-                  {t('guestbook.messageLabel')} <span className="text-[#C98F55]">*</span>
+                  {t('guestbook.messageLabel')}{' '}
+                  <span className="text-[#C98F55]">*</span>
                 </label>
                 <span
                   className={cn(
                     'text-[11px] font-mono',
-                    charsRemaining < 50 ? 'text-[#f7768e]' : 'text-[var(--muted-foreground)]'
+                    charsRemaining < 50
+                      ? 'text-[#f7768e]'
+                      : 'text-[var(--muted-foreground)]'
                   )}
                 >
                   {charsRemaining} chars
@@ -316,7 +341,8 @@ export default function MessageComposerModal({
                 value={message}
                 onChange={(e) => {
                   setMessage(e.target.value);
-                  if (errorMessage && e.target.value.trim()) setErrorMessage('');
+                  if (errorMessage && e.target.value.trim())
+                    setErrorMessage('');
                 }}
                 placeholder={t('guestbook.messagePlaceholder')}
                 className="w-full px-3.5 py-2.5 rounded-xl bg-[var(--surface-soft)] border border-[var(--border)] text-[var(--foreground)] placeholder:text-[var(--muted-foreground)]/60 text-sm focus:outline-none focus:border-[#C98F55] focus:ring-1 focus:ring-[#C98F55] transition-all resize-none"
@@ -403,7 +429,8 @@ export default function MessageComposerModal({
               {activeTab === 'message' && (
                 <div className="p-3 rounded-xl bg-[var(--surface-soft)]/60 border border-[var(--border)] text-xs text-[var(--muted-foreground)] leading-relaxed">
                   <p>
-                    Tulis pesan hangat atau doa untuk Luca. Pesanmu akan diformat rapi dan dibuka di WhatsApp keluarga Luca.
+                    Tulis pesan hangat atau doa untuk Luca. Pesanmu akan
+                    diformat rapi dan dibuka di WhatsApp keluarga Luca.
                   </p>
                 </div>
               )}
@@ -452,7 +479,9 @@ export default function MessageComposerModal({
                       type="button"
                       onClick={() =>
                         setSelectedCard(
-                          selectedCard === 'certificate' ? 'none' : 'certificate'
+                          selectedCard === 'certificate'
+                            ? 'none'
+                            : 'certificate'
                         )
                       }
                       className={cn(
@@ -464,7 +493,9 @@ export default function MessageComposerModal({
                     >
                       <div className="flex items-center justify-between mb-1">
                         <Stamp className="w-3.5 h-3.5 text-[#C98F55]" />
-                        <span className="text-[10px] font-mono text-[#f7768e] font-bold">POPO</span>
+                        <span className="text-[10px] font-mono text-[#f7768e] font-bold">
+                          POPO
+                        </span>
                       </div>
                       <span className="text-xs font-bold text-[var(--foreground)] block">
                         Authority Certificate
@@ -491,7 +522,9 @@ export default function MessageComposerModal({
                     >
                       <div className="flex items-center justify-between mb-1">
                         <CreditCard className="w-3.5 h-3.5 text-[#C98F55]" />
-                        <span className="text-[10px] font-mono text-[#C98F55]">2025</span>
+                        <span className="text-[10px] font-mono text-[#C98F55]">
+                          2025
+                        </span>
                       </div>
                       <span className="text-xs font-bold text-[var(--foreground)] block">
                         ✦ LUCA Card
@@ -518,7 +551,9 @@ export default function MessageComposerModal({
                     >
                       <div className="flex items-center justify-between mb-1">
                         <Sparkles className="w-3.5 h-3.5 text-[#C98F55]" />
-                        <span className="text-[10px] font-mono text-[#73daca]">100%</span>
+                        <span className="text-[10px] font-mono text-[#73daca]">
+                          100%
+                        </span>
                       </div>
                       <span className="text-xs font-bold text-[var(--foreground)] block">
                         Love Meter
@@ -601,7 +636,11 @@ export default function MessageComposerModal({
                   onClick={handleCopy}
                   className="inline-flex items-center gap-1 hover:text-[var(--foreground)] text-[11px] font-mono"
                 >
-                  {copied ? <Check className="w-3 h-3 text-[#73daca]" /> : <Copy className="w-3 h-3" />}
+                  {copied ? (
+                    <Check className="w-3 h-3 text-[#73daca]" />
+                  ) : (
+                    <Copy className="w-3 h-3" />
+                  )}
                   <span>{copied ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>

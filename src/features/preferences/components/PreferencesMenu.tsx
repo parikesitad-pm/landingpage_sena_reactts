@@ -4,6 +4,7 @@ import { SUPPORTED_LOCALES, type LanguagePreference } from '../types';
 import { Settings, Sun, Moon, Laptop, Check } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { localeToPathPrefix, pathPrefixToLocale } from '../lib/locale';
+import { captureLocaleSwitchProgress } from '@/lib/scrollRestoration';
 
 export default function PreferencesMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +46,7 @@ export default function PreferencesMenu() {
   }, [isOpen]);
 
   const handleLanguageSelect = (pref: LanguagePreference) => {
+    captureLocaleSwitchProgress();
     setLanguage(pref);
     setIsOpen(false);
 
