@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Memperbarui tata letak dan ukuran responsif modal buku tamu (`MessageComposerModal.tsx`): pembatasan ukuran modal desktop menjadi proporsional dan fokus (maksimal 920px lebar dan 780px tinggi), preview obrolan yang dapat diciutkan (_collapsible_) pada mobile/tablet untuk efisiensi layar kecil, penyederhanaan tajuk preview ("for Luca"), penyembunyian nomor telepon mentah di footer, dan penguncian scroll latar (_body scroll lock_) dengan restorasi presisi 0px pergeseran.
 - Menyusun ulang urutan seksi kisah keluarga di halaman beranda menjadi: _Loved From The Beginning_ → _Always In Our Hearts_ → _A Little Brave Chapter_ (`HomePage.tsx`).
 - Memperbarui kisah kanonikal keluarga pada seksi _Always In Our Hearts_ (`RemembranceSection.tsx`) tentang Muhammad Alqi Parikesit — dipanggil _Junior_ oleh Popo & Momo, dan dikenal sebagai _Abang Aqi_ oleh Luca — dengan tanggal persis 10 April 2023, kutipan emosional _"A very short hello, but a love that never left"_, serta jembatan transisi halus di akhir seksi keluarga dan seksi kenangan.
 - Mengubah seksi Buku Tamu di halaman utama menjadi CTA-only murni tanpa formulir/input inline (`GuestbookSection.tsx`), tombol terpusat langsung membuka `MessageComposerModal` sebagai satu-satunya komposer.

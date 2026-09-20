@@ -149,11 +149,11 @@ export const siteContent = {
     paragraph2:
       '10 April 2023 was both the day Junior came into this world and the day he returned to heaven.',
     paragraph3:
-      'To Popo and Momo, he will always be Junior. And now, in Luca\'s story, he is Abang Aqi — his older brother, forever part of this family.',
+      "To Popo and Momo, he will always be Junior. And now, in Luca's story, he is Abang Aqi — his older brother, forever part of this family.",
     paragraph4:
       'Today, Luca carries his own little story forward, growing one day at a time, surrounded by the same love that has always lived here.',
     bridge:
-      'And so Luca\'s story continues — one little day, one little challenge, and one little adventure at a time.',
+      "And so Luca's story continues — one little day, one little challenge, and one little adventure at a time.",
   },
 
   lucaProtocol: {

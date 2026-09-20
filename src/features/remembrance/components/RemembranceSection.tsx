@@ -28,9 +28,7 @@ export default function RemembranceSection() {
           }}
           className={cn(
             'bg-[var(--surface)] rounded-3xl p-8 sm:p-12 md:p-14 border border-[var(--border)] shadow-[0_4px_24px_rgba(0,0,0,0.02)] relative overflow-hidden transition-all ease-out',
-            isRevealed
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-6'
+            isRevealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           )}
         >
           {/* Subtle warm accent watermark icon */}
